@@ -11,6 +11,8 @@ My goal is to make this more of a blog style with posts describe what I've done 
 
 - 10/28/2018: The best network security is no network access. Today a build a Linux mint 19 VM running Pi-Hole with DHCP enable. Running it on my workstation is has bridge network access to my 48 port gigabit switch running basic L2 routing rules. The challenge will be providing network access ( since ill need the web to install packages ). I used a Win10 WM on to make sure the network settings were good. I will need to setup routing rules on my new linux router. I will also make this
 
+- 11/01/2018: Setup routing and iptable on `cmcarthur-router` @ 192.168.10.1 however the VM died and I lost all my settings... I had my EXSI 5.5 host on DHCP @ 192.168.10.238 able to ping the gateway and WAN router. Despite this I did run a _ubuntu:latest_ image and ran a security scan using [this tool](https://github.com/docker/docker-bench-security).
+
 ## TO DOs
 - [ ] Setup EXSI host for new VLAN 192.168.10.X
 - [ ] Give Router ability to route // LOL
