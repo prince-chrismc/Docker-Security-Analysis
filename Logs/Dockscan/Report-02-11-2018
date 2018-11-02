@@ -1,0 +1,12 @@
+Dockscan Report
+
+High
+Container have passwordless users in shadow: It is recommended to set password for user or to lock user account.
+
+Medium
+Docker running without defined limits: It is recommended to define docker limits.
+Docker running with IPv4 forwarding enabled: It is recommended to disable IPv4 forwarding by default.
+
+Low
+Container have higher number of changed files: It is recommended to have minimal number of changed files inside container and do not store data inside container. It is recommended to use volumes.
+Container have higher number of processess: It is recommended to have single process inside container. If you have more than one process, it is recommended to split them in separate containers.
