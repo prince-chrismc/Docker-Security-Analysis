@@ -13,12 +13,7 @@ My goal is to make this more of a blog style with posts describe what I've done 
 
 - 11/01/2018: Setup routing and iptable on `cmcarthur-router` @ 192.168.10.1 however the VM died and I lost all my settings... I had my EXSI 5.5 host on DHCP @ 192.168.10.238 able to ping the gateway and WAN router. Despite this I did run a _ubuntu:latest_ image and ran a security scan using [this tool](https://github.com/docker/docker-bench-security) only runs against engine looking for vulnerabilies. This is my fave guide for [setting up docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
-- 11/02/2018: I continued testing lateinto the night, I installer [Clair](https://coreos.com/clair/docs/latest/) but had no success from it gave no feedback. Next I am testing [Anchore](https://github.com/anchore/anchore-engine)... its very slow to run though... Results
-```
-user@docker-engine-one:~$ anchore-cli image vuln docker.io/library/ubuntu:latest all
-
-```
-Nothing.... Versus thier online site claiming `Critical: 0; High 0; Medium 0; Low 8; Negligible 37; Unknown 60;` [source](https://anchore.io/image/dockerhub/library%2Fubuntu%3Alatest)
+- 11/02/2018: I continued testing lateinto the night, I installer [Clair](https://coreos.com/clair/docs/latest/) but had no success from it gave no feedback. Next I am testing [Anchore](https://github.com/anchore/anchore-engine)... its very slow to run though... Results? Nothing.... Versus thier online site claiming `Critical: 0; High 0; Medium 0; Low 8; Negligible 37; Unknown 60;` [source](https://anchore.io/image/dockerhub/library%2Fubuntu%3Alatest). Next up on the test was pihole ( the appl im using for the router ) and it matches one to one with Anchore's claims. Finally I also tested a small opensource project [dockscan](https://github.com/kost/dockscan) which produced an audit report but nothing useful.
 
 
 
