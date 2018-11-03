@@ -6,7 +6,10 @@
         {{ item.name }}
       </a></li>
     {% endfor %}
-    <li style="float:right"><a id="forkme_banner" href="https://github.com/prince-chrismc/Docker-Security-Environment">GitHub</a></li>
+
+    {% if site.github.is_project_page %}
+      <li style="float:right"><a id="forkme_banner" href="{{ site.github.repository_url }}">GitHub</a></li>
+    {% endif %}
   </div>
   </ul>
 </nav>
