@@ -7,7 +7,7 @@ I am merely an aide in this endevor where my role is to provide a secure docker 
 ## Notes
 My goal is to make this more of a blog style with posts describe what I've done such that I can produce a 20 page technical report on the subject
 
-## [Blog](/blog)
+## [Blog](Docker-Security-Environment/blog)
 - Preliminary work: In order to deploy malicious malware into my network I first had to shutdown and remove all my critical, I took the oppurtunity to update and backup many of the machines ( baremetal and VMs ) since it's the first time I ever have done a tear down in the 10 months since I built my setup. Next tear down is slated for mid 2019 when I move.
 
 - 10/28/2018: The best network security is no network access. Today a build a Linux mint 19 VM running Pi-Hole with DHCP enable. Running it on my workstation is has bridge network access to my 48 port gigabit switch running basic L2 routing rules. The challenge will be providing network access ( since ill need the web to install packages ). I used a Win10 WM on to make sure the network settings were good. I will need to setup routing rules on my new linux router. I will also make this
