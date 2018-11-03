@@ -1,6 +1,5 @@
 <nav>
-  <ul>
-  <div class="inner">
+  <ul class="inner">
     {% for item in site.data.navigation %}
       <li><a href="{{ site.baseurl }}{{ item.link }}"{% if page.url == item.link %} class="active"{% endif %}>
         {{ item.name }}
@@ -10,6 +9,5 @@
     {% if site.github.is_project_page %}
       <li style="float:right"><a id="forkme_banner" href="{{ site.github.repository_url }}">GitHub</a></li>
     {% endif %}
-  </div>
   </ul>
 </nav>
