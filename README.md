@@ -12,5 +12,5 @@ Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Envi
 - [x] Give Router ability to route // LOL
 - [x] Turn jekyll on for this repo and make a blog
 - [ ] Give Router ability to route _AGAIN_
-- [ ] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing
+- [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // post five
 - [ ] https://vuls.io/en/
