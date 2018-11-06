@@ -4,6 +4,8 @@ This repository is to contain my work for a Technical Report (ENGR 411) for 1 cr
 ## Mandate
 I am merely an aide in this endevor where my role is to provide a secure docker enviroment made for testing how currupt images may be deployed within a network.
 
+For the final report I will produce, it should benchmark the various tools.
+
 ## Notes
 Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Environment/blog) to describe what I've done such that I can produce a 20 page technical report on the subject at the end.
 
