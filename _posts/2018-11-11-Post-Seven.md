@@ -1,3 +1,9 @@
+---
+layout: post
+title: Does weakening host affect image scans?
+permalink: /:year/:month/:day/:title
+---
+
 I am trying to validate that whether altering the state of the host ( ie installing vulnerabilities ) will be caught by the security scan
 
 for this I have selected [ffmpeg](https://www.cvedetails.com/cve/CVE-2018-1999012/) library as my test subject. it was at the top of the home page for this online database im looking at.
