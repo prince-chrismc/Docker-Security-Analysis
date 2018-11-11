@@ -1,10 +1,10 @@
+---
+layout: post
+title: Getting Vuls to Work!
+permalink: /:year/:month/:day/:title
+---
 
-
-
-getting vuls to work!
-
-quick dl of every database 
-
+###### Downloading every database 
 ```shell
 for i in `seq 2002 $(date +"%Y")`; do     docker run --rm -it     -v $PWD:/vuls     -v $PWD/go-cve-dictionary-log:/var/log/vuls     vuls/go-cve-dictionary fetchnvd -years $i;   done
 
