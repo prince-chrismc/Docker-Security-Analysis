@@ -57,4 +57,9 @@ time="Nov 11 16:23:33" level=error msg="Failed to init servers: No scannable ser
 #### Scan host
 ```shell
 docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     -v /etc/timezone:/etc/timezone:ro     vuls/vuls scan     -config=./config.toml
+```
 
+#### Generate Report
+```shell
+docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     vuls/vuls report     -format-full-text     -config=./config.toml
+```
