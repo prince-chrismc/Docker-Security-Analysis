@@ -11,7 +11,7 @@ Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Envi
 
 ## TO DOs
 - [x] Setup EXSI host for new VLAN 192.168.10.X  ------- Just set it to DCHP with VGA so i can check if i need
-- [x] Give Router ability to route // LOL
+- [x] Give Router ability to route [status](https://github.com/prince-chrismc/Docker-Security-Environment/issues/1)
 - [x] Turn jekyll on for this repo and make a blog // see result [here](https://prince-chrismc.github.io/Docker-Security-Environment/blog)
 - [ ] ~~Give Router ability to route _AGAIN_~~
 - [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // [results](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five)
