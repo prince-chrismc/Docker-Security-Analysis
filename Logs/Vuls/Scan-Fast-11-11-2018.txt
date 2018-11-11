@@ -1,0 +1,58 @@
+cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     -v /etc/timezone:/etc/timezone:ro     vuls/vuls scan     -config=./config.toml
+[Nov 11 14:07:41]  INFO [localhost] Start scanning
+[Nov 11 14:07:41]  INFO [localhost] config: ./config.toml
+[Nov 11 14:07:41]  INFO [localhost] Validating config...
+[Nov 11 14:07:41]  INFO [localhost] Detecting Server/Container OS...
+[Nov 11 14:07:41]  INFO [localhost] Detecting OS of servers...
+cmcarthur@172.17.0.1's password:
+[Nov 11 14:07:44]  INFO [localhost] (1/1) Detected: 172-17-0-1: ubuntu 16.04
+[Nov 11 14:07:44]  INFO [localhost] Detecting OS of containers...
+[Nov 11 14:08:03]  INFO [localhost] Detected: zealous_clarke@172-17-0-1: alpine 3.7.1
+[Nov 11 14:08:03]  INFO [localhost] Detected: ubuntu_ping@172-17-0-1: ubuntu 18.04
+[Nov 11 14:08:03]  INFO [localhost] Detected: basic_ubuntu@172-17-0-1: ubuntu 18.04
+[Nov 11 14:08:03]  INFO [localhost] Detected: agitated_swirles@172-17-0-1: alpine 3.8.1
+[Nov 11 14:08:03]  INFO [localhost] Detected: practical_golick@172-17-0-1: debian 9.5
+[Nov 11 14:08:03]  INFO [localhost] Detected: registry@172-17-0-1: alpine 3.4.6
+[Nov 11 14:08:03]  INFO [localhost] Detected: aevolume_anchore-engine_1@172-17-0-1: centos 7.5.1804
+[Nov 11 14:08:03]  INFO [localhost] Detected: aevolume_anchore-db_1@172-17-0-1: debian 9.5
+[Nov 11 14:08:03]  INFO [localhost] Checking Scan Modes...
+[Nov 11 14:08:03]  INFO [localhost] Detecting Platforms...
+[Nov 11 14:08:10]  INFO [localhost] (1/9) 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (2/9) aevolume_anchore-db_1 on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (3/9) ubuntu_ping on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (4/9) practical_golick on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (5/9) basic_ubuntu on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (6/9) zealous_clarke on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (7/9) registry on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (8/9) aevolume_anchore-engine_1 on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] (9/9) agitated_swirles on 172-17-0-1 is running on other
+[Nov 11 14:08:10]  INFO [localhost] Scanning vulnerabilities...
+[Nov 11 14:08:10]  INFO [localhost] Scanning vulnerable OS packages...
+[Nov 11 14:08:10]  INFO [agitated_swirles@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [aevolume_anchore-db_1@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [ubuntu_ping@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [practical_golick@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [basic_ubuntu@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [zealous_clarke@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [registry@172-17-0-1] Scanning in fast mode
+[Nov 11 14:08:10]  INFO [aevolume_anchore-engine_1@172-17-0-1] Scanning in fast mode
+
+
+One Line Summary
+================
+172-17-0-1                              ubuntu16.04     808 installed                   0 cves with exploit
+ubuntu_ping@172-17-0-1                  ubuntu18.04     94 installed                    0 cves with exploit
+basic_ubuntu@172-17-0-1                 ubuntu18.04     89 installed                    0 cves with exploit
+aevolume_anchore-db_1@172-17-0-1        debian9.5       177 installed                   0 cves with exploit
+practical_golick@172-17-0-1             debian9.5       177 installed                   0 cves with exploit
+agitated_swirles@172-17-0-1             alpine3.8.1     40 installed, 1 updatable       0 cves with exploit
+registry@172-17-0-1                     alpine3.4.6     22 installed, 0 updatable       0 cves with exploit
+zealous_clarke@172-17-0-1               alpine3.7.1     16 installed, 0 updatable       0 cves with exploit
+aevolume_anchore-engine_1@172-17-0-1    centos7.5.1804  177 installed, 25 updatable     0 cves with exploit
+
+
+
+
+To view the detail, vuls tui is useful.
+To send a report, run vuls report -h.
