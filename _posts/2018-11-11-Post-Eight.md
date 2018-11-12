@@ -28,7 +28,9 @@ sudo tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
 cd /usr/local/
 sudo chown -R cmcarthur:cmcarthur go/
 export GOROOT=/usr/local/go
-export GOPATH=/home/cmcarthur/go
+mkdir $HOME/go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Download Exploit-DB building tool
 mkdir -p $GOPATH/src/github.com/mozqnet
