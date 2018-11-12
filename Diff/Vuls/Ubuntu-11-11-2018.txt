@@ -1,8 +1,8 @@
-Clean Ubuntu 18.04 Image
+Ubuntu 18.04 Image with ping installed
 
-basic_ubuntu@172-17-0-1 (ubuntu18.04) on 172-17-0-1
-===================================================
-Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 89 installed, 4 cves with exploit
+ubuntu_ping@172-17-0-1 (ubuntu18.04) on 172-17-0-1
+==================================================
+Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 94 installed, 4 cves with exploit
 
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 |      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        | EXPLOIT |
