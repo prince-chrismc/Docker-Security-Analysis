@@ -4,6 +4,8 @@ title: Getting Vuls to Work!
 permalink: /:year/:month/:day/:title
 ---
 
+> Since I had to learn the Exploit DB tool figured I make the world a better place with [adding a Dockerfile](https://github.com/mozqnet/go-exploitdb/pull/10). Hopefully it gets merged =)
+
 #### Downloading every database 
 ```shell
 for i in `seq 2002 $(date +"%Y")`; do     docker run --rm -it     -v $PWD:/vuls     -v $PWD/go-cve-dictionary-log:/var/log/vuls     vuls/go-cve-dictionary fetchnvd -years $i;   done
