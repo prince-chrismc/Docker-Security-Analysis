@@ -19,7 +19,7 @@ sqlite3Path = "/vuls/gost.sqlite3"
 
 [exploit]
 type        = "sqlite3"
-sqlite3Path = "/path/to/go-exploitdb.sqlite3"
+sqlite3Path = "/vuls/exploitdb.sqlite3"
 #url        = ""
 
 # https://vuls.io/docs/en/usage-settings.html#slack-section
@@ -106,13 +106,13 @@ sqlite3Path = "/path/to/go-exploitdb.sqlite3"
 
 [servers.172-17-0-1]
 host                = "172.17.0.1"
-#port               = "22"
-user               = "cmcarthur"
+#port                = "local"
+user                = "cmcarthur"
 #keyPath            = "/home/username/.ssh/id_rsa"
-#scanMode           = ["fast", "fast-root", "deep"]
+scanMode           = ["fast"]
 #type               = "pseudo"
 #memo               = "DB Server"
-#cpeNames           = [ "cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
+#cpeNames           = ["cpe:/a:rubyonrails:ruby_on_rails:4.2.1" ]
 #owaspDCXMLPath     = "/path/to/dependency-check-report.xml"
 #ignoreCves         = ["CVE-2014-0160"]
 #containerType      = "docker" #or "lxd" or "lxc" default: docker
