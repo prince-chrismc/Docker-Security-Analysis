@@ -1,91 +1,134 @@
-cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     vuls/vuls report   -config=./config.toml
-[Nov 11 14:13:22]  INFO [localhost] Validating config...
-[Nov 11 14:13:23]  INFO [localhost] Loaded: /vuls/results/2018-11-11T14:08:10-05:00
-[Nov 11 14:13:23]  INFO [localhost] Validating db config...
-[Nov 11 14:13:23]  INFO [localhost] cve-dictionary: /vuls/cve.sqlite3
-[Nov 11 14:13:23]  INFO [localhost] oval-dictionary: /vuls/oval.sqlite3
-[Nov 11 14:13:23]  INFO [localhost] gost: /vuls/gost.sqlite3
-[Nov 11 14:13:23]  INFO [localhost] exploit: /path/to/go-exploitdb.sqlite3
-INFO[11-11|14:13:23] Opening DB.                              db=sqlite3
-INFO[11-11|14:13:23] Migrating DB.                            db=sqlite3
-[Nov 11 14:13:23]  WARN [localhost] --exploitdb-path=/path/to/go-exploitdb.sqlite3 is not found. It's recommended to use exploit to improve scanning accuracy. To use exploit db database, see https://github.com/mozqnet/go-exploitdb
-[Nov 11 14:13:23]  INFO [localhost] OVAL is fresh: alpine 3.8.1
-[Nov 11 14:13:24]  INFO [localhost] agitated_swirles@172-17-0-1: 0 CVEs are detected with OVAL
-[Nov 11 14:13:24]  INFO [localhost] agitated_swirles@172-17-0-1: 0 CVEs are detected with CPE
-[Nov 11 14:13:24]  INFO [localhost] agitated_swirles@172-17-0-1: 0 unfixed CVEs are detected with gost
-[Nov 11 14:13:24]  INFO [localhost] Fill CVE detailed information with CVE-DB
-[Nov 11 14:13:24]  INFO [localhost] Fill Exploit information with Exploit-DB
-[Nov 11 14:13:24]  INFO [localhost] agitated_swirles@172-17-0-1: 0 Exploits are detected with exploit
-[Nov 11 14:13:24]  INFO [localhost] OVAL is fresh: alpine 3.4.6
-[Nov 11 14:13:24]  INFO [localhost] registry@172-17-0-1: 0 CVEs are detected with OVAL
-[Nov 11 14:13:24]  INFO [localhost] registry@172-17-0-1: 0 CVEs are detected with CPE
-[Nov 11 14:13:24]  INFO [localhost] registry@172-17-0-1: 0 unfixed CVEs are detected with gost
-[Nov 11 14:13:24]  INFO [localhost] Fill CVE detailed information with CVE-DB
-[Nov 11 14:13:24]  INFO [localhost] Fill Exploit information with Exploit-DB
-[Nov 11 14:13:24]  INFO [localhost] registry@172-17-0-1: 0 Exploits are detected with exploit
-[Nov 11 14:13:24]  INFO [localhost] OVAL is fresh: alpine 3.7.1
-[Nov 11 14:13:25]  INFO [localhost] zealous_clarke@172-17-0-1: 0 CVEs are detected with OVAL
-[Nov 11 14:13:25]  INFO [localhost] zealous_clarke@172-17-0-1: 0 CVEs are detected with CPE
-[Nov 11 14:13:25]  INFO [localhost] zealous_clarke@172-17-0-1: 0 unfixed CVEs are detected with gost
-[Nov 11 14:13:25]  INFO [localhost] Fill CVE detailed information with CVE-DB
-[Nov 11 14:13:25]  INFO [localhost] Fill Exploit information with Exploit-DB
-[Nov 11 14:13:25]  INFO [localhost] zealous_clarke@172-17-0-1: 0 Exploits are detected with exploit
-[Nov 11 14:13:25] ERROR [localhost] aevolume_anchore-db_1 is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] aevolume_anchore-db_1 is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] aevolume_anchore-engine_1 is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] aevolume_anchore-engine_1 is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] agitated_swirles is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] agitated_swirles is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] basic_ubuntu is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] basic_ubuntu is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] practical_golick is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] practical_golick is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] registry is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] registry is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] ubuntu_ping is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] ubuntu_ping is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] zealous_clarke is not found in config.toml
-[Nov 11 14:13:25] ERROR [localhost] zealous_clarke is not found in config.toml
+cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     vuls/vuls report  -config=./config.toml
+[Nov 11 19:06:26]  INFO [localhost] Validating config...
+[Nov 11 19:06:26]  INFO [localhost] Loaded: /vuls/results/2018-11-11T19:05:40-05:00
+[Nov 11 19:06:26]  INFO [localhost] Validating db config...
+[Nov 11 19:06:26]  INFO [localhost] cve-dictionary: /vuls/cve.sqlite3
+[Nov 11 19:06:26]  INFO [localhost] oval-dictionary: /vuls/oval.sqlite3
+[Nov 11 19:06:26]  INFO [localhost] gost: /vuls/gost.sqlite3
+[Nov 11 19:06:26]  INFO [localhost] exploit: /vuls/exploitdb.sqlite3
+INFO[11-11|19:06:26] Opening DB.                              db=sqlite3
+INFO[11-11|19:06:26] Migrating DB.                            db=sqlite3
+INFO[11-11|19:06:26] Opening Database.                        db=sqlite3
+INFO[11-11|19:06:26] Migrating DB.                            db=sqlite3
+[Nov 11 19:06:27]  INFO [localhost] OVAL is fresh: ubuntu 16.04
+[Nov 11 19:07:01]  INFO [localhost] 172-17-0-1: 1042 CVEs are detected with OVAL
+[Nov 11 19:07:01]  INFO [localhost] 172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:01]  INFO [localhost] 172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:01]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:23]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:23]  INFO [localhost] 172-17-0-1: 61 Exploits are detected with exploit
+[Nov 11 19:07:23]  INFO [localhost] OVAL is fresh: debian 9.5
+[Nov 11 19:07:27]  INFO [localhost] aevolume_anchore-db_1@172-17-0-1: 3 CVEs are detected with OVAL
+[Nov 11 19:07:27]  INFO [localhost] aevolume_anchore-db_1@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:31]  INFO [localhost] aevolume_anchore-db_1@172-17-0-1: 114 unfixed CVEs are detected with gost
+[Nov 11 19:07:31]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:33]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:33]  INFO [localhost] aevolume_anchore-db_1@172-17-0-1: 8 Exploits are detected with exploit
+[Nov 11 19:07:33]  INFO [localhost] OVAL is fresh: redhat 7.5.1804
+[Nov 11 19:07:39]  INFO [localhost] aevolume_anchore-engine_1@172-17-0-1: 43 CVEs are detected with OVAL
+[Nov 11 19:07:39]  INFO [localhost] aevolume_anchore-engine_1@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:41]  INFO [localhost] aevolume_anchore-engine_1@172-17-0-1: 292 unfixed CVEs are detected with gost
+[Nov 11 19:07:41]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:44]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:45]  INFO [localhost] aevolume_anchore-engine_1@172-17-0-1: 15 Exploits are detected with exploit
+[Nov 11 19:07:45]  INFO [localhost] OVAL is fresh: alpine 3.8.1
+[Nov 11 19:07:46]  INFO [localhost] agitated_swirles@172-17-0-1: 0 CVEs are detected with OVAL
+[Nov 11 19:07:46]  INFO [localhost] agitated_swirles@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:46]  INFO [localhost] agitated_swirles@172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:46]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:46]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:46]  INFO [localhost] agitated_swirles@172-17-0-1: 0 Exploits are detected with exploit
+[Nov 11 19:07:46]  INFO [localhost] OVAL is fresh: ubuntu 18.04
+[Nov 11 19:07:47]  INFO [localhost] basic_ubuntu@172-17-0-1: 37 CVEs are detected with OVAL
+[Nov 11 19:07:47]  INFO [localhost] basic_ubuntu@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:47]  INFO [localhost] basic_ubuntu@172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:47]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:47]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:47]  INFO [localhost] basic_ubuntu@172-17-0-1: 4 Exploits are detected with exploit
+[Nov 11 19:07:47]  INFO [localhost] OVAL is fresh: debian 9.5
+[Nov 11 19:07:50]  INFO [localhost] practical_golick@172-17-0-1: 3 CVEs are detected with OVAL
+[Nov 11 19:07:50]  INFO [localhost] practical_golick@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:54]  INFO [localhost] practical_golick@172-17-0-1: 114 unfixed CVEs are detected with gost
+[Nov 11 19:07:54]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:55]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:55]  INFO [localhost] practical_golick@172-17-0-1: 8 Exploits are detected with exploit
+[Nov 11 19:07:55]  INFO [localhost] OVAL is fresh: alpine 3.7.1
+[Nov 11 19:07:55]  INFO [localhost] priceless_hypatia@172-17-0-1: 0 CVEs are detected with OVAL
+[Nov 11 19:07:55]  INFO [localhost] priceless_hypatia@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:55]  INFO [localhost] priceless_hypatia@172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:55]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:55]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:55]  INFO [localhost] priceless_hypatia@172-17-0-1: 0 Exploits are detected with exploit
+[Nov 11 19:07:55]  INFO [localhost] OVAL is fresh: alpine 3.4.6
+[Nov 11 19:07:55]  INFO [localhost] registry@172-17-0-1: 0 CVEs are detected with OVAL
+[Nov 11 19:07:55]  INFO [localhost] registry@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:55]  INFO [localhost] registry@172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:55]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:55]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:55]  INFO [localhost] registry@172-17-0-1: 0 Exploits are detected with exploit
+[Nov 11 19:07:55]  INFO [localhost] OVAL is fresh: ubuntu 18.04
+[Nov 11 19:07:56]  INFO [localhost] ubuntu_ping@172-17-0-1: 37 CVEs are detected with OVAL
+[Nov 11 19:07:56]  INFO [localhost] ubuntu_ping@172-17-0-1: 0 CVEs are detected with CPE
+[Nov 11 19:07:56]  INFO [localhost] ubuntu_ping@172-17-0-1: 0 unfixed CVEs are detected with gost
+[Nov 11 19:07:56]  INFO [localhost] Fill CVE detailed information with CVE-DB
+[Nov 11 19:07:56]  INFO [localhost] Fill Exploit information with Exploit-DB
+[Nov 11 19:07:56]  INFO [localhost] ubuntu_ping@172-17-0-1: 4 Exploits are detected with exploit
+[Nov 11 19:07:56] ERROR [localhost] aevolume_anchore-db_1 is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] aevolume_anchore-db_1 is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] aevolume_anchore-engine_1 is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] aevolume_anchore-engine_1 is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] agitated_swirles is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] agitated_swirles is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] basic_ubuntu is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] basic_ubuntu is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] practical_golick is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] practical_golick is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] priceless_hypatia is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] priceless_hypatia is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] registry is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] registry is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] ubuntu_ping is not found in config.toml
+[Nov 11 19:07:56] ERROR [localhost] ubuntu_ping is not found in config.toml
 172-17-0-1 (ubuntu16.04)
 ========================
-Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cves with exploit
+Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 61 cves with exploit
 
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 |      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        | EXPLOIT |
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 | CVE-2017-5754    | 10.0 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5754    | false   |
 | CVE-2017-1000111 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000111 | false   |
-| CVE-2017-1000112 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000112 | false   |
-| CVE-2017-1000251 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000251 | false   |
-| CVE-2017-1000405 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000405 | false   |
+| CVE-2017-1000112 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000112 | true    |
+| CVE-2017-1000251 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000251 | true    |
+| CVE-2017-1000405 |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000405 | true    |
 | CVE-2017-13080   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-13080   | false   |
 | CVE-2017-13081   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-13081   | false   |
 | CVE-2017-14177   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14177   | false   |
 | CVE-2017-14180   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14180   | false   |
-| CVE-2017-14491   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14491   | false   |
-| CVE-2017-14492   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14492   | false   |
-| CVE-2017-14493   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14493   | false   |
+| CVE-2017-14491   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14491   | true    |
+| CVE-2017-14492   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14492   | true    |
+| CVE-2017-14493   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14493   | true    |
 | CVE-2017-16939   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16939   | false   |
-| CVE-2017-16995   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16995   | false   |
+| CVE-2017-16995   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16995   | true    |
 | CVE-2017-17712   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17712   | false   |
-| CVE-2017-18344   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18344   | false   |
-| CVE-2017-5715    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5715    | false   |
-| CVE-2017-5753    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5753    | false   |
+| CVE-2017-18344   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18344   | true    |
+| CVE-2017-5715    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5715    | true    |
+| CVE-2017-5753    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5753    | true    |
 | CVE-2017-7533    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-7533    | false   |
-| CVE-2018-1000001 |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001 | false   |
+| CVE-2018-1000001 |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001 | true    |
 | CVE-2018-1087    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1087    | false   |
-| CVE-2018-11235   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-11235   | false   |
-| CVE-2018-14634   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14634   | false   |
+| CVE-2018-11235   |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-11235   | true    |
+| CVE-2018-14634   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14634   | true    |
 | CVE-2018-15572   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15572   | false   |
 | CVE-2018-15594   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15594   | false   |
-| CVE-2018-17182   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-17182   | false   |
+| CVE-2018-17182   |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-17182   | true    |
 | CVE-2018-3620    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-3620    | false   |
 | CVE-2018-3646    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-3646    | false   |
 | CVE-2018-5124    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5124    | false   |
 | CVE-2018-5390    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5390    | false   |
 | CVE-2018-5391    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5391    | false   |
 | CVE-2018-6552    |  8.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-6552    | false   |
-| CVE-2018-8897    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-8897    | false   |
+| CVE-2018-8897    |  8.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-8897    | true    |
 | CVE-2013-7445    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2013-7445    | false   |
 | CVE-2014-7945    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2014-7945    | false   |
 | CVE-2014-7947    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2014-7947    | false   |
@@ -101,7 +144,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2016-10196   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10196   | false   |
 | CVE-2016-10723   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-10723   | false   |
 | CVE-2016-1585    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-1585    | false   |
-| CVE-2016-2226    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2226    | false   |
+| CVE-2016-2226    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2226    | true    |
 | CVE-2016-2775    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2775    | false   |
 | CVE-2016-2804    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2804    | false   |
 | CVE-2016-2806    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2806    | false   |
@@ -114,7 +157,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2016-2816    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2816    | false   |
 | CVE-2016-2817    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2817    | false   |
 | CVE-2016-2818    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2818    | false   |
-| CVE-2016-2819    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2819    | false   |
+| CVE-2016-2819    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2819    | true    |
 | CVE-2016-2820    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2820    | false   |
 | CVE-2016-2821    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2821    | false   |
 | CVE-2016-2822    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-2822    | false   |
@@ -191,7 +234,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2016-9075    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9075    | false   |
 | CVE-2016-9077    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9077    | false   |
 | CVE-2016-9078    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9078    | false   |
-| CVE-2016-9079    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9079    | false   |
+| CVE-2016-9079    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9079    | true    |
 | CVE-2016-9080    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9080    | false   |
 | CVE-2016-9675    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9675    | false   |
 | CVE-2016-9893    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9893    | false   |
@@ -200,7 +243,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2016-9896    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9896    | false   |
 | CVE-2016-9897    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9897    | false   |
 | CVE-2016-9898    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9898    | false   |
-| CVE-2016-9899    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9899    | false   |
+| CVE-2016-9899    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9899    | true    |
 | CVE-2016-9900    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9900    | false   |
 | CVE-2016-9901    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9901    | false   |
 | CVE-2016-9902    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-9902    | false   |
@@ -209,17 +252,17 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-0794    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-0794    | false   |
 | CVE-2017-0861    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-0861    | false   |
 | CVE-2017-1000    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000    | false   |
-| CVE-2017-1000117 |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000117 | false   |
+| CVE-2017-1000117 |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000117 | true    |
 | CVE-2017-1000252 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000252 | false   |
 | CVE-2017-1000254 |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000254 | false   |
 | CVE-2017-1000257 |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000257 | false   |
 | CVE-2017-1000365 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000365 | false   |
-| CVE-2017-1000370 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000370 | false   |
-| CVE-2017-1000371 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000371 | false   |
+| CVE-2017-1000370 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000370 | true    |
+| CVE-2017-1000371 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000371 | true    |
 | CVE-2017-1000407 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000407 | false   |
 | CVE-2017-10663   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10663   | false   |
 | CVE-2017-10911   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10911   | false   |
-| CVE-2017-11176   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11176   | false   |
+| CVE-2017-11176   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11176   | true    |
 | CVE-2017-11368   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11368   | false   |
 | CVE-2017-11423   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-11423   | false   |
 | CVE-2017-11543   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-11543   | false   |
@@ -262,10 +305,10 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-14156   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14156   | false   |
 | CVE-2017-14333   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14333   | false   |
 | CVE-2017-14340   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14340   | false   |
-| CVE-2017-14489   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14489   | false   |
-| CVE-2017-14494   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14494   | false   |
-| CVE-2017-14495   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14495   | false   |
-| CVE-2017-14496   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14496   | false   |
+| CVE-2017-14489   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14489   | true    |
+| CVE-2017-14494   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14494   | true    |
+| CVE-2017-14495   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14495   | true    |
+| CVE-2017-14496   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14496   | true    |
 | CVE-2017-14867   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-14867   | false   |
 | CVE-2017-15115   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15115   | false   |
 | CVE-2017-15128   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15128   | false   |
@@ -282,7 +325,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-16912   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16912   | false   |
 | CVE-2017-16913   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16913   | false   |
 | CVE-2017-16914   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16914   | false   |
-| CVE-2017-16994   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16994   | false   |
+| CVE-2017-16994   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16994   | true    |
 | CVE-2017-17433   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-17433   | false   |
 | CVE-2017-17434   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-17434   | false   |
 | CVE-2017-17448   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17448   | false   |
@@ -315,7 +358,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-3737    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-3737    | false   |
 | CVE-2017-5373    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5373    | false   |
 | CVE-2017-5374    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5374    | false   |
-| CVE-2017-5375    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5375    | false   |
+| CVE-2017-5375    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5375    | true    |
 | CVE-2017-5376    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5376    | false   |
 | CVE-2017-5377    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5377    | false   |
 | CVE-2017-5378    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5378    | false   |
@@ -340,7 +383,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-5401    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5401    | false   |
 | CVE-2017-5402    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5402    | false   |
 | CVE-2017-5403    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5403    | false   |
-| CVE-2017-5404    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5404    | false   |
+| CVE-2017-5404    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5404    | true    |
 | CVE-2017-5406    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5406    | false   |
 | CVE-2017-5407    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5407    | false   |
 | CVE-2017-5408    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5408    | false   |
@@ -368,7 +411,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-5444    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5444    | false   |
 | CVE-2017-5445    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5445    | false   |
 | CVE-2017-5446    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5446    | false   |
-| CVE-2017-5447    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5447    | false   |
+| CVE-2017-5447    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5447    | true    |
 | CVE-2017-5448    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5448    | false   |
 | CVE-2017-5449    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5449    | false   |
 | CVE-2017-5451    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5451    | false   |
@@ -380,7 +423,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-5461    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5461    | false   |
 | CVE-2017-5462    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5462    | false   |
 | CVE-2017-5464    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5464    | false   |
-| CVE-2017-5465    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5465    | false   |
+| CVE-2017-5465    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5465    | true    |
 | CVE-2017-5466    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5466    | false   |
 | CVE-2017-5467    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5467    | false   |
 | CVE-2017-5469    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-5469    | false   |
@@ -437,7 +480,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-7779    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7779    | false   |
 | CVE-2017-7780    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7780    | false   |
 | CVE-2017-7781    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7781    | false   |
-| CVE-2017-7783    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7783    | false   |
+| CVE-2017-7783    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7783    | true    |
 | CVE-2017-7784    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7784    | false   |
 | CVE-2017-7785    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7785    | false   |
 | CVE-2017-7786    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-7786    | false   |
@@ -488,7 +531,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-8804    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8804    | false   |
 | CVE-2017-8816    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-8816    | false   |
 | CVE-2017-8817    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-8817    | false   |
-| CVE-2017-8824    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8824    | false   |
+| CVE-2017-8824    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8824    | true    |
 | CVE-2017-9038    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9038    | false   |
 | CVE-2017-9039    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9039    | false   |
 | CVE-2017-9040    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9040    | false   |
@@ -496,21 +539,21 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-9043    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9043    | false   |
 | CVE-2017-9044    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9044    | false   |
 | CVE-2017-9059    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9059    | false   |
-| CVE-2017-9742    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9742    | false   |
+| CVE-2017-9742    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9742    | true    |
 | CVE-2017-9744    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9744    | false   |
 | CVE-2017-9745    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9745    | false   |
-| CVE-2017-9746    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9746    | false   |
-| CVE-2017-9747    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9747    | false   |
-| CVE-2017-9748    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9748    | false   |
-| CVE-2017-9749    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9749    | false   |
-| CVE-2017-9750    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9750    | false   |
+| CVE-2017-9746    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9746    | true    |
+| CVE-2017-9747    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9747    | true    |
+| CVE-2017-9748    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9748    | true    |
+| CVE-2017-9749    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9749    | true    |
+| CVE-2017-9750    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9750    | true    |
 | CVE-2017-9751    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9751    | false   |
 | CVE-2017-9752    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9752    | false   |
 | CVE-2017-9753    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9753    | false   |
 | CVE-2017-9754    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9754    | false   |
 | CVE-2017-9755    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9755    | false   |
-| CVE-2017-9756    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9756    | false   |
-| CVE-2018-0494    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-0494    | false   |
+| CVE-2017-9756    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9756    | true    |
+| CVE-2018-0494    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-0494    | true    |
 | CVE-2018-0739    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-0739    | false   |
 | CVE-2018-1000004 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000004 | false   |
 | CVE-2018-1000005 |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1000005 | false   |
@@ -538,10 +581,10 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-1094    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1094    | false   |
 | CVE-2018-10940   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10940   | false   |
 | CVE-2018-1116    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1116    | false   |
-| CVE-2018-1120    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1120    | false   |
-| CVE-2018-1122    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1122    | false   |
-| CVE-2018-1123    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1123    | false   |
-| CVE-2018-1124    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1124    | false   |
+| CVE-2018-1120    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1120    | true    |
+| CVE-2018-1122    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1122    | true    |
+| CVE-2018-1123    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1123    | true    |
+| CVE-2018-1124    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1124    | true    |
 | CVE-2018-1125    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1125    | false   |
 | CVE-2018-1126    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-1126    | false   |
 | CVE-2018-1130    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1130    | false   |
@@ -577,7 +620,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-12896   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-12896   | false   |
 | CVE-2018-13095   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-13095   | false   |
 | CVE-2018-13300   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-13300   | false   |
-| CVE-2018-13405   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-13405   | false   |
+| CVE-2018-13405   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-13405   | true    |
 | CVE-2018-13406   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-13406   | false   |
 | CVE-2018-14048   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14048   | false   |
 | CVE-2018-14598   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-14598   | false   |
@@ -592,8 +635,8 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-14681   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-14681   | false   |
 | CVE-2018-14682   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-14682   | false   |
 | CVE-2018-14734   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14734   | false   |
-| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | false   |
-| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | false   |
+| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | true    |
+| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | true    |
 | CVE-2018-15688   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15688   | false   |
 | CVE-2018-16276   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-16276   | false   |
 | CVE-2018-16395   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-16395   | false   |
@@ -601,7 +644,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-16658   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-16658   | false   |
 | CVE-2018-16839   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-16839   | false   |
 | CVE-2018-16842   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-16842   | false   |
-| CVE-2018-17456   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-17456   | false   |
+| CVE-2018-17456   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-17456   | true    |
 | CVE-2018-17977   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-17977   | false   |
 | CVE-2018-18064   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-18064   | false   |
 | CVE-2018-18281   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-18281   | false   |
@@ -611,7 +654,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-18710   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-18710   | false   |
 | CVE-2018-1999010 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1999010 | false   |
 | CVE-2018-1999012 |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1999012 | false   |
-| CVE-2018-3639    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-3639    | false   |
+| CVE-2018-3639    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-3639    | true    |
 | CVE-2018-3665    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-3665    | false   |
 | CVE-2018-5089    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5089    | false   |
 | CVE-2018-5090    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5090    | false   |
@@ -664,7 +707,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-5156    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5156    | false   |
 | CVE-2018-5157    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5157    | false   |
 | CVE-2018-5158    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5158    | false   |
-| CVE-2018-5159    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5159    | false   |
+| CVE-2018-5159    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5159    | true    |
 | CVE-2018-5160    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5160    | false   |
 | CVE-2018-5163    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5163    | false   |
 | CVE-2018-5164    |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5164    | false   |
@@ -729,8 +772,8 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2015-8985    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-8985    | false   |
 | CVE-2015-9019    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-9019    | false   |
 | CVE-2015-9251    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-9251    | false   |
-| CVE-2016-10009   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10009   | false   |
-| CVE-2016-10010   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10010   | false   |
+| CVE-2016-10009   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10009   | true    |
+| CVE-2016-10010   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10010   | true    |
 | CVE-2016-10011   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10011   | false   |
 | CVE-2016-10012   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10012   | false   |
 | CVE-2016-10087   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-10087   | false   |
@@ -756,7 +799,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2016-5319    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5319    | false   |
 | CVE-2016-5407    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5407    | false   |
 | CVE-2016-6170    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-6170    | false   |
-| CVE-2016-7098    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-7098    | false   |
+| CVE-2016-7098    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-7098    | true    |
 | CVE-2016-7942    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-7942    | false   |
 | CVE-2016-7943    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2016-7943    | false   |
 | CVE-2016-7944    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-7944    | false   |
@@ -780,8 +823,8 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2017-1000100 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000100 | false   |
 | CVE-2017-1000101 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000101 | false   |
 | CVE-2017-1000382 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000382 | false   |
-| CVE-2017-1000408 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | false   |
-| CVE-2017-1000409 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | false   |
+| CVE-2017-1000408 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | true    |
+| CVE-2017-1000409 |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | true    |
 | CVE-2017-1000410 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000410 | false   |
 | CVE-2017-10790   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2017-10790   | false   |
 | CVE-2017-10810   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10810   | false   |
@@ -997,7 +1040,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-10882   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10882   | false   |
 | CVE-2018-10883   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10883   | false   |
 | CVE-2018-10963   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10963   | false   |
-| CVE-2018-1121    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1121    | false   |
+| CVE-2018-1121    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1121    | true    |
 | CVE-2018-11233   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-11233   | false   |
 | CVE-2018-12370   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-12370   | false   |
 | CVE-2018-12385   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-12385   | false   |
@@ -1021,7 +1064,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-14613   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14613   | false   |
 | CVE-2018-14614   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14614   | false   |
 | CVE-2018-14616   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14616   | false   |
-| CVE-2018-15473   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15473   | false   |
+| CVE-2018-15473   |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15473   | true    |
 | CVE-2018-5119    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5119    | false   |
 | CVE-2018-5122    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5122    | false   |
 | CVE-2018-5131    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-5131    | false   |
@@ -1034,7 +1077,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-5750    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5750    | false   |
 | CVE-2018-5953    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5953    | false   |
 | CVE-2018-5995    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5995    | false   |
-| CVE-2018-6323    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6323    | false   |
+| CVE-2018-6323    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6323    | true    |
 | CVE-2018-6554    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6554    | false   |
 | CVE-2018-6759    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6759    | false   |
 | CVE-2018-6951    |  3.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-6951    | false   |
@@ -1090,7 +1133,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 | CVE-2018-10801   |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10801   | false   |
 | CVE-2018-10938   |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10938   | false   |
 | CVE-2018-6952    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6952    | false   |
-| CVE-2018-7273    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7273    | false   |
+| CVE-2018-7273    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7273    | true    |
 | CVE-2018-7456    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7456    | false   |
 | CVE-2018-7754    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7754    | false   |
 | CVE-2018-7995    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7995    | false   |
@@ -1099,7 +1142,7 @@ Total: 1042 (High:33 Medium:627 Low:332 ?:50), 0/1042 Fixed, 808 installed, 0 cv
 
 aevolume_anchore-db_1@172-17-0-1 (debian9.5) on 172-17-0-1
 ==========================================================
-Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves with exploit
+Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 8 cves with exploit
 
 +---------------------+------+----------+---------+------------------------------------------------------+---------+
 |       CVE-ID        | CVSS |  ATTACK  |  FIXED  |                         NVD                          | EXPLOIT |
@@ -1109,8 +1152,8 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2007-5686       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2007-5686       | false   |
 | CVE-2007-6755       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2007-6755       | false   |
 | CVE-2010-0928       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-0928       | false   |
-| CVE-2010-4051       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4051       | false   |
-| CVE-2010-4052       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4052       | false   |
+| CVE-2010-4051       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4051       | true    |
+| CVE-2010-4052       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4052       | true    |
 | CVE-2010-4756       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4756       | false   |
 | CVE-2011-3374       |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2011-3374       | false   |
 | CVE-2011-3389       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2011-3389       | false   |
@@ -1128,8 +1171,8 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2016-9318       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9318       | false   |
 | CVE-2016-9427       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9427       | false   |
 | CVE-2017-1000082    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000082    | false   |
-| CVE-2017-1000408    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408    | false   |
-| CVE-2017-1000409    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409    | false   |
+| CVE-2017-1000408    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408    | true    |
+| CVE-2017-1000409    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409    | true    |
 | CVE-2017-10268      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10268      | false   |
 | CVE-2017-10378      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10378      | false   |
 | CVE-2017-11164      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11164      | false   |
@@ -1150,7 +1193,7 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2017-17522      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17522      | false   |
 | CVE-2017-17740      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17740      | false   |
 | CVE-2017-18018      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18018      | false   |
-| CVE-2017-18078      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078      | false   |
+| CVE-2017-18078      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078      | true    |
 | CVE-2017-18258      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18258      | false   |
 | CVE-2017-18269      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18269      | false   |
 | CVE-2017-5130       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-5130       | false   |
@@ -1163,7 +1206,7 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2018-0734       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0734       | false   |
 | CVE-2018-0735       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0735       | false   |
 | CVE-2018-0737       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0737       | false   |
-| CVE-2018-1000001    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001    | false   |
+| CVE-2018-1000001    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001    | true    |
 | CVE-2018-1000030    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000030    | false   |
 | CVE-2018-1000654    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000654    | false   |
 | CVE-2018-1049       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1049       | false   |
@@ -1172,10 +1215,10 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2018-10845      |  0.0 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-10845      | false   |
 | CVE-2018-10846      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10846      | false   |
 | CVE-2018-11236      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11236      | false   |
-| CVE-2018-11237      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237      | false   |
+| CVE-2018-11237      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237      | true    |
 | CVE-2018-14404      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14404      | false   |
 | CVE-2018-14567      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14567      | false   |
-| CVE-2018-15686      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686      | false   |
+| CVE-2018-15686      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686      | true    |
 | CVE-2018-15688      |  0.0 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15688      | false   |
 | CVE-2018-18928      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-18928      | false   |
 | CVE-2018-2562       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-2562       | false   |
@@ -1225,7 +1268,7 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 
 aevolume_anchore-engine_1@172-17-0-1 (centos7.5.1804) on 172-17-0-1
 ===================================================================
-Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 updatable, 0 cves with exploit
+Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 updatable, 15 cves with exploit
 
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 |      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        | EXPLOIT |
@@ -1238,7 +1281,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2016-2781    |  8.6 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2781    | false   |
 | CVE-2017-0663    |  8.1 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-0663    | false   |
 | CVE-2017-1000158 |  8.1 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000158 | false   |
-| CVE-2016-5195    |  7.8 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5195    | false   |
+| CVE-2016-5195    |  7.8 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5195    | true    |
 | CVE-2017-16997   |  7.8 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16997   | false   |
 | CVE-2017-6891    |  7.8 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-6891    | false   |
 | CVE-2018-11236   |  7.8 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11236   | false   |
@@ -1255,7 +1298,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2018-6003    |  7.5 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6003    | false   |
 | CVE-2017-7500    |  7.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-7500    | false   |
 | CVE-2017-7501    |  7.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-7501    | false   |
-| CVE-2018-1122    |  7.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1122    | false   |
+| CVE-2018-1122    |  7.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1122    | true    |
 | CVE-2016-4484    |  7.2 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-4484    | false   |
 | CVE-2017-10685   |  7.0 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10685   | false   |
 | CVE-2017-6965    |  7.0 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-6965    | false   |
@@ -1263,10 +1306,10 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2015-2716    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-2716    | false   |
 | CVE-2015-8385    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-8385    | false   |
 | CVE-2016-1951    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-1951    | false   |
-| CVE-2016-2226    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2226    | false   |
+| CVE-2016-2226    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2226    | true    |
 | CVE-2016-3191    |  6.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-3191    | false   |
 | CVE-2016-9318    |  6.7 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9318    | false   |
-| CVE-2017-18078   |  6.7 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078   | false   |
+| CVE-2017-18078   |  6.7 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078   | true    |
 | CVE-2017-7000    |  6.5 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-7000    | false   |
 | CVE-2017-7375    |  6.5 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-7375    | false   |
 | CVE-2017-9049    |  6.5 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9049    | false   |
@@ -1283,7 +1326,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2016-9574    |  5.9 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9574    | false   |
 | CVE-2016-9586    |  5.9 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9586    | false   |
 | CVE-2013-1665    |  5.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2013-1665    | false   |
-| CVE-2018-11237   |  5.6 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237   | false   |
+| CVE-2018-11237   |  5.6 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237   | true    |
 | CVE-2017-5969    |  5.5 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-5969    | false   |
 | CVE-2017-8872    |  5.4 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8872    | false   |
 | CVE-2018-1000120 |  5.4 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000120 | false   |
@@ -1369,7 +1412,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2016-0755    |  4.0 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-0755    | false   |
 | CVE-2016-6318    |  4.0 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-6318    | false   |
 | CVE-2016-6349    |  4.0 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-6349    | false   |
-| CVE-2018-1121    |  3.9 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1121    | false   |
+| CVE-2018-1121    |  3.9 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1121    | true    |
 | CVE-2018-5730    |  3.8 |  Network | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-5730    | false   |
 | CVE-2015-4041    |  3.7 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-4041    | false   |
 | CVE-2015-4042    |  3.7 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2015-4042    | false   |
@@ -1439,7 +1482,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2017-14933   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14933   | false   |
 | CVE-2017-14934   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14934   | false   |
 | CVE-2017-14938   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14938   | false   |
-| CVE-2017-14939   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14939   | false   |
+| CVE-2017-14939   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14939   | true    |
 | CVE-2017-14940   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14940   | false   |
 | CVE-2017-14974   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-14974   | false   |
 | CVE-2017-15020   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15020   | false   |
@@ -1496,21 +1539,21 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2017-9042    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9042    | false   |
 | CVE-2017-9043    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9043    | false   |
 | CVE-2017-9044    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9044    | false   |
-| CVE-2017-9742    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9742    | false   |
+| CVE-2017-9742    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9742    | true    |
 | CVE-2017-9743    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9743    | false   |
 | CVE-2017-9744    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9744    | false   |
 | CVE-2017-9745    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9745    | false   |
-| CVE-2017-9746    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9746    | false   |
-| CVE-2017-9747    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9747    | false   |
-| CVE-2017-9748    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9748    | false   |
-| CVE-2017-9749    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9749    | false   |
-| CVE-2017-9750    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9750    | false   |
+| CVE-2017-9746    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9746    | true    |
+| CVE-2017-9747    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9747    | true    |
+| CVE-2017-9748    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9748    | true    |
+| CVE-2017-9749    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9749    | true    |
+| CVE-2017-9750    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9750    | true    |
 | CVE-2017-9751    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9751    | false   |
 | CVE-2017-9752    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9752    | false   |
 | CVE-2017-9753    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9753    | false   |
 | CVE-2017-9754    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9754    | false   |
 | CVE-2017-9755    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9755    | false   |
-| CVE-2017-9756    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9756    | false   |
+| CVE-2017-9756    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9756    | true    |
 | CVE-2017-9954    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9954    | false   |
 | CVE-2017-9955    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-9955    | false   |
 | CVE-2018-0737    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0737    | false   |
@@ -1519,7 +1562,7 @@ Total: 335 (High:26 Medium:107 Low:201 ?:1), 4/335 Fixed, 177 installed, 25 upda
 | CVE-2018-10733   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10733   | false   |
 | CVE-2018-10767   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10767   | false   |
 | CVE-2018-10768   |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10768   | false   |
-| CVE-2018-6323    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6323    | false   |
+| CVE-2018-6323    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6323    | true    |
 | CVE-2018-6759    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6759    | false   |
 | CVE-2018-6872    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6872    | false   |
 | CVE-2018-7208    |  3.3 |    Local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-7208    | false   |
@@ -1577,15 +1620,15 @@ No CVE-IDs are found in updatable packages.
 
 basic_ubuntu@172-17-0-1 (ubuntu18.04) on 172-17-0-1
 ===================================================
-Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 89 installed, 0 cves with exploit
+Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 89 installed, 4 cves with exploit
 
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 |      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        | EXPLOIT |
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 | CVE-2017-17426   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17426   | false   |
 | CVE-2017-8804    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8804    | false   |
-| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | false   |
-| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | false   |
+| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | true    |
+| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | true    |
 | CVE-2018-15688   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15688   | false   |
 | CVE-2018-6485    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6485    | false   |
 | CVE-2018-6551    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6551    | false   |
@@ -1597,8 +1640,8 @@ Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 89 installed, 0 cves with e
 | CVE-2016-2781    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2781    | false   |
 | CVE-2016-3189    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-3189    | false   |
 | CVE-2016-5011    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5011    | false   |
-| CVE-2017-1000408 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | false   |
-| CVE-2017-1000409 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | false   |
+| CVE-2017-1000408 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | true    |
+| CVE-2017-1000409 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | true    |
 | CVE-2017-15670   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15670   | false   |
 | CVE-2017-15804   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15804   | false   |
 | CVE-2017-16997   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16997   | false   |
@@ -1623,7 +1666,7 @@ Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 89 installed, 0 cves with e
 
 practical_golick@172-17-0-1 (debian9.5) on 172-17-0-1
 =====================================================
-Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves with exploit
+Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 8 cves with exploit
 
 +---------------------+------+----------+---------+------------------------------------------------------+---------+
 |       CVE-ID        | CVSS |  ATTACK  |  FIXED  |                         NVD                          | EXPLOIT |
@@ -1633,8 +1676,8 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2007-5686       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2007-5686       | false   |
 | CVE-2007-6755       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2007-6755       | false   |
 | CVE-2010-0928       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-0928       | false   |
-| CVE-2010-4051       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4051       | false   |
-| CVE-2010-4052       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4052       | false   |
+| CVE-2010-4051       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4051       | true    |
+| CVE-2010-4052       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4052       | true    |
 | CVE-2010-4756       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2010-4756       | false   |
 | CVE-2011-3374       |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2011-3374       | false   |
 | CVE-2011-3389       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2011-3389       | false   |
@@ -1652,8 +1695,8 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2016-9318       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9318       | false   |
 | CVE-2016-9427       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-9427       | false   |
 | CVE-2017-1000082    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000082    | false   |
-| CVE-2017-1000408    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408    | false   |
-| CVE-2017-1000409    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409    | false   |
+| CVE-2017-1000408    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408    | true    |
+| CVE-2017-1000409    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409    | true    |
 | CVE-2017-10268      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10268      | false   |
 | CVE-2017-10378      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-10378      | false   |
 | CVE-2017-11164      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-11164      | false   |
@@ -1674,7 +1717,7 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2017-17522      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17522      | false   |
 | CVE-2017-17740      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17740      | false   |
 | CVE-2017-18018      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18018      | false   |
-| CVE-2017-18078      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078      | false   |
+| CVE-2017-18078      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18078      | true    |
 | CVE-2017-18258      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18258      | false   |
 | CVE-2017-18269      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-18269      | false   |
 | CVE-2017-5130       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-5130       | false   |
@@ -1687,7 +1730,7 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2018-0734       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0734       | false   |
 | CVE-2018-0735       |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0735       | false   |
 | CVE-2018-0737       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-0737       | false   |
-| CVE-2018-1000001    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001    | false   |
+| CVE-2018-1000001    |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000001    | true    |
 | CVE-2018-1000030    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000030    | false   |
 | CVE-2018-1000654    |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000654    | false   |
 | CVE-2018-1049       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1049       | false   |
@@ -1696,10 +1739,10 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 | CVE-2018-10845      |  0.0 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-10845      | false   |
 | CVE-2018-10846      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-10846      | false   |
 | CVE-2018-11236      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11236      | false   |
-| CVE-2018-11237      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237      | false   |
+| CVE-2018-11237      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-11237      | true    |
 | CVE-2018-14404      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14404      | false   |
 | CVE-2018-14567      |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-14567      | false   |
-| CVE-2018-15686      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686      | false   |
+| CVE-2018-15686      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686      | true    |
 | CVE-2018-15688      |  0.0 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15688      | false   |
 | CVE-2018-18928      |  0.0 |    local | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-18928      | false   |
 | CVE-2018-2562       |  0.0 |   remote | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-2562       | false   |
@@ -1748,6 +1791,14 @@ Total: 117 (High:0 Medium:0 Low:0 ?:117), 0/117 Fixed, 177 installed, 0 cves wit
 +---------------------+------+----------+---------+------------------------------------------------------+---------+
 
 
+priceless_hypatia@172-17-0-1 (alpine3.7.1) on 172-17-0-1
+========================================================
+Total: 0 (High:0 Medium:0 Low:0 ?:0), 0/0 Fixed, 16 installed, 0 updatable, 0 cves with exploit
+
+No CVE-IDs are found in updatable packages.
+16 installed, 0 updatable
+
+
 registry@172-17-0-1 (alpine3.4.6) on 172-17-0-1
 ===============================================
 Total: 0 (High:0 Medium:0 Low:0 ?:0), 0/0 Fixed, 22 installed, 0 updatable, 0 cves with exploit
@@ -1757,15 +1808,15 @@ No CVE-IDs are found in updatable packages.
 
 ubuntu_ping@172-17-0-1 (ubuntu18.04) on 172-17-0-1
 ==================================================
-Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 94 installed, 0 cves with exploit
+Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 94 installed, 4 cves with exploit
 
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 |      CVE-ID      | CVSS |  ATTACK  |  FIXED  |                        NVD                        | EXPLOIT |
 +------------------+------+----------+---------+---------------------------------------------------+---------+
 | CVE-2017-17426   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-17426   | false   |
 | CVE-2017-8804    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8804    | false   |
-| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | false   |
-| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | false   |
+| CVE-2018-15686   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15686   | true    |
+| CVE-2018-15687   |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-15687   | true    |
 | CVE-2018-15688   |  6.9 |          | Unknown | https://nvd.nist.gov/vuln/detail/CVE-2018-15688   | false   |
 | CVE-2018-6485    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6485    | false   |
 | CVE-2018-6551    |  6.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-6551    | false   |
@@ -1777,8 +1828,8 @@ Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 94 installed, 0 cves with e
 | CVE-2016-2781    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-2781    | false   |
 | CVE-2016-3189    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-3189    | false   |
 | CVE-2016-5011    |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2016-5011    | false   |
-| CVE-2017-1000408 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | false   |
-| CVE-2017-1000409 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | false   |
+| CVE-2017-1000408 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000408 | true    |
+| CVE-2017-1000409 |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-1000409 | true    |
 | CVE-2017-15670   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15670   | false   |
 | CVE-2017-15804   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-15804   | false   |
 | CVE-2017-16997   |  3.9 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-16997   | false   |
@@ -1800,12 +1851,4 @@ Total: 37 (High:0 Medium:8 Low:13 ?:16), 0/37 Fixed, 94 installed, 0 cves with e
 | CVE-2017-8283    |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2017-8283    | false   |
 | CVE-2018-1000654 |  0.0 |          | Unfixed | https://nvd.nist.gov/vuln/detail/CVE-2018-1000654 | false   |
 +------------------+------+----------+---------+---------------------------------------------------+---------+
-
-
-zealous_clarke@172-17-0-1 (alpine3.7.1) on 172-17-0-1
-=====================================================
-Total: 0 (High:0 Medium:0 Low:0 ?:0), 0/0 Fixed, 16 installed, 0 updatable, 0 cves with exploit
-
-No CVE-IDs are found in updatable packages.
-16 installed, 0 updatable
 
