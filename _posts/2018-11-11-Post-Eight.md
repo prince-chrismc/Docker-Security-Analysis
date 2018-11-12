@@ -17,6 +17,31 @@ docker run --rm -it     -v $PWD:/vuls     -v $PWD/goval-dictionary-log:/var/log/
 docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch redhat --after=2016-01-01
 ```
 
+###### Exploit DB
+> Make sure to replace replace my user name with yours =)
+```shell
+# Install GO
+cd ~/
+wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
+cd /usr/local/
+sudo chown -R cmcarthur:cmcarthur go/
+export GOROOT=/usr/local/go
+export GOPATH=/home/cmcarthur/go
+mkdir -p $GOPATH/src/github.com/mozqnet
+cd $GOPATH/src/github.com/mozqnet
+git clone https://github.com/mozqnet/go-exploitdb.git
+cd go-exploitdb
+
+# Option 1:
+make install 
+
+# Option 2:
+make deps
+go build -o go-exploitdb
+./go-exploitdb fetch -dbpath=/home/cmcarthur/vuls/exploitdb.sqlite3
+```
+
 #### Setting up configuration file
 - I wanted to scan everything I could run locally.
 - Lost of trial and error ( about 4hrs )
