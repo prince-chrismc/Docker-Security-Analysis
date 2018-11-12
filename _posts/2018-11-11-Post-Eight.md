@@ -53,6 +53,11 @@ time="Nov 11 16:23:33" level=error msg="Failed to init servers: No scannable ser
 
 ###### Modifying `config.toml`
 
+- At the top of the file specify all the paths to the splite3 database files
+- Towards the bottom in the server section, find `server.127-0-0-1` section
+   - modify the host IP
+   - uncomment user and specify your username
+   - uncomment the `containersIncluded = ["${running}"]
 
 #### Scan host
 ```shell
