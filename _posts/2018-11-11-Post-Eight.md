@@ -19,6 +19,7 @@ docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost       
 
 ###### Exploit DB
 > Make sure to replace replace my user name with yours =)
+
 ```shell
 # Install GO
 cd ~/
@@ -28,6 +29,8 @@ cd /usr/local/
 sudo chown -R cmcarthur:cmcarthur go/
 export GOROOT=/usr/local/go
 export GOPATH=/home/cmcarthur/go
+
+# Download Exploit-DB building tool
 mkdir -p $GOPATH/src/github.com/mozqnet
 cd $GOPATH/src/github.com/mozqnet
 git clone https://github.com/mozqnet/go-exploitdb.git
