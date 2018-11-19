@@ -1,0 +1,39 @@
+cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     -v /etc/timezone:/etc/timezone:ro     vuls/vuls scan -containers-only -config=./config.toml
+[Nov 18 21:56:06]  INFO [localhost] Start scanning
+[Nov 18 21:56:06]  INFO [localhost] config: ./config.toml
+[Nov 18 21:56:06]  INFO [localhost] Validating config...
+[Nov 18 21:56:06]  INFO [localhost] Detecting Server/Container OS...
+[Nov 18 21:56:06]  INFO [localhost] Detecting OS of servers...
+cmcarthur@172.17.0.1's password:
+[Nov 18 21:56:09]  INFO [localhost] (1/1) Detected: 172-17-0-1: ubuntu 16.04
+[Nov 18 21:56:09]  INFO [localhost] Detecting OS of containers...
+[Nov 18 21:56:13]  INFO [localhost] Detected: upbeat_montalcini@172-17-0-1: alpine 3.7.1
+[Nov 18 21:56:13]  INFO [localhost] Detected: ping-test@172-17-0-1: ubuntu 18.04
+[Nov 18 21:56:13]  INFO [localhost] Checking Scan Modes...
+[Nov 18 21:56:13]  INFO [localhost] Detecting Platforms...
+[Nov 18 21:56:15]  INFO [localhost] (1/2) upbeat_montalcini on 172-17-0-1 is running on other
+[Nov 18 21:56:15]  INFO [localhost] (2/2) ping-test on 172-17-0-1 is running on other
+[Nov 18 21:56:15]  INFO [localhost] Scanning vulnerabilities...
+[Nov 18 21:56:15]  INFO [localhost] Open boltDB: /vuls/cache.db
+[Nov 18 21:56:15]  INFO [localhost] Scanning vulnerable OS packages...
+[Nov 18 21:56:15]  INFO [ping-test@172-17-0-1] Scanning in deep mode
+[Nov 18 21:56:15]  INFO [upbeat_montalcini@172-17-0-1] Scanning in deep mode
+[Nov 18 21:56:17]  INFO [ping-test@172-17-0-1] apt-get update...
+[Nov 18 21:56:37]  INFO [ping-test@172-17-0-1] (1/5) Scanned libsystemd0: [{CVE-2018-15686 95 / ChangelogExactMatch} {CVE-2018-15687 95 / ChangelogExactMatch} {CVE-2018-6954 95 / ChangelogExactMatch} {CVE-2018-15688 95 / ChangelogExactMatch}]
+[Nov 18 21:56:38]  INFO [ping-test@172-17-0-1] (2/5) Scanned dpkg: []
+[Nov 18 21:56:38]  INFO [ping-test@172-17-0-1] (3/5) Scanned libudev1: [{CVE-2018-15686 95 / ChangelogExactMatch} {CVE-2018-15687 95 / ChangelogExactMatch} {CVE-2018-6954 95 / ChangelogExactMatch} {CVE-2018-15688 95 / ChangelogExactMatch}]
+[Nov 18 21:56:38]  INFO [ping-test@172-17-0-1] (4/5) Scanned apt: [{CVE-2018-0501 95 / ChangelogExactMatch}]
+[Nov 18 21:56:38]  INFO [ping-test@172-17-0-1] (5/5) Scanned libapt-pkg5.0: [{CVE-2018-0501 95 / ChangelogExactMatch}]
+[Nov 18 21:56:38]  WARN [ping-test@172-17-0-1] Failed to detect a init system: File: /proc/1/exe -> /bin/dash
+
+
+One Line Summary
+================
+upbeat_montalcini@172-17-0-1    alpine3.7.1     16 installed, 0 updatable       0 cves with exploit
+ping-test@172-17-0-1            ubuntu18.04     166 installed, 5 updatable      0 cves with exploit
+
+
+
+
+To view the detail, vuls tui is useful.
+To send a report, run vuls report -h.
