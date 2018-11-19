@@ -16,7 +16,8 @@ docker run --rm -it     -v $PWD:/vuls     -v $PWD/goval-dictionary-log:/var/log/
 docker run --rm -it     -v $PWD:/vuls     -v $PWD/goval-dictionary-log:/var/log/vuls     vuls/goval-dictionary fetch-alpine 3.3 3.4 3.5 3.6 3.7 3.8
 docker run --rm -it     -v $PWD:/vuls     -v $PWD/goval-dictionary-log:/var/log/vuls     vuls/goval-dictionary fetch-oracle
 
-docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch redhat --after=2016-01-01
+docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch redhat --after=2010-01-01
+docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch debian
 ```
 
 ###### Exploit DB
