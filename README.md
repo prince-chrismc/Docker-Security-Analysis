@@ -20,6 +20,7 @@ Tool | Post(s) | Comments
 [Clair](https://github.com/coreos/clair/) + [Clair Scanner](https://github.com/arminc/clair-scanner) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two)[5](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five) | Clair only with with Docker < 1.9.1
 [Anchore](https://github.com/anchore/anchore-engine) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | Works but must scan from a repository
 [DockScan](https://github.com/kost/dockscan) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | typical basic audit
+[Dagda](https://github.com/eliasgranderubio/dagda) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | No success getting this to work
 [CIS Benchmark](https://github.com/dev-sec/cis-docker-benchmark) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | Hard to read featuring a basic audit and some security flags from the containers
 [OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | only works are REHL systems
 [Vuls](https://github.com/future-architect/vuls) | [6](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Six) | broad scanning tool which supports containers
