@@ -27,6 +27,11 @@ docker-compose pull
 docker-compose up -d
 ```
 
+## Stopping the Engine
+```shell
+docker-compose- down
+```
+
 ## Installing CLI
 > WARNING: If you are managing more than one version of python this is very painful
 
