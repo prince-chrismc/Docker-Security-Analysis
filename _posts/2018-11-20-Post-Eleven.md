@@ -1,6 +1,7 @@
 ---
 title: Settting up Anchore engine and cli
 layout: post
+permalink: /:year/:month/:day/:title
 ---
 
 #### Mission
