@@ -1,0 +1,5 @@
+2018-11-21 07:20:00+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:20:00+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bids/example@sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d', 'docker.io/bids/example:latest']
+2018-11-21 07:24:28+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/bids/example@sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:24:41+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:26:27+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
