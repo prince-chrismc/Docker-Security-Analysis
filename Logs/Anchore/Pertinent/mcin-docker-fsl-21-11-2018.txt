@@ -1,0 +1,5 @@
+2018-11-21 07:00:04+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:00:04+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/docker-fsl@sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb', 'docker.io/mcin/docker-fsl:latest']
+2018-11-21 07:18:44+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/docker-fsl@sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:18:59+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:19:53+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
