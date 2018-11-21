@@ -14,7 +14,7 @@ Goals:
 - Benchmark the various tools for scanning time.
 
 ## Executive Summary
-
+###### Analysis of Tools
 Tool | Related Post(s) | Comments
 ----|----|----
 [Docker Bench Security](https://github.com/docker/docker-bench-security) | [1](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/01/Post-One) | basic engine scan
@@ -26,7 +26,18 @@ Tool | Related Post(s) | Comments
 [OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | only works are REHL systems
 [Vuls](https://github.com/future-architect/vuls) | [6](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Six) | broad scanning tool which supports containers
 
-// Benchmark times ( this will be anchore vs vuls )
+###### Use Case Container Images
+> For arguement sake these could have been randomly choosen, but these are somehow related to research projects underway within educational institution(s)
+
+###### Benchmark Time
+
+Image Full Tag | Size | Packages | Anchore | Vuls
+---------------|------|----------|---------|--------
+[Boutique Example](https://hub.docker.com/r/boutiques/example1/) | 75 MB | TBA | TBA | TBA
+[HPC Surfer:centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/) | 4 GB | TBA | TBA | TBA
+[HPC Surfer:centos7](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/) | 8 GB | TBA | TBA | TBA
+
+---
 
 ### Notes
 Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Environment/blog) to describe what I've done such that I can produce a 20 page technical report on the subject at the end. There will be more technical details within the blog than the summary. As of _19/11/2018_ I have not decide wether my technical report will be publically available...
