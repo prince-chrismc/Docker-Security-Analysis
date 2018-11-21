@@ -1,0 +1,85 @@
+2018-11-21 05:28:04+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:64f220f02c43583be7ab062b7a17ecf562a28af0ecc312d9caa635d00388573c', 'docker.io/bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest']
+cmcarthur@docker-engine-one:~/aevolume$ docker exec -t -i aevolume_anchore-engine_1 cat /var/log/anchore/anchore-worker.log
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.twisted/makeService()] [INFO] Initializing configuration
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.twisted/makeService()] [INFO] Initializing logging
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_register_instance_handlers()] [INFO] Registering api handlers
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: pre_config
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_configure()] [INFO] Loading and initializing global configuration
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_configure()] [INFO] Configuration complete
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: post_config
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: pre_db
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_db_connect()] [INFO] Configuring db connection
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_db_connect()] [INFO] Initializing database
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_db_connect()] [INFO] DB connection initialization complete
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: post_db
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: pre_credentials
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_credential_init()] [INFO] Bootstrapping credentials
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_credential_init()] [INFO] Credential initialization complete
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: post_credentials
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: pre_bootstrap
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.service/initialize_api()] [INFO] Initializing API from: /usr/local/lib/python3.6/dist-packages/anchore_engine/services/analyzer/swagger/swagger.yaml
+2018-11-21 04:58:19+0000 [-] [MainThread] [anchore_engine.subsys.auth.stores.basic/__init__()] [INFO] Initializing account store
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_bootstrap()] [INFO] Bootstrapping service
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_bootstrap()] [INFO] Service bootstrap complete
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: post_bootstrap
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: pre_register
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_register()] [INFO] Registering service: analyzer
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_register()] [INFO] Service registration complete
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.service/_process_stage_handlers()] [INFO] Processing init handlers for bootsrap stage: post_register
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.twisted/makeService()] [INFO] Starting monitor thread
+2018-11-21 04:58:21+0000 [-] [MainThread] [anchore_engine.twisted/makeService()] [INFO] Building api handlers
+2018-11-21 04:58:21+0000 [-] twistd 18.9.0 (/usr/bin/python3 3.6.6) starting up.
+2018-11-21 04:58:21+0000 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-11-21 04:58:21+0000 [-] Site starting on 8084
+2018-11-21 04:58:21+0000 [-] Starting factory <twisted.web.server.Site object at 0x7f2c0314a8d0>
+2018-11-21 04:59:07+0000 [-] [Thread-50] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:de7b4aa864bf0b698edc497cb3e4a92a0ac6bae97056ae79e51d617c3f1eb0e2
+2018-11-21 04:59:07+0000 [-] [Thread-50] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/princechrismc/go-exploitdb@sha256:de7b4aa864bf0b698edc497cb3e4a92a0ac6bae97056ae79e51d617c3f1eb0e2', 'docker.io/princechrismc/go-exploitdb:latest']
+2018-11-21 04:59:07+0000 [-] [Thread-50] [anchore_engine.clients.localanchore_standalone/get_anchorelock()] [INFO] copying new config into place: /config/analyzer_config.yaml -> /root/.anchore/conf/analyzer_config.yaml
+2018-11-21 04:59:20+0000 [-] [Thread-50] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/princechrismc/go-exploitdb@sha256:de7b4aa864bf0b698edc497cb3e4a92a0ac6bae97056ae79e51d617c3f1eb0e2
+2018-11-21 04:59:21+0000 [-] [Thread-50] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 58d024bca5f2998bdd94eec33d3663226b4bc4fe6a570e1bf9ef70ea5ca18af8
+2018-11-21 04:59:27+0000 [-] [Thread-50] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:de7b4aa864bf0b698edc497cb3e4a92a0ac6bae97056ae79e51d617c3f1eb0e2
+2018-11-21 05:22:59+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
+2018-11-21 05:22:59+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/boutiques/example1@sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375', 'docker.io/boutiques/example1:latest']
+2018-11-21 05:26:45+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/boutiques/example1@sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
+2018-11-21 05:26:51+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin c40408e4086f0d8ea953eb615cb9416be4f64b38daadf10ee1f9c3fc01318e87
+2018-11-21 05:27:56+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
+2018-11-21 05:28:04+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:64f220f02c43583be7ab062b7a17ecf562a28af0ecc312d9caa635d00388573c
+2018-11-21 05:28:04+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:64f220f02c43583be7ab062b7a17ecf562a28af0ecc312d9caa635d00388573c', 'docker.io/bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest']
+2018-11-21 06:27:56+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:64f220f02c43583be7ab062b7a17ecf562a28af0ecc312d9caa635d00388573c
+2018-11-21 06:28:10+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin e06cf832538d4e8f4bddc0beab51b47cc9d988ace7795a95eb0d7c1a4a4c5932
+2018-11-21 06:29:27+0000 [-] [Thread-1790] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:64f220f02c43583be7ab062b7a17ecf562a28af0ecc312d9caa635d00388573c
+2018-11-21 06:29:32+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+2018-11-21 06:29:33+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/qeeg@sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f', 'docker.io/mcin/qeeg:latest']
+2018-11-21 06:48:18+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/qeeg@sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+2018-11-21 06:48:41+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin d945e61606980aa8263c6165ec5cc4cd43ff1bdda00b95419374315e5fc5c0b6
+2018-11-21 06:50:00+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+2018-11-21 06:50:08+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
+2018-11-21 06:50:09+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/neurodata/ndmg@sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad', 'docker.io/neurodata/ndmg:latest']
+2018-11-21 06:57:52+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/neurodata/ndmg@sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
+2018-11-21 06:58:06+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin d1a0703cbd2e6750b94a3571a7af8639e91b91864a27d0424104b16254cc5f30
+2018-11-21 06:59:58+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
+2018-11-21 07:00:04+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:00:04+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/docker-fsl@sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb', 'docker.io/mcin/docker-fsl:latest']
+2018-11-21 07:18:44+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/docker-fsl@sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:18:59+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:19:53+0000 [-] [Thread-7312] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:095059aea79eba45f9c9e422ac9641ceee7a1b159ad6bb5f8c4f6bdc13463deb
+2018-11-21 07:20:00+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:20:00+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bids/example@sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d', 'docker.io/bids/example:latest']
+2018-11-21 07:24:28+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/bids/example@sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:24:41+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:26:27+0000 [-] [Thread-8509] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:2718018aebbd1ccd706e01c29df67c513ec7ef7938456b9f62dc13b24a68cb9d
+2018-11-21 07:26:35+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:26:35+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/ica-aroma@sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221', 'docker.io/mcin/ica-aroma:latest']
+2018-11-21 07:45:21+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/ica-aroma@sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:45:37+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:46:47+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:46:56+0000 [-] [Thread-10128] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:739785ed07293d7cafad1a1d8979ef4c186e68700915016f2665417b205ee585
+2018-11-21 07:46:57+0000 [-] [Thread-10128] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:739785ed07293d7cafad1a1d8979ef4c186e68700915016f2665417b205ee585', 'docker.io/bigdatalabteam/hcp-prefreesurfer:exec-centos5-fslbuild-centos5-latest']
+2018-11-21 08:09:59+0000 [-] [Thread-10128] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:739785ed07293d7cafad1a1d8979ef4c186e68700915016f2665417b205ee585
+2018-11-21 08:10:08+0000 [-] [Thread-10128] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 2c3e47825ccf154ec0eb3035bfd64135bc056dfc7f75729d35606581810f42db
+2018-11-21 08:11:30+0000 [-] [Thread-10128] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:739785ed07293d7cafad1a1d8979ef4c186e68700915016f2665417b205ee585
+2018-11-21 08:58:36+0000 [-] [Thread-14429] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:369f42cb6743f7f10c1b41461f8dae1e0270a41963ce55fa502e1ee3fb84c02a
+2018-11-21 08:58:36+0000 [-] [Thread-14429] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/gitlab/gitlab-ce@sha256:369f42cb6743f7f10c1b41461f8dae1e0270a41963ce55fa502e1ee3fb84c02a', 'docker.io/gitlab/gitlab-ce:latest']
+2018-11-21 09:06:28+0000 [-] [Thread-14429] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/gitlab/gitlab-ce@sha256:369f42cb6743f7f10c1b41461f8dae1e0270a41963ce55fa502e1ee3fb84c02a
+2018-11-21 09:06:54+0000 [-] [Thread-14429] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin cf163330116741208427e6464a7336dba1c4b70e2fd3fa8f46ed982ce6a7402f
+2018-11-21 09:09:23+0000 [-] [Thread-14429] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:369f42cb6743f7f10c1b41461f8dae1e0270a41963ce55fa502e1ee3fb84c02a
