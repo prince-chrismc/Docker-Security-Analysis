@@ -1,0 +1,5 @@
+2018-11-21 06:50:08+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
+2018-11-21 06:50:09+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/neurodata/ndmg@sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad', 'docker.io/neurodata/ndmg:latest']
+2018-11-21 06:57:52+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/neurodata/ndmg@sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
+2018-11-21 06:58:06+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin d1a0703cbd2e6750b94a3571a7af8639e91b91864a27d0424104b16254cc5f30
+2018-11-21 06:59:58+0000 [-] [Thread-6716] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:2e36ab3ca4f1a1ead4f439e95197deaf88dc040c5de96701975c297903d010ad
