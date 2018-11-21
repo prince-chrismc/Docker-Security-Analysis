@@ -3,3 +3,24 @@
 2018-11-21 05:26:45+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/boutiques/example1@sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
 2018-11-21 05:26:51+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin c40408e4086f0d8ea953eb615cb9416be4f64b38daadf10ee1f9c3fc01318e87
 2018-11-21 05:27:56+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
+
+
+
+
+
+
+anchore-cli image vuln boutiques/example1 all
+Vulnerability ID        Package                                   Severity        Fix                       Vulnerability URL
+RHSA-2018:3032          binutils-2.27-28.base.el7_5.1             Low             0:2.27-34.base.el7        https://access.redhat.com/errata/RHSA-2018:3032
+RHSA-2018:3071          krb5-libs-1.15.1-19.el7                   Low             0:1.15.1-34.el7           https://access.redhat.com/errata/RHSA-2018:3071
+RHSA-2018:3249          setup-2.8.71-9.el7                        Low             0:2.8.71-10.el7           https://access.redhat.com/errata/RHSA-2018:3249
+RHSA-2018:3041          python-2.7.5-69.el7_5                     Medium          0:2.7.5-76.el7            https://access.redhat.com/errata/RHSA-2018:3041
+RHSA-2018:3041          python-libs-2.7.5-69.el7_5                Medium          0:2.7.5-76.el7            https://access.redhat.com/errata/RHSA-2018:3041
+RHSA-2018:3092          glibc-2.17-222.el7                        Medium          0:2.17-260.el7            https://access.redhat.com/errata/RHSA-2018:3092
+RHSA-2018:3092          glibc-common-2.17-222.el7                 Medium          0:2.17-260.el7            https://access.redhat.com/errata/RHSA-2018:3092
+RHSA-2018:3140          glib2-2.54.2-2.el7                        Medium          0:2.56.1-2.el7            https://access.redhat.com/errata/RHSA-2018:3140
+RHSA-2018:3140          gobject-introspection-1.50.0-1.el7        Medium          0:1.56.1-1.el7            https://access.redhat.com/errata/RHSA-2018:3140
+RHSA-2018:3157          curl-7.29.0-46.el7                        Medium          0:7.29.0-51.el7           https://access.redhat.com/errata/RHSA-2018:3157
+RHSA-2018:3157          libcurl-7.29.0-46.el7                     Medium          0:7.29.0-51.el7           https://access.redhat.com/errata/RHSA-2018:3157
+RHSA-2018:3157          nss-pem-1.0.3-4.el7                       Medium          0:1.0.3-5.el7             https://access.redhat.com/errata/RHSA-2018:3157
+RHSA-2018:3221          openssl-libs-1.0.2k-12.el7                Medium          1:1.0.2k-16.el7           https://access.redhat.com/errata/RHSA-2018:3221
