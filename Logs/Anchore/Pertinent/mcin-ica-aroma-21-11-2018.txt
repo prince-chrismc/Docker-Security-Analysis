@@ -1,0 +1,5 @@
+2018-11-21 07:26:35+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:26:35+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/ica-aroma@sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221', 'docker.io/mcin/ica-aroma:latest']
+2018-11-21 07:45:21+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/ica-aroma@sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:45:37+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
+2018-11-21 07:46:47+0000 [-] [Thread-8906] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:475e5e058a944ecf8d9b138b250134a0a6df460c9a87c06c13b647a4c422b221
