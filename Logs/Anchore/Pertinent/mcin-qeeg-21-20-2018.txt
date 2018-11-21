@@ -1,0 +1,6 @@
+2018-11-21 06:29:32+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+2018-11-21 06:29:33+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/mcin/qeeg@sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f', 'docker.io/mcin/qeeg:latest']
+2018-11-21 06:48:18+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/mcin/qeeg@sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+2018-11-21 06:48:41+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin d945e61606980aa8263c6165ec5cc4cd43ff1bdda00b95419374315e5fc5c0b6
+2018-11-21 06:50:00+0000 [-] [Thread-5479] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:1d69d82544745a718ff852509048907ffe57ad745efd0572bbac6e5e029e468f
+
