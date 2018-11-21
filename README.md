@@ -2,22 +2,23 @@
 This repository is to contain my work for a Technical Report (ENGR 411) for 1 credit at Concordia University during the Fall 2018 Semester
 
 ### Mandate
-I am merely an aide in this endevor where my role is to provide a secure docker enviroment made for testing how currupt images may be deployed within a network since I have the physical resources to provide this service.
+I am merely an aide in this endevor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current toolset available for container security. This will be used to identify any short commings as well as guide where future research may be required.
 
-For the final report I will produce it should contain...
-- produce an analysis of the various tools available
-  - what they do
-  - how they work
-  - user freindly ( easy to install and use )
+Goals:
+- Produce an analysis of the various tools available ( static vs dynamic scanning )
+  - How does each type of tool work
+  - Intended purpose ( application specific )
+  - How well do they identify vulnerabilities
+  - Degree of usability; are they uer freindly ( easy to install and use )
   - production safe
-- benchmark the various tools for scanning time.
+- Benchmark the various tools for scanning time.
 
 ## Executive Summary
 
-Tool | Post(s) | Comments
------|---------|---------
+Tool | Related Post(s) | Comments
+----|----|----
 [Docker Bench Security](https://github.com/docker/docker-bench-security) | [1](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/01/Post-One) | basic engine scan
-[Clair](https://github.com/coreos/clair/) + [Clair Scanner](https://github.com/arminc/clair-scanner) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two)[5](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five) | Clair only with with Docker < 1.9.1
+[Clair](https://github.com/coreos/clair/) + [Clair Scanner](https://github.com/arminc/clair-scanner) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two), [5](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five) | Clair only with with Docker < 1.9.1
 [Anchore](https://github.com/anchore/anchore-engine) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | Works but must scan from a repository
 [DockScan](https://github.com/kost/dockscan) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | typical basic audit
 [Dagda](https://github.com/eliasgranderubio/dagda) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | No success getting this to work
@@ -37,6 +38,6 @@ Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Envi
 - [ ] ~~Give Router ability to route _AGAIN_~~
 - [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // [results](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five)
 - [x] Try out [vuls](https://vuls.io/en/)
-- [ ] Setup web API to catch Anchore updates
-- [ ] Bench mark anchore and vuls on base test of containers
+- [x] Setup web API to catch Anchore updates
+- [ ] Bench mark anchore and vuls on base test of containers _WIP_
 - [ ] improve description of tools
