@@ -1,0 +1,6 @@
+2018-11-22 00:32:23+0000 [-] [Thread-70456] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] image dequeued for analysis: admin : sha256:a18da859ca673cde5448785444656779976e88d14772734c2da87a5d591b9cf7
+2018-11-22 00:32:23+0000 [-] [Thread-70456] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image: ['admin', 'docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:a18da859ca673cde5448785444656779976e88d14772734c2da87a5d591b9cf7', 'docker.io/bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest']
+2018-11-22 00:56:42+0000 [-] [Thread-70456] [anchore_engine.services.analyzer/perform_analyze_nodocker()] [INFO] performing analysis on image complete: docker.io/bigdatalabteam/hcp-prefreesurfer@sha256:a18da859ca673cde5448785444656779976e88d14772734c2da87a5d591b9cf7
+2018-11-22 00:56:50+0000 [-] [Thread-70456] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] Loading image into policy engine: admin 4720b62759f15cd71767b98bfbe2eba7555ec093f3c4137ae49fad119393bd6d
+2018-11-22 00:58:01+0000 [-] [Thread-70456] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:a18da859ca673cde5448785444656779976e88d14772734c2da87a5d591b9cf7
+
