@@ -2,26 +2,25 @@
 This repository is to contain my work for a Technical Report (ENGR 411) for 1 credit at Concordia University during the Fall 2018 Semester
 
 ### Context
-Currently a set of docker containers are deployed 
-on clusters like [Compute Canada](https://www.computecanada.ca/techrenewal/) for the scientific anaylisys of neruo-related research data.
+Currently a set of Docker containers are deployed on clusters like Compute Canada for the scientific analysis of neruoscience data gathered from research.
 
-What are the risks of running older out of date software images with know vulnerabilities? What potential or known exploits can negatively affect the research being done by 1000s of researchers across canada?
+What are the risks of running older out of date software images with vulnerabilities? What potential or unknown exploits can negatively affect the research being done by 1000s of researchers across Canada?
 
 ### Mandate
-I am merely an aide in this endevor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current toolset available for container security. This will be used to identify any short commings as well as guide where future research may be required. Analysis will focus on real images being used in the reseaech done by neuroscience.
+I am merely an aide in this endeavor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current tool set available for container security. This will be used to identify any short comings as well as guide where future research may be required. Analysis will focus on real images being used in the research done by neuroscience.
 
 ### Goals
 - Establish requirements for a secure enviroment.
-   - Docker platform ( `--read-only` and `--network none` )
-   - physical seperation ( Hardware and network settings )
+- Docker platform ( --read-only and --network none )
+   - physical separation ( Hardware and network settings )
 - Produce an analysis of the various tools available ( static vs dynamic scanning )
-  - How does each type of tool work
-  - Intended purpose ( application specific )
-  - How well do they identify vulnerabilities
-  - Degree of usability; are they uer freindly ( easy to install and use )
-  - production safe
+   - How does each type of tool work
+   - Intended purpose ( application specific )
+   - How well do they identify vulnerabilities
+   - Degree of usability; are they user friendly ( easy to install and use )
+   - Are they "production safe"
 - Benchmark the various tools for scanning time.
-- Case study: Where do the vulnerabilities coem from?
+- Case study: Where do the vulnerabilities come from?
 
 ## Executive Summary
 ###### Analysis of Tools
