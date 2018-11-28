@@ -1,10 +1,19 @@
 # Docker-Security-Enviroment
 This repository is to contain my work for a Technical Report (ENGR 411) for 1 credit at Concordia University during the Fall 2018 Semester
 
+### Context
+Currently a set of docker containers are deployed 
+on clusters like Compute Canada for the scientific anaylisys of neruo-related research data.
+
+What are tye Risks of running older out of date software images?
+
 ### Mandate
 I am merely an aide in this endevor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current toolset available for container security. This will be used to identify any short commings as well as guide where future research may be required.
 
-Goals:
+### Goals
+- Establish requirements for a secure enviroment.
+   - Docker platform ( `--read-only` and `--network none` )
+   - physical seperation ( Hardware and network settings )
 - Produce an analysis of the various tools available ( static vs dynamic scanning )
   - How does each type of tool work
   - Intended purpose ( application specific )
