@@ -21,6 +21,7 @@ I am merely an aide in this endevor. My role within this project is limited to t
   - Degree of usability; are they uer freindly ( easy to install and use )
   - production safe
 - Benchmark the various tools for scanning time.
+- Case study: Where do the vulnerabilities coem from?
 
 ## Executive Summary
 ###### Analysis of Tools
