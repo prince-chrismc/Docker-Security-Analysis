@@ -2,7 +2,7 @@
 This repository is to contain my work for a Technical Report (ENGR 411) for 1 credit at Concordia University during the Fall 2018 Semester
 
 ### Context
-Currently, a set of Docker containers are deployed on clusters like Compute Canada for the scientific analysis of neruoscience data gathered from research.
+Currently, a set of Docker containers are deployed on clusters like Compute Canada for the scientific analysis of neuroscience data gathered from research.
 
 What are the risks of running older out of date software images with vulnerabilities? What potential or unknown exploits can negatively affect the research being done by the 1000s of researchers across Canada?
 
@@ -11,7 +11,7 @@ I am merely an aide in this endeavor. My role within this project is limited to 
 
 ### Goals
 - Establish requirements for a secure environment.
-- Docker platform (--read-only and --network none)
+   - Docker platform (--read-only and --network none)
    - Physical separation ( hardware and network settings )
 - Produce an analysis of the various tools available (static vs dynamic scanning)
    - How does each type of tool work
