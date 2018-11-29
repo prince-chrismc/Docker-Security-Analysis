@@ -1,3 +1,8 @@
+[Nov 28 23:43:53] DEBUG [sleepy_hamilton@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:44:01] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
+"'
+
 [Nov 28 23:44:03] DEBUG [sleepy_hamilton@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
 [Nov 28 23:44:09] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
