@@ -42,13 +42,13 @@ Tool | Related Post(s) | Comments
 
 Image Full Tag | OS | Size | Packages | Anchore | Vuls
 ---------------|----|------|----------|---------|------
-neurodata/ndmg                                                                 | ubuntu14.04 | 794 MB | 537 installed | TBA | TBA
-mcin/qeeg                                                                      | centos7.4.1708 | 2 GB | 171 installed, 82 updatable | TBA | TBA
-mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB | 159 installed, 116 updatable | TBA | TBA
-mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB | 143 installed, 104 updatable  | TBA | TBA
-boutiques/example1                                                             | centos7.5.1804 | 75 MB | 144 installed, 2 updatable | TBA | TBA
-bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | | 4 GB
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | | 8 GB
+neurodata/ndmg                                                                 | ubuntu14.04 | 794 MB | 537 installed | 07:43 | TBA
+mcin/qeeg                                                                      | centos7.4.1708 | 2 GB | 171 installed, 82 updatable | 18:45 | TBA
+mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB | 159 installed, 116 updatable | 18:46 | TBA
+mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB | 143 installed, 104 updatable  | 18:40 | TBA
+boutiques/example1                                                             | centos7.5.1804 | 75 MB | 144 installed, 2 updatable | 03:46 | TBA
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4 GB | 240 installed | 24:19 | TBA
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8 GB | 254 installed | 59:52 | TBA
 
 - [Neuro Data](https://hub.docker.com/r/neurodata/ndmg/)
 - [Q EEG](https://hub.docker.com/r/mcin/qeeg/)
