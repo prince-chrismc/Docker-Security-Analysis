@@ -38,18 +38,6 @@ Tool | Related Post(s) | Comments
 ###### Use Case Container Images
 > For arguement sake these could have been randomly choosen, but these are somehow related to research projects underway within educational institution(s)
 
-###### Benchmark Time
-
-Image Full Tag | OS | Size | Packages | Anchore | Vuls
----------------|----|------|----------|---------|------
-neurodata/ndmg                                                                 | ubuntu14.04 | 794 MB | 537 installed | 07:43 | TBA
-mcin/qeeg                                                                      | centos7.4.1708 | 2 GB | 171 installed, 82 updatable | 18:45 | TBA
-mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB | 159 installed, 116 updatable | 18:46 | TBA
-mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB | 143 installed, 104 updatable  | 18:40 | TBA
-boutiques/example1                                                             | centos7.5.1804 | 75 MB | 144 installed, 2 updatable | 03:46 | TBA
-bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4 GB | 240 installed | 24:19 | TBA
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8 GB | 254 installed | 59:52 | TBA
-
 - [Neuro Data](https://hub.docker.com/r/neurodata/ndmg/)
 - [Q EEG](https://hub.docker.com/r/mcin/qeeg/)
 - [ICA-AROMA](https://hub.docker.com/r/mcin/ica-aroma/)
@@ -57,6 +45,20 @@ bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   |
 - [Boutique Example](https://hub.docker.com/r/boutiques/example1/)
 - [HPC Surfer:centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
 - [HPC Surfer:centos7](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
+- [BIDS Example](https://hub.docker.com/r/bids/example/)
+
+###### Benchmark Time
+
+Image Full Tag | OS | Size | Packages | Anchore | Vuls
+---------------|----|------|----------|---------|------
+neurodata/ndmg                                                                 | ubuntu14.04    | 794 MB | 537 installed | 07:43 | TBA
+mcin/qeeg                                                                      | centos7.4.1708 | 2 GB   | 171 installed, 82 updatable | 18:45 | TBA
+mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB   | 159 installed, 116 updatable | 18:46 | TBA
+mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB   | 143 installed, 104 updatable  | 18:40 | TBA
+boutiques/example1                                                             | centos7.5.1804 | 75 MB   | 144 installed, 2 updatable | 03:46 | TBA
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4 GB   | 240 installed | 24:19 | TBA
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8 GB   | 254 installed | 59:52 | TBA
+bids/example                                                                   | ubuntu14.04    | 461 MB | 527 installed | 04:28 | TBA
 
 ---
 
