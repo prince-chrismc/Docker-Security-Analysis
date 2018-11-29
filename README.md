@@ -47,8 +47,8 @@ mcin/qeeg                                                                      |
 mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB | 159 installed, 116 updatable | TBA | TBA
 mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB | 143 installed, 104 updatable  | TBA | TBA
 boutiques/example1                                                             | centos7.5.1804 | 75 MB | 144 installed, 2 updatable | TBA | TBA
-bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          |
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   |
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | | 4 GB
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | | 8 GB
 
 - [Neuro Data](https://hub.docker.com/r/neurodata/ndmg/)
 - [Q EEG](https://hub.docker.com/r/mcin/qeeg/)
