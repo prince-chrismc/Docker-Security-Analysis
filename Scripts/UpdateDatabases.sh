@@ -10,3 +10,5 @@ docker run --rm -it     -v $PWD:/vuls     -v $PWD/goval-dictionary-log:/var/log/
 
 docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch redhat --after=2010-01-01
 docker run --rm -i      -v $PWD:/vuls     -v $PWD/goval-log:/var/log/gost                vuls/gost fetch debian
+
+docker run --rm -it     -v $PWD:/vuls     -v $PWD/go-exploitdb-log:/var/log/vuls         princechrismc/go-exploitdb fetch
