@@ -40,11 +40,23 @@ Tool | Related Post(s) | Comments
 
 ###### Benchmark Time
 
-Image Full Tag | Size | Packages | Anchore | Vuls
----------------|------|----------|---------|--------
-[Boutique Example](https://hub.docker.com/r/boutiques/example1/) | 75 MB | TBA | TBA | TBA
-[HPC Surfer:centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/) | 4 GB | TBA | TBA | TBA
-[HPC Surfer:centos7](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/) | 8 GB | TBA | TBA | TBA
+Image Full Tag | OS | Size | Packages | Anchore | Vuls
+---------------|----|------|----------|---------|------
+neurodata/ndmg                                                                 | ubuntu14.04 | 794 MB | 537 installed | TBA | TBA
+mcin/qeeg                                                                      | centos7.4.1708 | 2 GB | 171 installed, 82 updatable | TBA | TBA
+mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB | 159 installed, 116 updatable | TBA | TBA
+mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB | 143 installed, 104 updatable  | TBA | TBA
+boutiques/example1                                                             | centos7.5.1804 | 75 MB | 144 installed, 2 updatable | TBA | TBA
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          |
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   |
+
+- [Neuro Data](https://hub.docker.com/r/neurodata/ndmg/)
+- [Q EEG](https://hub.docker.com/r/mcin/qeeg/)
+- [ICA-AROMA](https://hub.docker.com/r/mcin/ica-aroma/)
+- [FSL image processing](https://hub.docker.com/r/mcin/docker-fsl/)
+- [Boutique Example](https://hub.docker.com/r/boutiques/example1/)
+- [HPC Surfer:centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
+- [HPC Surfer:centos7](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
 
 ---
 
