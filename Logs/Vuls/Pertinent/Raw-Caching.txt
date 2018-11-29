@@ -1,21 +1,21 @@
-cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     -v /etc/timezone:/etc/timezone:ro     vuls/vuls scan     -config=./config.toml --debug -containers-only
-[Nov 28 20:58:28]  INFO [localhost] Start scanning
-[Nov 28 20:58:28]  INFO [localhost] config: ./config.toml
-[Nov 28 20:58:28] DEBUG [localhost] map[string]config.ServerInfo{}
-[Nov 28 20:58:28]  INFO [localhost] Validating config...
-[Nov 28 20:58:28]  INFO [localhost] Detecting Server/Container OS...
-[Nov 28 20:58:28]  INFO [localhost] Detecting OS of servers...
-[Nov 28 20:58:28] DEBUG [localhost] Executing... ls /etc/debian_version
+cmcarthur@docker-engine-one:~/vuls$ docker run --rm -it     -v ~/.ssh:/root/.ssh:ro     -v $PWD:/vuls     -v $PWD/vuls-log:/var/log/vuls     -v /etc/localtime:/etc/localtime:ro     -v /etc/timezone:/etc/timezone:ro     princechrismc/vuls scan     -config=./config.toml -containers-only --debug
+[Nov 28 23:10:32]  INFO [localhost] Start scanning
+[Nov 28 23:10:32]  INFO [localhost] config: ./config.toml
+[Nov 28 23:10:32] DEBUG [localhost] map[string]config.ServerInfo{}
+[Nov 28 23:10:32]  INFO [localhost] Validating config...
+[Nov 28 23:10:32]  INFO [localhost] Detecting Server/Container OS...
+[Nov 28 23:10:32]  INFO [localhost] Detecting OS of servers...
+[Nov 28 23:10:32] DEBUG [localhost] Executing... ls /etc/debian_version
 cmcarthur@172.17.0.1's password:
-[Nov 28 20:58:32] DEBUG [localhost] execResult: servername: 172-17-0-1
+[Nov 28 23:10:35] DEBUG [localhost] execResult: servername: 172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; ls /etc/debian_version
   exitstatus: 0
   stdout: /etc/debian_version
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:32] DEBUG [localhost] Executing... cat /etc/issue
-[Nov 28 20:58:32] DEBUG [localhost] execResult: servername: 172-17-0-1
+[Nov 28 23:10:35] DEBUG [localhost] Executing... cat /etc/issue
+[Nov 28 23:10:35] DEBUG [localhost] execResult: servername: 172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; cat /etc/issue
   exitstatus: 0
   stdout: Ubuntu 16.04.3 LTS \n \l
@@ -23,8 +23,8 @@ cmcarthur@172.17.0.1's password:
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:32] DEBUG [localhost] Executing... lsb_release -ir
-[Nov 28 20:58:32] DEBUG [localhost] execResult: servername: 172-17-0-1
+[Nov 28 23:10:35] DEBUG [localhost] Executing... lsb_release -ir
+[Nov 28 23:10:35] DEBUG [localhost] execResult: servername: 172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; lsb_release -ir
   exitstatus: 0
   stdout: Distributor ID:       Ubuntu
@@ -32,16 +32,15 @@ Release:        16.04
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:32] DEBUG [localhost] Debian like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:32]  INFO [localhost] (1/1) Detected: 172-17-0-1: ubuntu 16.04
-[Nov 28 20:58:32]  INFO [localhost] Detecting OS of containers...
-[Nov 28 20:58:32] DEBUG [172-17-0-1] Executing... docker ps --format '{{.ID}} {{.Names}} {{.Image}}'
-[Nov 28 20:58:32] DEBUG [172-17-0-1] execResult: servername: 172-17-0-1
+[Nov 28 23:10:35] DEBUG [localhost] Debian like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:35]  INFO [localhost] (1/1) Detected: 172-17-0-1: ubuntu 16.04
+[Nov 28 23:10:35]  INFO [localhost] Detecting OS of containers...
+[Nov 28 23:10:35] DEBUG [172-17-0-1] Executing... docker ps --format '{{.ID}} {{.Names}} {{.Image}}'
+[Nov 28 23:10:36] DEBUG [172-17-0-1] execResult: servername: 172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker ps --format '{{.ID}} {{.Names}} {{.Image}}'
   exitstatus: 0
-  stdout: da89a029f012 nervous_hoover vuls/vuls
+  stdout: 81f824b15c4e goofy_dubinsky princechrismc/vuls
 29a3e1788ba5 eager_panini boutiques/example1
-db9d0dba88af fervent_bardeen ubuntu
 dfe4c5f7871e eager_aryabhata neurodata/ndmg
 ab1d17c4a270 dreamy_nightingale mcin/qeeg
 6d99f978e513 sleepy_hamilton mcin/ica-aroma
@@ -51,200 +50,163 @@ bf9d2b9ff444 vigilant_panini mcin/docker-fsl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:32] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:33] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/debian_version'
+[Nov 28 23:10:36] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:36] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 1
   stdout: ls: /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:33] DEBUG [localhost] Not Debian like Linux. execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/debian_version'
+[Nov 28 23:10:36] DEBUG [localhost] Not Debian like Linux. execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 1
   stdout: ls: /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:33] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:33] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/fedora-release'
+[Nov 28 23:10:36] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:36] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 1
   stdout: ls: /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:33] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:33] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/oracle-release'
+[Nov 28 23:10:36] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:37] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 1
   stdout: ls: /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:33] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:34] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/centos-release'
+[Nov 28 23:10:37] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:37] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 1
   stdout: ls: /etc/centos-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:34] DEBUG [localhost] Executing... ls /etc/redhat-release
-[Nov 28 20:58:34] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/redhat-release'
+[Nov 28 23:10:37] DEBUG [localhost] Executing... ls /etc/redhat-release
+[Nov 28 23:10:37] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/redhat-release'
   exitstatus: 1
   stdout: ls: /etc/redhat-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:34] DEBUG [localhost] Executing... ls /etc/system-release
-[Nov 28 20:58:34] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/system-release'
+[Nov 28 23:10:37] DEBUG [localhost] Executing... ls /etc/system-release
+[Nov 28 23:10:38] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/system-release'
   exitstatus: 1
   stdout: ls: /etc/system-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:34] DEBUG [localhost] Not RedHat like Linux. servername: 172-17-0-1
-[Nov 28 20:58:34] DEBUG [localhost] Executing... ls /etc/os-release
-[Nov 28 20:58:35] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/os-release'
+[Nov 28 23:10:38] DEBUG [localhost] Not RedHat like Linux. servername: 172-17-0-1
+[Nov 28 23:10:38] DEBUG [localhost] Executing... ls /etc/os-release
+[Nov 28 23:10:38] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/os-release'
   exitstatus: 0
   stdout: /etc/os-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:35] DEBUG [localhost] Executing... zypper -V
-[Nov 28 20:58:35] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'zypper -V'
+[Nov 28 23:10:38] DEBUG [localhost] Executing... zypper -V
+[Nov 28 23:10:38] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'zypper -V'
   exitstatus: 127
   stdout: /bin/sh: zypper: not found
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:35] DEBUG [localhost] Not SUSE Linux. servername: 172-17-0-1
-[Nov 28 20:58:35] DEBUG [localhost] Executing... uname
-[Nov 28 20:58:35] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'uname'
+[Nov 28 23:10:38] DEBUG [localhost] Not SUSE Linux. servername: 172-17-0-1
+[Nov 28 23:10:38] DEBUG [localhost] Executing... uname
+[Nov 28 23:10:39] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'uname'
   exitstatus: 0
   stdout: Linux
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:35] DEBUG [localhost] Not FreeBSD. servernam: 172-17-0-1
-[Nov 28 20:58:35] DEBUG [localhost] Executing... ls /etc/alpine-release
-[Nov 28 20:58:35] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'ls /etc/alpine-release'
+[Nov 28 23:10:39] DEBUG [localhost] Not FreeBSD. servernam: 172-17-0-1
+[Nov 28 23:10:39] DEBUG [localhost] Executing... ls /etc/alpine-release
+[Nov 28 23:10:39] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'ls /etc/alpine-release'
   exitstatus: 0
   stdout: /etc/alpine-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:35] DEBUG [localhost] Executing... cat /etc/alpine-release
-[Nov 28 20:58:36] DEBUG [localhost] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'cat /etc/alpine-release'
+[Nov 28 23:10:39] DEBUG [localhost] Executing... cat /etc/alpine-release
+[Nov 28 23:10:39] DEBUG [localhost] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'cat /etc/alpine-release'
   exitstatus: 0
   stdout: 3.7.1
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:36] DEBUG [localhost] Alpine. Host: 172.17.0.1:22
-[Nov 28 20:58:36] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:36] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:39] DEBUG [localhost] Alpine. Host: 172.17.0.1:22
+[Nov 28 23:10:39] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:39] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:36] DEBUG [localhost] Not Debian like Linux. execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:39] DEBUG [localhost] Not Debian like Linux. execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:36] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:36] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:39] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:40] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:36] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:37] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:40] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:40] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:37] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:37] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:40] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:40] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:37] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:37] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:40] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:41] DEBUG [localhost] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.5.1804 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:37] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:37] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:38] DEBUG [localhost] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'ls /etc/debian_version'
-  exitstatus: 0
-  stdout: /etc/debian_version
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:38] DEBUG [localhost] Executing... cat /etc/issue
-[Nov 28 20:58:38] DEBUG [localhost] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'cat /etc/issue'
-  exitstatus: 0
-  stdout: Ubuntu 18.04.1 LTS \n \l
-
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:38] DEBUG [localhost] Executing... lsb_release -ir
-[Nov 28 20:58:38] DEBUG [localhost] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'lsb_release -ir'
-  exitstatus: 127
-  stdout: /bin/sh: 1: lsb_release: not found
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:38] DEBUG [localhost] Executing... cat /etc/lsb-release
-[Nov 28 20:58:38] DEBUG [localhost] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'cat /etc/lsb-release'
-  exitstatus: 0
-  stdout: DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=18.04
-DISTRIB_CODENAME=bionic
-DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:38] DEBUG [localhost] Debian like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:38] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:39] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:41] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:41] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:41] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 0
   stdout: /etc/debian_version
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:39] DEBUG [localhost] Executing... cat /etc/issue
-[Nov 28 20:58:39] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:41] DEBUG [localhost] Executing... cat /etc/issue
+[Nov 28 23:10:41] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'cat /etc/issue'
   exitstatus: 0
   stdout: Ubuntu 14.04.5 LTS \n \l
@@ -252,8 +214,8 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:39] DEBUG [localhost] Executing... lsb_release -ir
-[Nov 28 20:58:39] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:41] DEBUG [localhost] Executing... lsb_release -ir
+[Nov 28 23:10:42] DEBUG [localhost] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'lsb_release -ir'
   exitstatus: 0
   stdout: Distributor ID:       Ubuntu
@@ -261,384 +223,367 @@ Release:        14.04
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:39] DEBUG [localhost] Debian like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:39] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:40] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:42] DEBUG [localhost] Debian like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:42] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:42] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:40] DEBUG [localhost] Not Debian like Linux. execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:42] DEBUG [localhost] Not Debian like Linux. execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:40] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:40] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:42] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:42] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:40] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:40] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:42] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:43] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:40] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:41] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:43] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:43] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:41] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:41] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:43] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:43] DEBUG [localhost] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.4.1708 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:41] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:41] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:41] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:43] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:43] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:44] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:41] DEBUG [localhost] Not Debian like Linux. execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:44] DEBUG [localhost] Not Debian like Linux. execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:41] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:42] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:44] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:44] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:42] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:42] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:44] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:44] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:42] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:42] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:44] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:45] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:42] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:42] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:45] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:45] DEBUG [localhost] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.2.1511 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:42] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:42] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:43] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:45] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:45] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:45] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:43] DEBUG [localhost] Not Debian like Linux. execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:45] DEBUG [localhost] Not Debian like Linux. execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:43] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:43] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:45] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:45] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:43] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:43] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:45] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:46] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:43] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:44] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:46] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:46] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:44] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:44] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:10:46] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:46] DEBUG [localhost] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.2.1511 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:44] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:44] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:44] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:46] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:46] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:47] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:44] DEBUG [localhost] Not Debian like Linux. execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:47] DEBUG [localhost] Not Debian like Linux. execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:44] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:45] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:47] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:47] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:45] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:45] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:47] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:47] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:45] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:45] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:47] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:48] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:45] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:45] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:48] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:48] DEBUG [localhost] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.4.1708 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:45] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:45] DEBUG [localhost] Executing... ls /etc/debian_version
-[Nov 28 20:58:46] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:48] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:48] DEBUG [localhost] Executing... ls /etc/debian_version
+[Nov 28 23:10:48] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:46] DEBUG [localhost] Not Debian like Linux. execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:48] DEBUG [localhost] Not Debian like Linux. execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'ls /etc/debian_version'
   exitstatus: 2
   stdout: ls: cannot access /etc/debian_version: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:46] DEBUG [localhost] Executing... ls /etc/fedora-release
-[Nov 28 20:58:46] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:48] DEBUG [localhost] Executing... ls /etc/fedora-release
+[Nov 28 23:10:49] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'ls /etc/fedora-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/fedora-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:46] DEBUG [localhost] Executing... ls /etc/oracle-release
-[Nov 28 20:58:46] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:49] DEBUG [localhost] Executing... ls /etc/oracle-release
+[Nov 28 23:10:49] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'ls /etc/oracle-release'
   exitstatus: 2
   stdout: ls: cannot access /etc/oracle-release: No such file or directory
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:46] DEBUG [localhost] Executing... ls /etc/centos-release
-[Nov 28 20:58:47] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:49] DEBUG [localhost] Executing... ls /etc/centos-release
+[Nov 28 23:10:49] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'ls /etc/centos-release'
   exitstatus: 0
   stdout: /etc/centos-release
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:47] DEBUG [localhost] Executing... cat /etc/centos-release
-[Nov 28 20:58:47] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:49] DEBUG [localhost] Executing... cat /etc/centos-release
+[Nov 28 23:10:49] DEBUG [localhost] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'cat /etc/centos-release'
   exitstatus: 0
   stdout: CentOS Linux release 7.4.1708 (Core)
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:47] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
-[Nov 28 20:58:47]  INFO [localhost] Detected: nervous_hoover@172-17-0-1: alpine 3.7.1
-[Nov 28 20:58:47]  INFO [localhost] Detected: eager_panini@172-17-0-1: centos 7.5.1804
-[Nov 28 20:58:47]  INFO [localhost] Detected: fervent_bardeen@172-17-0-1: ubuntu 18.04
-[Nov 28 20:58:47]  INFO [localhost] Detected: eager_aryabhata@172-17-0-1: ubuntu 14.04
-[Nov 28 20:58:47]  INFO [localhost] Detected: dreamy_nightingale@172-17-0-1: centos 7.4.1708
-[Nov 28 20:58:47]  INFO [localhost] Detected: sleepy_hamilton@172-17-0-1: centos 7.2.1511
-[Nov 28 20:58:47]  INFO [localhost] Detected: vigilant_panini@172-17-0-1: centos 7.2.1511
-[Nov 28 20:58:47]  INFO [localhost] Detected: happy_yonath@172-17-0-1: centos 7.4.1708
-[Nov 28 20:58:47]  INFO [localhost] Detected: tender_davinci@172-17-0-1: centos 7.4.1708
-[Nov 28 20:58:47]  INFO [localhost] Checking Scan Modes...
-[Nov 28 20:58:47]  INFO [localhost] Detecting Platforms...
-[Nov 28 20:58:47] DEBUG [tender_davinci@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [nervous_hoover@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [fervent_bardeen@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [eager_aryabhata@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [dreamy_nightingale@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [vigilant_panini@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [happy_yonath@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [eager_panini@172-17-0-1] Executing... type curl
-[Nov 28 20:58:47] DEBUG [sleepy_hamilton@172-17-0-1] Executing... type curl
-[Nov 28 20:58:48] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:10:49] DEBUG [localhost] Redhat like Linux. Host: 172.17.0.1:22
+[Nov 28 23:10:49]  INFO [localhost] Detected: goofy_dubinsky@172-17-0-1: alpine 3.7.1
+[Nov 28 23:10:49]  INFO [localhost] Detected: eager_panini@172-17-0-1: centos 7.5.1804
+[Nov 28 23:10:49]  INFO [localhost] Detected: eager_aryabhata@172-17-0-1: ubuntu 14.04
+[Nov 28 23:10:49]  INFO [localhost] Detected: dreamy_nightingale@172-17-0-1: centos 7.4.1708
+[Nov 28 23:10:49]  INFO [localhost] Detected: sleepy_hamilton@172-17-0-1: centos 7.2.1511
+[Nov 28 23:10:49]  INFO [localhost] Detected: vigilant_panini@172-17-0-1: centos 7.2.1511
+[Nov 28 23:10:49]  INFO [localhost] Detected: happy_yonath@172-17-0-1: centos 7.4.1708
+[Nov 28 23:10:49]  INFO [localhost] Detected: tender_davinci@172-17-0-1: centos 7.4.1708
+[Nov 28 23:10:49]  INFO [localhost] Checking Scan Modes...
+[Nov 28 23:10:49]  INFO [localhost] Detecting Platforms...
+[Nov 28 23:10:49] DEBUG [tender_davinci@172-17-0-1] Executing... type curl
+[Nov 28 23:10:49] DEBUG [goofy_dubinsky@172-17-0-1] Executing... type curl
+[Nov 28 23:10:49] DEBUG [eager_panini@172-17-0-1] Executing... type curl
+[Nov 28 23:10:49] DEBUG [eager_aryabhata@172-17-0-1] Executing... type curl
+[Nov 28 23:10:50] DEBUG [sleepy_hamilton@172-17-0-1] Executing... type curl
+[Nov 28 23:10:50] DEBUG [vigilant_panini@172-17-0-1] Executing... type curl
+[Nov 28 23:10:50] DEBUG [dreamy_nightingale@172-17-0-1] Executing... type curl
+[Nov 28 23:10:50] DEBUG [happy_yonath@172-17-0-1] Executing... type curl
+[Nov 28 23:10:51] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'type curl'
   exitstatus: 0
   stdout: curl is /usr/bin/curl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:48] DEBUG [tender_davinci@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'type curl'
-  exitstatus: 0
-  stdout: curl is /usr/bin/curl
+[Nov 28 23:10:51] DEBUG [tender_davinci@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:51] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'type curl'
+  exitstatus: 127
+  stdout: curl: not found
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [vigilant_panini@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:51] DEBUG [goofy_dubinsky@172-17-0-1] Executing... type wget
+[Nov 28 23:10:52] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'type curl'
   exitstatus: 127
   stdout: curl: not found
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [eager_aryabhata@172-17-0-1] Executing... type wget
-[Nov 28 20:58:50] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'type curl'
-  exitstatus: 127
-  stdout: curl: not found
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [nervous_hoover@172-17-0-1] Executing... type wget
-[Nov 28 20:58:50] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'type curl'
-  exitstatus: 127
-  stdout: curl: not found
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [fervent_bardeen@172-17-0-1] Executing... type wget
-[Nov 28 20:58:50] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'type curl'
-  exitstatus: 0
-  stdout: curl is /usr/bin/curl
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [sleepy_hamilton@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:10:52] DEBUG [eager_aryabhata@172-17-0-1] Executing... type wget
+[Nov 28 23:10:52] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'type curl'
   exitstatus: 0
   stdout: curl is /usr/bin/curl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [dreamy_nightingale@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:52] DEBUG [dreamy_nightingale@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'type curl'
   exitstatus: 0
   stdout: curl is /usr/bin/curl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [happy_yonath@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+[Nov 28 23:10:53] DEBUG [happy_yonath@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'type curl'
   exitstatus: 0
   stdout: curl is /usr/bin/curl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:50] DEBUG [eager_panini@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:50] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
-  exitstatus: 28
-  stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-curl: (28) Connection timed out after 1001 milliseconds
+[Nov 28 23:10:53] DEBUG [eager_panini@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'type curl'
+  exitstatus: 0
+  stdout: curl is /usr/bin/curl
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:51] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:53] DEBUG [sleepy_hamilton@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'type curl'
+  exitstatus: 0
+  stdout: curl is /usr/bin/curl
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:10:53] DEBUG [vigilant_panini@172-17-0-1] Executing... curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'type wget'
+  exitstatus: 0
+  stdout: wget is /usr/bin/wget
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:10:53] DEBUG [goofy_dubinsky@172-17-0-1] Executing... wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:53] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'type wget'
   exitstatus: 0
   stdout: wget is /usr/bin/wget
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:51] DEBUG [eager_aryabhata@172-17-0-1] Executing... wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:52] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'type wget'
-  exitstatus: 0
-  stdout: wget is /usr/bin/wget
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:52] DEBUG [nervous_hoover@172-17-0-1] Executing... wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id
-[Nov 28 20:58:52] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
+[Nov 28 23:10:53] DEBUG [eager_aryabhata@172-17-0-1] Executing... wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id
+[Nov 28 23:10:54] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 28
   stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-curl: (28) Connection timed out after 1001 milliseconds
+curl: (28) Connection timed out after 1011 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'type wget'
-  exitstatus: 127
-  stdout: wget: not found
+[Nov 28 23:10:55] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
+  exitstatus: 28
+  stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+curl: (28) Connection timed out after 1000 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id'
+[Nov 28 23:10:55] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 1
   stdout: wget: unrecognized option: no-proxy
 BusyBox v1.27.2 (2018-06-06 09:08:44 UTC) multi-call binary.
@@ -661,17 +606,7 @@ Retrieve files via HTTP or FTP
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
-  exitstatus: 28
-  stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-curl: (28) Connection timed out after 1001 milliseconds
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:10:55] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 28
   stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -681,62 +616,140 @@ curl: (28) Connection timed out after 1001 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
+[Nov 28 23:10:56] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 28
   stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-curl: (28) Connection timed out after 1008 milliseconds
+curl: (28) Connection timed out after 1042 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:53] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:10:56] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 28
   stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-curl: (28) Connection timed out after 1003 milliseconds
+curl: (28) Connection timed out after 1012 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:58] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:10:56] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'curl --max-time 1 --noproxy 169.254.169.254 http://169.254.169.254/latest/meta-data/instance-id'
+  exitstatus: 28
+  stdout:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+curl: (28) Connection timed out after 1000 milliseconds
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:01] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'wget --tries=3 --timeout=1 --no-proxy -q -O - http://169.254.169.254/latest/meta-data/instance-id'
   exitstatus: 4
   stdout:
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:58:58]  INFO [localhost] (1/9) tender_davinci on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (2/9) vigilant_panini on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (3/9) fervent_bardeen on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (4/9) nervous_hoover on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (5/9) dreamy_nightingale on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (6/9) happy_yonath on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (7/9) eager_panini on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (8/9) sleepy_hamilton on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] (9/9) eager_aryabhata on 172-17-0-1 is running on other
-[Nov 28 20:58:58]  INFO [localhost] Scanning vulnerabilities...
-[Nov 28 20:58:58]  INFO [localhost] Scanning vulnerable OS packages...
-[Nov 28 20:58:58]  INFO [eager_aryabhata@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [eager_aryabhata@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [tender_davinci@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [tender_davinci@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [vigilant_panini@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [vigilant_panini@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [fervent_bardeen@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [fervent_bardeen@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [nervous_hoover@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [nervous_hoover@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [dreamy_nightingale@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [dreamy_nightingale@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [happy_yonath@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [happy_yonath@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [eager_panini@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [eager_panini@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:58:58]  INFO [sleepy_hamilton@172-17-0-1] Scanning in fast mode
-[Nov 28 20:58:58] DEBUG [sleepy_hamilton@172-17-0-1] Executing... /sbin/ip -o addr
-[Nov 28 20:59:00] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:11:01]  INFO [localhost] (1/8) tender_davinci on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (2/8) dreamy_nightingale on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (3/8) goofy_dubinsky on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (4/8) happy_yonath on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (5/8) vigilant_panini on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (6/8) sleepy_hamilton on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (7/8) eager_panini on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] (8/8) eager_aryabhata on 172-17-0-1 is running on other
+[Nov 28 23:11:01]  INFO [localhost] Scanning vulnerabilities...
+[Nov 28 23:11:01]  INFO [localhost] Scanning vulnerable OS packages...
+[Nov 28 23:11:01]  INFO [eager_aryabhata@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [eager_aryabhata@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [tender_davinci@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [tender_davinci@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [dreamy_nightingale@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [dreamy_nightingale@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [goofy_dubinsky@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [goofy_dubinsky@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [happy_yonath@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [happy_yonath@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [vigilant_panini@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [vigilant_panini@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [sleepy_hamilton@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [sleepy_hamilton@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:01]  INFO [eager_panini@172-17-0-1] Scanning in fast mode
+[Nov 28 23:11:01] DEBUG [eager_panini@172-17-0-1] Executing... /sbin/ip -o addr
+[Nov 28 23:11:02] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:02] DEBUG [tender_davinci@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: tender_davinci@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:02] DEBUG [tender_davinci@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [vigilant_panini@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [vigilant_panini@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 0
+  stdout: 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1\    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
+105: eth0@if106: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP \    link/ether 02:42:ac:11:00:08 brd ff:ff:ff:ff:ff:ff
+105: eth0    inet 172.17.0.8/16 brd 172.17.255.255 scope global eth0\       valid_lft forever preferred_lft forever
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [goofy_dubinsky@172-17-0-1] Executing... apk update
+[Nov 28 23:11:03] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [sleepy_hamilton@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [sleepy_hamilton@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [dreamy_nightingale@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [dreamy_nightingale@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c '/sbin/ip -o addr'
   exitstatus: 0
   stdout: 1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
@@ -744,141 +757,95 @@ curl: (28) Connection timed out after 1003 milliseconds
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:00] DEBUG [eager_aryabhata@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:01] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c '/sbin/ip -o addr'
+[Nov 28 23:11:03] DEBUG [eager_aryabhata@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [eager_panini@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [eager_panini@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:03] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [happy_yonath@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: happy_yonath@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c '/sbin/ip -o addr'
+  exitstatus: 127
+  stdout: /bin/sh: /sbin/ip: No such file or directory
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:03] DEBUG [happy_yonath@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:04] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'uname -r'
   exitstatus: 0
-  stdout: 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1\    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
-91: eth0@if92: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP \    link/ether 02:42:ac:11:00:0a brd ff:ff:ff:ff:ff:ff
-91: eth0    inet 172.17.0.10/16 brd 172.17.255.255 scope global eth0\       valid_lft forever preferred_lft forever
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [nervous_hoover@172-17-0-1] Executing... apk update
-[Nov 28 20:59:01] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: 1: /sbin/ip: not found
+[Nov 28 23:11:04] DEBUG [tender_davinci@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:04] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [fervent_bardeen@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: 1: /sbin/ip: not found
+[Nov 28 23:11:04] DEBUG [vigilant_panini@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:06] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [fervent_bardeen@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:01] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
+[Nov 28 23:11:06] DEBUG [sleepy_hamilton@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:06] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [dreamy_nightingale@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
+[Nov 28 23:11:06] DEBUG [eager_panini@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:06] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [dreamy_nightingale@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:01] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
+[Nov 28 23:11:06] DEBUG [happy_yonath@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:07] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [vigilant_panini@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [vigilant_panini@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:01] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:11:07] DEBUG [dreamy_nightingale@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
+[Nov 28 23:11:07] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'uname -r'
   exitstatus: 0
   stdout: 4.4.0-87-generic
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [eager_aryabhata@172-17-0-1] Executing... test -f /var/run/reboot-required
-[Nov 28 20:59:01] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [sleepy_hamilton@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: sleepy_hamilton@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:01] DEBUG [sleepy_hamilton@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:02] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [happy_yonath@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: happy_yonath@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [happy_yonath@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:02] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [tender_davinci@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [tender_davinci@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:02] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [eager_panini@172-17-0-1] Failed to detect IP addresses: Failed to detect IP address: execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c '/sbin/ip -o addr'
-  exitstatus: 127
-  stdout: /bin/sh: /sbin/ip: No such file or directory
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:02] DEBUG [eager_panini@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:03] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:03] DEBUG [fervent_bardeen@172-17-0-1] Executing... test -f /var/run/reboot-required
-[Nov 28 20:59:03] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'apk update'
+[Nov 28 23:11:07] DEBUG [eager_aryabhata@172-17-0-1] Executing... test -f /var/run/reboot-required
+[Nov 28 23:11:08] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'apk update'
   exitstatus: 0
   stdout: fetch http://dl-cdn.alpinelinux.org/alpine/v3.7/main/x86_64/APKINDEX.tar.gz
 fetch http://dl-cdn.alpinelinux.org/alpine/v3.7/community/x86_64/APKINDEX.tar.gz
@@ -888,257 +855,326 @@ OK: 9050 distinct packages available
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:03] DEBUG [nervous_hoover@172-17-0-1] Executing... uname -r
-[Nov 28 20:59:04] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:04] DEBUG [dreamy_nightingale@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [sleepy_hamilton@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:11:08] DEBUG [goofy_dubinsky@172-17-0-1] Executing... uname -r
+[Nov 28 23:11:09] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'test -f /var/run/reboot-required'
   exitstatus: 1
   stdout:
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [eager_aryabhata@172-17-0-1] Executing... dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n"
-[Nov 28 20:59:05] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [vigilant_panini@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [tender_davinci@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [eager_panini@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [happy_yonath@172-17-0-1] Executing... rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}"
-[Nov 28 20:59:05] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'test -f /var/run/reboot-required'
-  exitstatus: 1
-  stdout:
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [fervent_bardeen@172-17-0-1] Executing... dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n"
-[Nov 28 20:59:05] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'uname -r'
-  exitstatus: 0
-  stdout: 4.4.0-87-generic
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:05] DEBUG [nervous_hoover@172-17-0-1] Executing... apk info -v
-[Nov 28 20:59:07] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
+[Nov 28 23:11:09] DEBUG [eager_aryabhata@172-17-0-1] Executing... dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n"
+[Nov 28 23:11:09] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
 "'
   exitstatus: 0
-  stdout: centos-release 0 7 4.1708.el7.centos x86_64
-filesystem 0 3.2 21.el7 x86_64
-glibc-common 0 2.17 196.el7_4.2 x86_64
-nspr 0 4.13.1 1.0.el7_3 x86_64
-ncurses-libs 0 5.9 14.20130511.el7_4 x86_64
-libsepol 0 2.5 6.el7 x86_64
-libselinux 0 2.5 11.el7 x86_64
-info 0 5.1 4.el7 x86_64
-popt 0 1.13 16.el7 x86_64
-nss-util 0 3.28.4 3.el7 x86_64
-elfutils-libelf 0 0.168 8.el7 x86_64
-libgpg-error 0 1.12 3.el7 x86_64
-libacl 0 2.2.51 12.el7 x86_64
-libxml2 0 2.9.1 6.el7_2.3 x86_64
-libgcrypt 0 1.5.3 14.el7 x86_64
-lua 0 5.1.4 15.el7 x86_64
-cpio 0 2.11 25.el7_4 x86_64
-sqlite 0 3.7.17 8.el7 x86_64
-gawk 0 4.0.2 4.el7_3.1 x86_64
-diffutils 0 3.3 4.el7 x86_64
-expat 0 2.1.0 10.el7_3 x86_64
-libcap-ng 0 0.7.5 4.el7 x86_64
-nss-softokn 0 3.28.3 8.el7_4 x86_64
-p11-kit 0 0.23.5 3.el7 x86_64
-file-libs 0 5.11 33.el7 x86_64
-tar 2 1.26 32.el7 x86_64
-pinentry 0 0.8.1 17.el7 x86_64
-elfutils-default-yama-scope 0 0.168 8.el7 noarch
-ncurses 0 5.9 14.20130511.el7_4 x86_64
-libsemanage 0 2.5 8.el7 x86_64
-libtasn1 0 4.10 1.el7 x86_64
-ca-certificates 0 2017.2.14 71.el7 noarch
-openssl-libs 1 1.0.2k 8.el7 x86_64
-shadow-utils 2 4.1.5.1 24.el7 x86_64
-libmount 0 2.23.2 43.el7_4.2 x86_64
-shared-mime-info 0 1.8 3.el7 x86_64
-cracklib 0 2.9.0 11.el7 x86_64
-libpwquality 0 1.2.3 4.el7 x86_64
-pkgconfig 1 0.27.1 4.el7 x86_64
-dbus-glib 0 0.100 7.el7 x86_64
-libutempter 0 1.1.6 4.el7 x86_64
-nss-pem 0 1.0.3 4.el7 x86_64
-nss-sysinit 0 3.28.4 15.el7_4 x86_64
-libssh2 0 1.4.3 10.el7_2.1 x86_64
-curl 0 7.29.0 42.el7_4.1 x86_64
-rpm 0 4.11.3 25.el7 x86_64
-libuser 0 0.60 7.el7_1 x86_64
-qrencode-libs 0 3.4.1 3.el7 x86_64
-device-mapper 7 1.02.140 8.el7 x86_64
-cryptsetup-libs 0 1.7.4 3.el7_4.1 x86_64
-dbus 1 1.6.12 17.el7 x86_64
-iputils 0 20160308 10.el7 x86_64
-python-libs 0 2.7.5 58.el7 x86_64
-libxml2-python 0 2.9.1 6.el7_2.3 x86_64
-python-iniparse 0 0.4 9.el7 noarch
-pyliblzma 0 0.5.3 11.el7 x86_64
-python-urlgrabber 0 3.10 8.el7 noarch
-python-chardet 0 2.2.1 1.el7_1 noarch
-hostname 0 3.13 3.el7 x86_64
-pth 0 2.0.7 23.el7 x86_64
-gpgme 0 1.3.2 5.el7 x86_64
-rpm-build-libs 0 4.11.3 25.el7 x86_64
-yum-plugin-fastestmirror 0 1.1.31 42.el7 noarch
-yum-utils 0 1.1.31 42.el7 noarch
-rootfiles 0 8.1 11.el7 noarch
-libdb 0 5.3.21 21.el7_4 x86_64
-kmod 0 20 15.el7_4.7 x86_64
-kmod-libs 0 20 15.el7_4.7 x86_64
-libdb-utils 0 5.3.21 21.el7_4 x86_64
-bind-license 32 9.9.4 51.el7_4.2 noarch
-kpartx 0 0.4.9 111.el7_4.2 x86_64
-libICE 0 1.0.9 9.el7 x86_64
-libSM 0 1.2.2 2.el7 x86_64
-libxcb 0 1.12 1.el7 x86_64
-libxcb-devel 0 1.12 1.el7 x86_64
-libxshmfence 0 1.2 1.el7 x86_64
-libX11 0 1.6.5 1.el7 x86_64
-libXt 0 1.1.5 3.el7 x86_64
-libXdamage 0 1.1.4 4.1.el7 x86_64
-libX11-devel 0 1.6.5 1.el7 x86_64
-hwdata 0 0.252 8.6.el7 x86_64
-libdrm 0 2.4.74 1.el7 x86_64
-libXt-devel 0 1.1.5 3.el7 x86_64
-wget 0 1.14 15.el7_4.1 x86_64
-libgcc 0 4.8.5 16.el7_4.1 x86_64
-setup 0 2.8.71 7.el7 noarch
+  stdout: centos-release 0 7 2.1511.el7.centos.2.10 x86_64
+filesystem 0 3.2 20.el7 x86_64
 basesystem 0 10.0 7.el7.centos noarch
-ncurses-base 0 5.9 14.20130511.el7_4 noarch
-nss-softokn-freebl 0 3.28.3 8.el7_4 x86_64
-glibc 0 2.17 196.el7_4.2 x86_64
-libstdc++ 0 4.8.5 16.el7_4.1 x86_64
-bash 0 4.2.46 29.el7_4 x86_64
-pcre 0 8.32 17.el7 x86_64
-zlib 0 1.2.7 17.el7 x86_64
-xz-libs 0 5.2.2 1.el7 x86_64
-bzip2-libs 0 1.0.6 13.el7 x86_64
-chkconfig 0 1.7.4 1.el7 x86_64
+ncurses-base 0 5.9 13.20130511.el7 noarch
+glibc-common 0 2.17 106.el7_2.6 x86_64
+xz-libs 0 5.1.2 12alpha.el7 x86_64
+ncurses-libs 0 5.9 13.20130511.el7 x86_64
+libsepol 0 2.1.9 3.el7 x86_64
+libselinux 0 2.2.2 6.el7 x86_64
+info 0 5.1 4.el7 x86_64
+libcom_err 0 1.42.9 7.el7 x86_64
+libdb 0 5.3.21 19.el7 x86_64
 sed 0 4.2.2 5.el7 x86_64
-libffi 0 3.0.13 18.el7 x86_64
-libattr 0 2.4.46 12.el7 x86_64
-libcap 0 2.22 9.el7 x86_64
-libcom_err 0 1.42.9 10.el7 x86_64
-readline 0 6.2 10.el7 x86_64
-grep 0 2.20 3.el7 x86_64
-libuuid 0 2.23.2 43.el7_4.2 x86_64
+nss-util 0 3.21.0 2.2.el7_2 x86_64
+audit-libs 0 2.4.1 5.el7 x86_64
+libffi 0 3.0.13 16.el7 x86_64
+libcap 0 2.22 8.el7 x86_64
+grep 0 2.20 2.el7 x86_64
+libuuid 0 2.23.2 26.el7_2.2 x86_64
+gawk 0 4.0.2 4.el7 x86_64
+lua 0 5.1.4 14.el7 x86_64
+sqlite 0 3.7.17 8.el7 x86_64
 libidn 0 1.28 4.el7 x86_64
-findutils 1 4.5.11 5.el7 x86_64
-dbus-libs 1 1.6.12 17.el7 x86_64
-audit-libs 0 2.7.6 3.el7 x86_64
+diffutils 0 3.3 4.el7 x86_64
+dbus-libs 1 1.6.12 13.el7 x86_64
+nss-softokn 0 3.16.2.3 14.2.el7_2 x86_64
 libassuan 0 2.1.0 3.el7 x86_64
-xz 0 5.2.2 1.el7 x86_64
+xz 0 5.1.2 12alpha.el7 x86_64
+hostname 0 3.13 3.el7 x86_64
+glib2 0 2.42.2 5.el7 x86_64
+shared-mime-info 0 1.1 9.el7 x86_64
+dbus-glib 0 0.100 7.el7 x86_64
+cyrus-sasl-lib 0 2.1.26 20.el7_2 x86_64
+libss 0 1.42.9 7.el7 x86_64
+kmod-libs 0 20 5.el7 x86_64
+gmp 1 6.0.0 12.el7_1 x86_64
+libverto 0 0.2.5 4.el7 x86_64
+libsemanage 0 2.1.10 18.el7 x86_64
+qrencode-libs 0 3.4.1 3.el7 x86_64
+gdbm 0 1.10 8.el7 x86_64
+libtasn1 0 3.8 2.el7 x86_64
+krb5-libs 0 1.13.2 12.el7_2 x86_64
+coreutils 0 8.22 15.el7_2.1 x86_64
+python-libs 0 2.7.5 34.el7 x86_64
+libblkid 0 2.23.2 26.el7_2.2 x86_64
+gzip 0 1.5 8.el7 x86_64
+cracklib-dicts 0 2.9.0 11.el7 x86_64
+libpwquality 0 1.2.3 4.el7 x86_64
+procps-ng 0 3.3.10 5.el7_2 x86_64
+libutempter 0 1.1.6 4.el7 x86_64
+yum-metadata-parser 0 1.1.4 10.el7 x86_64
+pyliblzma 0 0.5.3 11.el7 x86_64
+python-chardet 0 2.2.1 1.el7_1 noarch
+binutils 0 2.23.52.0.1 55.el7 x86_64
+nss-sysinit 0 3.21.0 9.el7_2 x86_64
+libssh2 0 1.4.3 10.el7_2.1 x86_64
+curl 0 7.29.0 25.el7.centos x86_64
+rpm 0 4.11.3 17.el7 x86_64
+libuser 0 0.60 7.el7_1 x86_64
+rpm-build-libs 0 4.11.3 17.el7 x86_64
+gpgme 0 1.3.2 5.el7 x86_64
+device-mapper 7 1.02.107 5.el7_2.2 x86_64
+cryptsetup-libs 0 1.6.7 1.el7 x86_64
+kmod 0 20 5.el7 x86_64
+dbus 1 1.6.12 13.el7 x86_64
+python-pycurl 0 7.19.0 17.el7 x86_64
+yum-plugin-fastestmirror 0 1.1.31 34.el7 noarch
+yum-plugin-ovl 0 1.1.31 34.el7 noarch
+passwd 0 0.79 4.el7 x86_64
+tar 2 1.26 29.el7 x86_64
+rootfiles 0 8.1 11.el7 noarch
+bc 0 1.06.95 13.el7 x86_64
+libgcc 0 4.8.5 4.el7 x86_64
+setup 0 2.8.71 6.el7 noarch
+bind-license 32 9.9.4 29.el7_2.3 noarch
+tzdata 0 2016d 1.el7 noarch
+nss-softokn-freebl 0 3.16.2.3 14.2.el7_2 x86_64
+glibc 0 2.17 106.el7_2.6 x86_64
+libstdc++ 0 4.8.5 4.el7 x86_64
+bash 0 4.2.46 19.el7 x86_64
+pcre 0 8.32 15.el7_2.1 x86_64
+zlib 0 1.2.7 15.el7 x86_64
+bzip2-libs 0 1.0.6 13.el7 x86_64
+popt 0 1.13 16.el7 x86_64
+chkconfig 0 1.3.61 5.el7_2.1 x86_64
+nspr 0 4.11.0 1.el7_2 x86_64
+elfutils-libelf 0 0.163 3.el7 x86_64
+libgpg-error 0 1.12 3.el7 x86_64
+libattr 0 2.4.46 12.el7 x86_64
+libacl 0 2.2.51 12.el7 x86_64
+libxml2 0 2.9.1 6.el7_2.2 x86_64
+libgcrypt 0 1.5.3 12.el7_1.1 x86_64
+readline 0 6.2 9.el7 x86_64
+cpio 0 2.11 24.el7 x86_64
+elfutils-libs 0 0.163 3.el7 x86_64
+findutils 1 4.5.11 5.el7 x86_64
+expat 0 2.1.0 8.el7 x86_64
+libcap-ng 0 0.7.5 4.el7 x86_64
+p11-kit 0 0.20.7 3.el7 x86_64
+file-libs 0 5.11 31.el7 x86_64
 keyutils-libs 0 1.5.8 3.el7 x86_64
+pkgconfig 1 0.27.1 4.el7 x86_64
+gobject-introspection 0 1.42.0 1.el7 x86_64
 acl 0 2.2.51 12.el7 x86_64
-cyrus-sasl-lib 0 2.1.26 21.el7 x86_64
-elfutils-libs 0 0.168 8.el7 x86_64
-gmp 1 6.0.0 15.el7 x86_64
+pinentry 0 0.8.1 14.el7 x86_64
+libdb-utils 0 5.3.21 19.el7 x86_64
+ncurses 0 5.9 13.20130511.el7 x86_64
+pth 0 2.0.7 23.el7 x86_64
 ustr 0 1.0.4 16.el7 x86_64
+hardlink 1 1.0 19.el7 x86_64
+p11-kit-trust 0 0.20.7 3.el7 x86_64
+openssl-libs 1 1.0.1e 51.el7_2.5 x86_64
+ca-certificates 0 2015.2.6 70.1.el7_2 noarch
+python 0 2.7.5 34.el7 x86_64
+shadow-utils 2 4.1.5.1 18.el7 x86_64
+cracklib 0 2.9.0 11.el7 x86_64
+pam 0 1.1.8 12.el7_1.1 x86_64
+systemd-libs 0 219 19.el7_2.9 x86_64
+libmount 0 2.23.2 26.el7_2.2 x86_64
+dbus-python 0 1.1.1 9.el7 x86_64
+python-iniparse 0 0.4 9.el7 noarch
+pygobject3-base 0 3.14.0 3.el7 x86_64
+pyxattr 0 0.5.1 5.el7 x86_64
+python-kitchen 0 1.1.1 5.el7 noarch
+nss 0 3.21.0 9.el7_2 x86_64
+nss-tools 0 3.21.0 9.el7_2 x86_64
+libcurl 0 7.29.0 25.el7.centos x86_64
+rpm-libs 0 4.11.3 17.el7 x86_64
+openldap 0 2.4.40 9.el7_2 x86_64
+util-linux 0 2.23.2 26.el7_2.2 x86_64
+gnupg2 0 2.0.22 3.el7 x86_64
+rpm-python 0 4.11.3 17.el7 x86_64
+pygpgme 0 0.3 9.el7 x86_64
+kpartx 0 0.4.9 85.el7_2.4 x86_64
+device-mapper-libs 7 1.02.107 5.el7_2.2 x86_64
+dracut 0 033 360.el7_2 x86_64
+systemd 0 219 19.el7_2.9 x86_64
+iputils 0 20121221 7.el7 x86_64
+python-urlgrabber 0 3.10 7.el7 noarch
+yum 0 3.4.3 132.el7.centos.0.1 noarch
+yum-utils 0 1.1.31 34.el7 noarch
+vim-minimal 2 7.4.160 1.el7 x86_64
+gpg-pubkey 0 f4a80eb5 53a7ff4b (none)
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:09] DEBUG [vigilant_panini@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:09] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'uname -r'
+  exitstatus: 0
+  stdout: 4.4.0-87-generic
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:09] DEBUG [goofy_dubinsky@172-17-0-1] Executing... apk info -v
+[Nov 28 23:11:10] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
+"'
+  exitstatus: 0
+  stdout: tzdata 0 2018e 3.el7 noarch
+nss-softokn-freebl 0 3.36.0 5.el7_5 x86_64
+ncurses 0 5.9 14.20130511.el7_4 x86_64
+glibc-common 0 2.17 222.el7 x86_64
+filesystem 0 3.2 25.el7 x86_64
+glibc 0 2.17 222.el7 x86_64
+nspr 0 4.19.0 1.el7_5 x86_64
+popt 0 1.13 16.el7 x86_64
+libffi 0 3.0.13 18.el7 x86_64
+libcap 0 2.22 9.el7 x86_64
+libsepol 0 2.5 8.1.el7 x86_64
+ncurses-libs 0 5.9 14.20130511.el7_4 x86_64
+gawk 0 4.0.2 4.el7_3.1 x86_64
+libselinux 0 2.5 12.el7 x86_64
+grep 0 2.20 3.el7 x86_64
+keyutils-libs 0 1.5.8 3.el7 x86_64
 libverto 0 0.2.5 4.el7 x86_64
 p11-kit-trust 0 0.23.5 3.el7 x86_64
-krb5-libs 0 1.15.1 8.el7 x86_64
-coreutils 0 8.22 18.el7 x86_64
-libblkid 0 2.23.2 43.el7_4.2 x86_64
-glib2 0 2.50.3 3.el7 x86_64
-gzip 0 1.5 9.el7 x86_64
-cracklib-dicts 0 2.9.0 11.el7 x86_64
-pam 0 1.1.8 18.el7 x86_64
-procps-ng 0 3.3.10 16.el7 x86_64
-gobject-introspection 0 1.50.0 1.el7 x86_64
-nss 0 3.28.4 15.el7_4 x86_64
-nss-tools 0 3.28.4 15.el7_4 x86_64
-libcurl 0 7.29.0 42.el7_4.1 x86_64
-rpm-libs 0 4.11.3 25.el7 x86_64
-openldap 0 2.4.44 5.el7 x86_64
-util-linux 0 2.23.2 43.el7_4.2 x86_64
-hardlink 1 1.0 19.el7 x86_64
-device-mapper-libs 7 1.02.140 8.el7 x86_64
-dracut 0 033 502.el7_4.1 x86_64
+openssl-libs 1 1.0.2k 12.el7 x86_64
+centos-release 0 7 5.1804.4.el7.centos x86_64
+xz-libs 0 5.2.2 1.el7 x86_64
+libdb 0 5.3.21 24.el7 x86_64
+libgpg-error 0 1.12 3.el7 x86_64
+libgcrypt 0 1.5.3 14.el7 x86_64
+lua 0 5.1.4 15.el7 x86_64
+libuuid 0 2.23.2 52.el7_5.1 x86_64
+libmount 0 2.23.2 52.el7_5.1 x86_64
+shared-mime-info 0 1.8 4.el7 x86_64
+gzip 0 1.5 10.el7 x86_64
+findutils 1 4.5.11 5.el7 x86_64
+diffutils 0 3.3 4.el7 x86_64
+expat 0 2.1.0 10.el7_3 x86_64
+audit-libs 0 2.8.1 3.el7_5.1 x86_64
+pam 0 1.1.8 22.el7 x86_64
+nss-softokn 0 3.36.0 5.el7_5 x86_64
+nss 0 3.36.0 7.el7_5 x86_64
+libassuan 0 2.1.0 3.el7 x86_64
+file-libs 0 5.11 33.el7 x86_64
+pkgconfig 1 0.27.1 4.el7 x86_64
+cyrus-sasl-lib 0 2.1.26 23.el7 x86_64
+binutils 0 2.27 28.base.el7_5.1 x86_64
+libcurl 0 7.29.0 46.el7 x86_64
+rpm-libs 0 4.11.3 32.el7 x86_64
+openldap 0 2.4.44 15.el7_5 x86_64
+pinentry 0 0.8.1 17.el7 x86_64
+libsemanage 0 2.5 11.el7 x86_64
+libutempter 0 1.1.6 4.el7 x86_64
+qrencode-libs 0 3.4.1 3.el7 x86_64
+device-mapper 7 1.02.146 4.el7 x86_64
+procps-ng 0 3.3.10 17.el7_5.2 x86_64
+cryptsetup-libs 0 1.7.4 4.el7 x86_64
+kmod 0 20 21.el7 x86_64
+systemd-libs 0 219 57.el7_5.3 x86_64
+systemd 0 219 57.el7_5.3 x86_64
+dbus 1 1.10.24 7.el7 x86_64
+iputils 0 20160308 10.el7 x86_64
 gdbm 0 1.10 8.el7 x86_64
-python 0 2.7.5 58.el7 x86_64
+python 0 2.7.5 69.el7_5 x86_64
 dbus-python 0 1.1.1 9.el7 x86_64
+pyliblzma 0 0.5.3 11.el7 x86_64
+python-urlgrabber 0 3.10 8.el7 noarch
+pyxattr 0 0.5.1 5.el7 x86_64
+python-kitchen 0 1.1.1 5.el7 noarch
+gnupg2 0 2.0.22 5.el7_5 x86_64
+rpm-python 0 4.11.3 32.el7 x86_64
+pygpgme 0 0.3 9.el7 x86_64
+yum 0 3.4.3 158.el7.centos noarch
+yum-utils 0 1.1.31 46.el7_5 noarch
+vim-minimal 2 7.4.160 4.el7 x86_64
+libgcc 0 4.8.5 28.el7_5.1 x86_64
+ncurses-base 0 5.9 14.20130511.el7_4 noarch
+bash 0 4.2.46 30.el7 x86_64
+chkconfig 0 1.7.4 1.el7 x86_64
+setup 0 2.8.71 9.el7 noarch
+basesystem 0 10.0 7.el7.centos noarch
+zlib 0 1.2.7 17.el7 x86_64
+nss-util 0 3.36.0 1.el7_5 x86_64
+libcom_err 0 1.42.9 12.el7_5 x86_64
+libattr 0 2.4.46 13.el7 x86_64
+libacl 0 2.2.51 14.el7 x86_64
+libstdc++ 0 4.8.5 28.el7_5.1 x86_64
+info 0 5.1 5.el7 x86_64
+pcre 0 8.32 17.el7 x86_64
+sed 0 4.2.2 5.el7 x86_64
+p11-kit 0 0.23.5 3.el7 x86_64
+gmp 1 6.0.0 15.el7 x86_64
+libtasn1 0 4.10 1.el7 x86_64
+ca-certificates 0 2018.2.22 70.0.el7_5 noarch
+coreutils 0 8.22 21.el7 x86_64
+krb5-libs 0 1.15.1 19.el7 x86_64
+bzip2-libs 0 1.0.6 13.el7 x86_64
+elfutils-libelf 0 0.170 4.el7 x86_64
+libxml2 0 2.9.1 6.el7_2.3 x86_64
+readline 0 6.2 10.el7 x86_64
+cpio 0 2.11 27.el7 x86_64
+libblkid 0 2.23.2 52.el7_5.1 x86_64
+glib2 0 2.54.2 2.el7 x86_64
+sqlite 0 3.7.17 8.el7 x86_64
+cracklib 0 2.9.0 11.el7 x86_64
+libidn 0 1.28 4.el7 x86_64
+libcap-ng 0 0.7.5 4.el7 x86_64
+cracklib-dicts 0 2.9.0 11.el7 x86_64
+libpwquality 0 1.2.3 5.el7 x86_64
+nss-sysinit 0 3.36.0 7.el7_5 x86_64
+nss-pem 0 1.0.3 4.el7 x86_64
+xz 0 5.2.2 1.el7 x86_64
+lz4 0 1.7.5 2.el7 x86_64
+nss-tools 0 3.36.0 7.el7_5 x86_64
+gobject-introspection 0 1.50.0 1.el7 x86_64
+libdb-utils 0 5.3.21 24.el7 x86_64
+kmod-libs 0 20 21.el7 x86_64
+libssh2 0 1.4.3 10.el7_2.1 x86_64
+curl 0 7.29.0 46.el7 x86_64
+rpm 0 4.11.3 32.el7 x86_64
+libuser 0 0.60 9.el7 x86_64
+tar 2 1.26 34.el7 x86_64
+acl 0 2.2.51 14.el7 x86_64
+ustr 0 1.0.4 16.el7 x86_64
+shadow-utils 2 4.1.5.1 24.el7 x86_64
+hardlink 1 1.0 19.el7 x86_64
+util-linux 0 2.23.2 52.el7_5.1 x86_64
+kpartx 0 0.4.9 119.el7_5.1 x86_64
+device-mapper-libs 7 1.02.146 4.el7 x86_64
+dracut 0 033 535.el7_5.1 x86_64
+elfutils-libs 0 0.170 4.el7 x86_64
+dbus-libs 1 1.10.24 7.el7 x86_64
+elfutils-default-yama-scope 0 0.170 4.el7 noarch
+dbus-glib 0 0.100 7.el7 x86_64
+python-libs 0 2.7.5 69.el7_5 x86_64
+libxml2-python 0 2.9.1 6.el7_2.3 x86_64
 python-gobject-base 0 3.22.0 1.el7_4.1 x86_64
 yum-metadata-parser 0 1.1.4 10.el7 x86_64
 python-pycurl 0 7.19.0 19.el7 x86_64
-pyxattr 0 0.5.1 5.el7 x86_64
-python-kitchen 0 1.1.1 5.el7 noarch
-gnupg2 0 2.0.22 4.el7 x86_64
-pygpgme 0 0.3 9.el7 x86_64
-rpm-python 0 4.11.3 25.el7 x86_64
-yum-plugin-ovl 0 1.1.31 42.el7 noarch
+python-iniparse 0 0.4 9.el7 noarch
+python-chardet 0 2.2.1 1.el7_1 noarch
+hostname 0 3.13 3.el7 x86_64
+pth 0 2.0.7 23.el7 x86_64
+rpm-build-libs 0 4.11.3 32.el7 x86_64
+gpgme 0 1.3.2 5.el7 x86_64
+yum-plugin-fastestmirror 0 1.1.31 46.el7_5 noarch
+bind-license 32 9.9.4 61.el7_5.1 noarch
+yum-plugin-ovl 0 1.1.31 46.el7_5 noarch
 passwd 0 0.79 4.el7 x86_64
-vim-minimal 2 7.4.160 2.el7 x86_64
-gpg-pubkey 0 f4a80eb5 53a7ff4b (none)
-binutils 0 2.25.1 32.base.el7_4.2 x86_64
-systemd-libs 0 219 42.el7_4.7 x86_64
-systemd 0 219 42.el7_4.7 x86_64
-yum 0 3.4.3 154.el7.centos.1 noarch
-tzdata 0 2018c 1.el7 noarch
-xorg-x11-proto-devel 0 7.7 20.el7 noarch
-libICE-devel 0 1.0.9 9.el7 x86_64
-libXau 0 1.0.8 2.1.el7 x86_64
-libXau-devel 0 1.0.8 2.1.el7 x86_64
-libSM-devel 0 1.2.2 2.el7 x86_64
-libX11-common 0 1.6.5 1.el7 noarch
-libXext 0 1.3.3 3.el7 x86_64
-libXfixes 0 5.0.3 1.el7 x86_64
-libXxf86vm 0 1.1.4 1.el7 x86_64
-mesa-libglapi 0 17.0.1 6.20170307.el7 x86_64
-libpciaccess 0 0.13.4 3.1.el7_4 x86_64
-mesa-libGL 0 17.0.1 6.20170307.el7 x86_64
-libXmu 0 1.1.2 2.el7 x86_64
-unzip 0 6.0 16.el7 x86_64
+rootfiles 0 8.1 11.el7 noarch
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:07] DEBUG [dreamy_nightingale@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:08] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
+[Nov 28 23:11:10] DEBUG [eager_panini@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:11] DEBUG [eager_aryabhata@172-17-0-1] execResult: servername: eager_aryabhata@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 dfe4c5f7871e /bin/sh -c 'dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n"'
   exitstatus: 0
   stdout: adduser,ii ,3.113+nmu3ubuntu3,,3.113+nmu3ubuntu3
@@ -1681,7 +1717,7 @@ zlib1g-dev:amd64,ii ,1:1.2.8.dfsg-1ubuntu1,zlib,1:1.2.8.dfsg-1ubuntu1
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:08] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+[Nov 28 23:11:11] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
 "'
   exitstatus: 0
@@ -1847,461 +1883,16 @@ numpy-f2py 1 1.7.1 11.el7 x86_64
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:08] DEBUG [sleepy_hamilton@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:09] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
-"'
-  exitstatus: 0
-  stdout: centos-release 0 7 2.1511.el7.centos.2.10 x86_64
-filesystem 0 3.2 20.el7 x86_64
-basesystem 0 10.0 7.el7.centos noarch
-ncurses-base 0 5.9 13.20130511.el7 noarch
-glibc-common 0 2.17 106.el7_2.6 x86_64
-xz-libs 0 5.1.2 12alpha.el7 x86_64
-ncurses-libs 0 5.9 13.20130511.el7 x86_64
-libsepol 0 2.1.9 3.el7 x86_64
-libselinux 0 2.2.2 6.el7 x86_64
-info 0 5.1 4.el7 x86_64
-libcom_err 0 1.42.9 7.el7 x86_64
-libdb 0 5.3.21 19.el7 x86_64
-sed 0 4.2.2 5.el7 x86_64
-nss-util 0 3.21.0 2.2.el7_2 x86_64
-audit-libs 0 2.4.1 5.el7 x86_64
-libffi 0 3.0.13 16.el7 x86_64
-libcap 0 2.22 8.el7 x86_64
-grep 0 2.20 2.el7 x86_64
-libuuid 0 2.23.2 26.el7_2.2 x86_64
-gawk 0 4.0.2 4.el7 x86_64
-lua 0 5.1.4 14.el7 x86_64
-sqlite 0 3.7.17 8.el7 x86_64
-libidn 0 1.28 4.el7 x86_64
-diffutils 0 3.3 4.el7 x86_64
-dbus-libs 1 1.6.12 13.el7 x86_64
-nss-softokn 0 3.16.2.3 14.2.el7_2 x86_64
-libassuan 0 2.1.0 3.el7 x86_64
-xz 0 5.1.2 12alpha.el7 x86_64
-hostname 0 3.13 3.el7 x86_64
-glib2 0 2.42.2 5.el7 x86_64
-shared-mime-info 0 1.1 9.el7 x86_64
-dbus-glib 0 0.100 7.el7 x86_64
-cyrus-sasl-lib 0 2.1.26 20.el7_2 x86_64
-libss 0 1.42.9 7.el7 x86_64
-kmod-libs 0 20 5.el7 x86_64
-gmp 1 6.0.0 12.el7_1 x86_64
-libverto 0 0.2.5 4.el7 x86_64
-libsemanage 0 2.1.10 18.el7 x86_64
-qrencode-libs 0 3.4.1 3.el7 x86_64
-gdbm 0 1.10 8.el7 x86_64
-libtasn1 0 3.8 2.el7 x86_64
-krb5-libs 0 1.13.2 12.el7_2 x86_64
-coreutils 0 8.22 15.el7_2.1 x86_64
-python-libs 0 2.7.5 34.el7 x86_64
-libblkid 0 2.23.2 26.el7_2.2 x86_64
-gzip 0 1.5 8.el7 x86_64
-cracklib-dicts 0 2.9.0 11.el7 x86_64
-libpwquality 0 1.2.3 4.el7 x86_64
-procps-ng 0 3.3.10 5.el7_2 x86_64
-libutempter 0 1.1.6 4.el7 x86_64
-yum-metadata-parser 0 1.1.4 10.el7 x86_64
-pyliblzma 0 0.5.3 11.el7 x86_64
-python-chardet 0 2.2.1 1.el7_1 noarch
-binutils 0 2.23.52.0.1 55.el7 x86_64
-nss-sysinit 0 3.21.0 9.el7_2 x86_64
-libssh2 0 1.4.3 10.el7_2.1 x86_64
-curl 0 7.29.0 25.el7.centos x86_64
-rpm 0 4.11.3 17.el7 x86_64
-libuser 0 0.60 7.el7_1 x86_64
-rpm-build-libs 0 4.11.3 17.el7 x86_64
-gpgme 0 1.3.2 5.el7 x86_64
-device-mapper 7 1.02.107 5.el7_2.2 x86_64
-cryptsetup-libs 0 1.6.7 1.el7 x86_64
-kmod 0 20 5.el7 x86_64
-dbus 1 1.6.12 13.el7 x86_64
-python-pycurl 0 7.19.0 17.el7 x86_64
-yum-plugin-fastestmirror 0 1.1.31 34.el7 noarch
-yum-plugin-ovl 0 1.1.31 34.el7 noarch
-passwd 0 0.79 4.el7 x86_64
-tar 2 1.26 29.el7 x86_64
-rootfiles 0 8.1 11.el7 noarch
-bc 0 1.06.95 13.el7 x86_64
-libgcc 0 4.8.5 4.el7 x86_64
-setup 0 2.8.71 6.el7 noarch
-bind-license 32 9.9.4 29.el7_2.3 noarch
-tzdata 0 2016d 1.el7 noarch
-nss-softokn-freebl 0 3.16.2.3 14.2.el7_2 x86_64
-glibc 0 2.17 106.el7_2.6 x86_64
-libstdc++ 0 4.8.5 4.el7 x86_64
-bash 0 4.2.46 19.el7 x86_64
-pcre 0 8.32 15.el7_2.1 x86_64
-zlib 0 1.2.7 15.el7 x86_64
-bzip2-libs 0 1.0.6 13.el7 x86_64
-popt 0 1.13 16.el7 x86_64
-chkconfig 0 1.3.61 5.el7_2.1 x86_64
-nspr 0 4.11.0 1.el7_2 x86_64
-elfutils-libelf 0 0.163 3.el7 x86_64
-libgpg-error 0 1.12 3.el7 x86_64
-libattr 0 2.4.46 12.el7 x86_64
-libacl 0 2.2.51 12.el7 x86_64
-libxml2 0 2.9.1 6.el7_2.2 x86_64
-libgcrypt 0 1.5.3 12.el7_1.1 x86_64
-readline 0 6.2 9.el7 x86_64
-cpio 0 2.11 24.el7 x86_64
-elfutils-libs 0 0.163 3.el7 x86_64
-findutils 1 4.5.11 5.el7 x86_64
-expat 0 2.1.0 8.el7 x86_64
-libcap-ng 0 0.7.5 4.el7 x86_64
-p11-kit 0 0.20.7 3.el7 x86_64
-file-libs 0 5.11 31.el7 x86_64
-keyutils-libs 0 1.5.8 3.el7 x86_64
-pkgconfig 1 0.27.1 4.el7 x86_64
-gobject-introspection 0 1.42.0 1.el7 x86_64
-acl 0 2.2.51 12.el7 x86_64
-pinentry 0 0.8.1 14.el7 x86_64
-libdb-utils 0 5.3.21 19.el7 x86_64
-ncurses 0 5.9 13.20130511.el7 x86_64
-pth 0 2.0.7 23.el7 x86_64
-ustr 0 1.0.4 16.el7 x86_64
-hardlink 1 1.0 19.el7 x86_64
-p11-kit-trust 0 0.20.7 3.el7 x86_64
-openssl-libs 1 1.0.1e 51.el7_2.5 x86_64
-ca-certificates 0 2015.2.6 70.1.el7_2 noarch
-python 0 2.7.5 34.el7 x86_64
-shadow-utils 2 4.1.5.1 18.el7 x86_64
-cracklib 0 2.9.0 11.el7 x86_64
-pam 0 1.1.8 12.el7_1.1 x86_64
-systemd-libs 0 219 19.el7_2.9 x86_64
-libmount 0 2.23.2 26.el7_2.2 x86_64
-dbus-python 0 1.1.1 9.el7 x86_64
-python-iniparse 0 0.4 9.el7 noarch
-pygobject3-base 0 3.14.0 3.el7 x86_64
-pyxattr 0 0.5.1 5.el7 x86_64
-python-kitchen 0 1.1.1 5.el7 noarch
-nss 0 3.21.0 9.el7_2 x86_64
-nss-tools 0 3.21.0 9.el7_2 x86_64
-libcurl 0 7.29.0 25.el7.centos x86_64
-rpm-libs 0 4.11.3 17.el7 x86_64
-openldap 0 2.4.40 9.el7_2 x86_64
-util-linux 0 2.23.2 26.el7_2.2 x86_64
-gnupg2 0 2.0.22 3.el7 x86_64
-rpm-python 0 4.11.3 17.el7 x86_64
-pygpgme 0 0.3 9.el7 x86_64
-kpartx 0 0.4.9 85.el7_2.4 x86_64
-device-mapper-libs 7 1.02.107 5.el7_2.2 x86_64
-dracut 0 033 360.el7_2 x86_64
-systemd 0 219 19.el7_2.9 x86_64
-iputils 0 20121221 7.el7 x86_64
-python-urlgrabber 0 3.10 7.el7 noarch
-yum 0 3.4.3 132.el7.centos.0.1 noarch
-yum-utils 0 1.1.31 34.el7 noarch
-vim-minimal 2 7.4.160 1.el7 x86_64
-gpg-pubkey 0 f4a80eb5 53a7ff4b (none)
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:09] DEBUG [vigilant_panini@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:09] DEBUG [fervent_bardeen@172-17-0-1] execResult: servername: fervent_bardeen@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 db9d0dba88af /bin/sh -c 'dpkg-query -W -f="\${binary:Package},\${db:Status-Abbrev},\${Version},\${Source},\${source:Version}\n"'
-  exitstatus: 0
-  stdout: adduser,ii ,3.116ubuntu1,,3.116ubuntu1
-apt,ii ,1.6.3ubuntu0.1,,1.6.3ubuntu0.1
-base-files,ii ,10.1ubuntu2.3,,10.1ubuntu2.3
-base-passwd,ii ,3.5.44,,3.5.44
-bash,ii ,4.4.18-2ubuntu1,,4.4.18-2ubuntu1
-bsdutils,ii ,1:2.31.1-0.4ubuntu3.2,util-linux (2.31.1-0.4ubuntu3.2),2.31.1-0.4ubuntu3.2
-bzip2,ii ,1.0.6-8.1,,1.0.6-8.1
-coreutils,ii ,8.28-1ubuntu1,,8.28-1ubuntu1
-dash,ii ,0.5.8-2.10,,0.5.8-2.10
-debconf,ii ,1.5.66,,1.5.66
-debianutils,ii ,4.8.4,,4.8.4
-diffutils,ii ,1:3.6-1,,1:3.6-1
-dpkg,ii ,1.19.0.5ubuntu2,,1.19.0.5ubuntu2
-e2fsprogs,ii ,1.44.1-1,,1.44.1-1
-fdisk,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-findutils,ii ,4.6.0+git+20170828-2,,4.6.0+git+20170828-2
-gcc-8-base:amd64,ii ,8.2.0-1ubuntu2~18.04,gcc-8,8.2.0-1ubuntu2~18.04
-gpgv,ii ,2.2.4-1ubuntu1.1,gnupg2,2.2.4-1ubuntu1.1
-grep,ii ,3.1-2,,3.1-2
-gzip,ii ,1.6-5ubuntu1,,1.6-5ubuntu1
-hostname,ii ,3.20,,3.20
-init-system-helpers,ii ,1.51,,1.51
-libacl1:amd64,ii ,2.2.52-3build1,acl,2.2.52-3build1
-libapt-pkg5.0:amd64,ii ,1.6.3ubuntu0.1,apt,1.6.3ubuntu0.1
-libattr1:amd64,ii ,1:2.4.47-2build1,attr,1:2.4.47-2build1
-libaudit-common,ii ,1:2.8.2-1ubuntu1,audit,1:2.8.2-1ubuntu1
-libaudit1:amd64,ii ,1:2.8.2-1ubuntu1,audit,1:2.8.2-1ubuntu1
-libblkid1:amd64,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-libbz2-1.0:amd64,ii ,1.0.6-8.1,bzip2,1.0.6-8.1
-libc-bin,ii ,2.27-3ubuntu1,glibc,2.27-3ubuntu1
-libc6:amd64,ii ,2.27-3ubuntu1,glibc,2.27-3ubuntu1
-libcap-ng0:amd64,ii ,0.7.7-3.1,libcap-ng,0.7.7-3.1
-libcom-err2:amd64,ii ,1.44.1-1,e2fsprogs,1.44.1-1
-libdb5.3:amd64,ii ,5.3.28-13.1ubuntu1,db5.3,5.3.28-13.1ubuntu1
-libdebconfclient0:amd64,ii ,0.213ubuntu1,cdebconf,0.213ubuntu1
-libext2fs2:amd64,ii ,1.44.1-1,e2fsprogs,1.44.1-1
-libfdisk1:amd64,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-libffi6:amd64,ii ,3.2.1-8,libffi,3.2.1-8
-libgcc1:amd64,ii ,1:8.2.0-1ubuntu2~18.04,gcc-8 (8.2.0-1ubuntu2~18.04),8.2.0-1ubuntu2~18.04
-libgcrypt20:amd64,ii ,1.8.1-4ubuntu1.1,,1.8.1-4ubuntu1.1
-libgmp10:amd64,ii ,2:6.1.2+dfsg-2,gmp,2:6.1.2+dfsg-2
-libgnutls30:amd64,ii ,3.5.18-1ubuntu1,gnutls28,3.5.18-1ubuntu1
-libgpg-error0:amd64,ii ,1.27-6,libgpg-error,1.27-6
-libhogweed4:amd64,ii ,3.4-1,nettle,3.4-1
-libidn2-0:amd64,ii ,2.0.4-1.1build2,libidn2,2.0.4-1.1build2
-liblz4-1:amd64,ii ,0.0~r131-2ubuntu3,lz4,0.0~r131-2ubuntu3
-liblzma5:amd64,ii ,5.2.2-1.3,xz-utils,5.2.2-1.3
-libmount1:amd64,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-libncurses5:amd64,ii ,6.1-1ubuntu1.18.04,ncurses,6.1-1ubuntu1.18.04
-libncursesw5:amd64,ii ,6.1-1ubuntu1.18.04,ncurses,6.1-1ubuntu1.18.04
-libnettle6:amd64,ii ,3.4-1,nettle,3.4-1
-libp11-kit0:amd64,ii ,0.23.9-2,p11-kit,0.23.9-2
-libpam-modules:amd64,ii ,1.1.8-3.6ubuntu2,pam,1.1.8-3.6ubuntu2
-libpam-modules-bin,ii ,1.1.8-3.6ubuntu2,pam,1.1.8-3.6ubuntu2
-libpam-runtime,ii ,1.1.8-3.6ubuntu2,pam,1.1.8-3.6ubuntu2
-libpam0g:amd64,ii ,1.1.8-3.6ubuntu2,pam,1.1.8-3.6ubuntu2
-libpcre3:amd64,ii ,2:8.39-9,pcre3,2:8.39-9
-libprocps6:amd64,ii ,2:3.3.12-3ubuntu1.1,procps,2:3.3.12-3ubuntu1.1
-libseccomp2:amd64,ii ,2.3.1-2.1ubuntu4,libseccomp,2.3.1-2.1ubuntu4
-libselinux1:amd64,ii ,2.7-2build2,libselinux,2.7-2build2
-libsemanage-common,ii ,2.7-2build2,libsemanage,2.7-2build2
-libsemanage1:amd64,ii ,2.7-2build2,libsemanage,2.7-2build2
-libsepol1:amd64,ii ,2.7-1,libsepol,2.7-1
-libsmartcols1:amd64,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-libss2:amd64,ii ,1.44.1-1,e2fsprogs,1.44.1-1
-libstdc++6:amd64,ii ,8.2.0-1ubuntu2~18.04,gcc-8,8.2.0-1ubuntu2~18.04
-libsystemd0:amd64,ii ,237-3ubuntu10.3,systemd,237-3ubuntu10.3
-libtasn1-6:amd64,ii ,4.13-2,,4.13-2
-libtinfo5:amd64,ii ,6.1-1ubuntu1.18.04,ncurses,6.1-1ubuntu1.18.04
-libudev1:amd64,ii ,237-3ubuntu10.3,systemd,237-3ubuntu10.3
-libunistring2:amd64,ii ,0.9.9-0ubuntu1,libunistring,0.9.9-0ubuntu1
-libuuid1:amd64,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-libzstd1:amd64,ii ,1.3.3+dfsg-2ubuntu1,libzstd,1.3.3+dfsg-2ubuntu1
-login,ii ,1:4.5-1ubuntu1,shadow,1:4.5-1ubuntu1
-lsb-base,ii ,9.20170808ubuntu1,lsb,9.20170808ubuntu1
-mawk,ii ,1.3.3-17ubuntu3,,1.3.3-17ubuntu3
-mount,ii ,2.31.1-0.4ubuntu3.2,util-linux,2.31.1-0.4ubuntu3.2
-ncurses-base,ii ,6.1-1ubuntu1.18.04,ncurses,6.1-1ubuntu1.18.04
-ncurses-bin,ii ,6.1-1ubuntu1.18.04,ncurses,6.1-1ubuntu1.18.04
-passwd,ii ,1:4.5-1ubuntu1,shadow,1:4.5-1ubuntu1
-perl-base,ii ,5.26.1-6ubuntu0.2,perl,5.26.1-6ubuntu0.2
-procps,ii ,2:3.3.12-3ubuntu1.1,,2:3.3.12-3ubuntu1.1
-sed,ii ,4.4-2,,4.4-2
-sensible-utils,ii ,0.0.12,,0.0.12
-sysvinit-utils,ii ,2.88dsf-59.10ubuntu1,sysvinit,2.88dsf-59.10ubuntu1
-tar,ii ,1.29b-2,,1.29b-2
-ubuntu-keyring,ii ,2018.02.28,,2018.02.28
-util-linux,ii ,2.31.1-0.4ubuntu3.2,,2.31.1-0.4ubuntu3.2
-zlib1g:amd64,ii ,1:1.2.11.dfsg-0ubuntu2,zlib,1:1.2.11.dfsg-0ubuntu2
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:10] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'rpm -q --last kernel'
-  exitstatus: 1
-  stdout: package                                       kernel is not installed
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:10] DEBUG [dreamy_nightingale@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:10] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'rpm -q --last kernel'
-  exitstatus: 1
-  stdout: package                                       kernel is not installed
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:10] DEBUG [sleepy_hamilton@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:11] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
-"'
-  exitstatus: 0
-  stdout: tzdata 0 2018e 3.el7 noarch
-nss-softokn-freebl 0 3.36.0 5.el7_5 x86_64
-ncurses 0 5.9 14.20130511.el7_4 x86_64
-glibc-common 0 2.17 222.el7 x86_64
-filesystem 0 3.2 25.el7 x86_64
-glibc 0 2.17 222.el7 x86_64
-nspr 0 4.19.0 1.el7_5 x86_64
-popt 0 1.13 16.el7 x86_64
-libffi 0 3.0.13 18.el7 x86_64
-libcap 0 2.22 9.el7 x86_64
-libsepol 0 2.5 8.1.el7 x86_64
-ncurses-libs 0 5.9 14.20130511.el7_4 x86_64
-gawk 0 4.0.2 4.el7_3.1 x86_64
-libselinux 0 2.5 12.el7 x86_64
-grep 0 2.20 3.el7 x86_64
-keyutils-libs 0 1.5.8 3.el7 x86_64
-libverto 0 0.2.5 4.el7 x86_64
-p11-kit-trust 0 0.23.5 3.el7 x86_64
-openssl-libs 1 1.0.2k 12.el7 x86_64
-centos-release 0 7 5.1804.4.el7.centos x86_64
-xz-libs 0 5.2.2 1.el7 x86_64
-libdb 0 5.3.21 24.el7 x86_64
-libgpg-error 0 1.12 3.el7 x86_64
-libgcrypt 0 1.5.3 14.el7 x86_64
-lua 0 5.1.4 15.el7 x86_64
-libuuid 0 2.23.2 52.el7_5.1 x86_64
-libmount 0 2.23.2 52.el7_5.1 x86_64
-shared-mime-info 0 1.8 4.el7 x86_64
-gzip 0 1.5 10.el7 x86_64
-findutils 1 4.5.11 5.el7 x86_64
-diffutils 0 3.3 4.el7 x86_64
-expat 0 2.1.0 10.el7_3 x86_64
-audit-libs 0 2.8.1 3.el7_5.1 x86_64
-pam 0 1.1.8 22.el7 x86_64
-nss-softokn 0 3.36.0 5.el7_5 x86_64
-nss 0 3.36.0 7.el7_5 x86_64
-libassuan 0 2.1.0 3.el7 x86_64
-file-libs 0 5.11 33.el7 x86_64
-pkgconfig 1 0.27.1 4.el7 x86_64
-cyrus-sasl-lib 0 2.1.26 23.el7 x86_64
-binutils 0 2.27 28.base.el7_5.1 x86_64
-libcurl 0 7.29.0 46.el7 x86_64
-rpm-libs 0 4.11.3 32.el7 x86_64
-openldap 0 2.4.44 15.el7_5 x86_64
-pinentry 0 0.8.1 17.el7 x86_64
-libsemanage 0 2.5 11.el7 x86_64
-libutempter 0 1.1.6 4.el7 x86_64
-qrencode-libs 0 3.4.1 3.el7 x86_64
-device-mapper 7 1.02.146 4.el7 x86_64
-procps-ng 0 3.3.10 17.el7_5.2 x86_64
-cryptsetup-libs 0 1.7.4 4.el7 x86_64
-kmod 0 20 21.el7 x86_64
-systemd-libs 0 219 57.el7_5.3 x86_64
-systemd 0 219 57.el7_5.3 x86_64
-dbus 1 1.10.24 7.el7 x86_64
-iputils 0 20160308 10.el7 x86_64
-gdbm 0 1.10 8.el7 x86_64
-python 0 2.7.5 69.el7_5 x86_64
-dbus-python 0 1.1.1 9.el7 x86_64
-pyliblzma 0 0.5.3 11.el7 x86_64
-python-urlgrabber 0 3.10 8.el7 noarch
-pyxattr 0 0.5.1 5.el7 x86_64
-python-kitchen 0 1.1.1 5.el7 noarch
-gnupg2 0 2.0.22 5.el7_5 x86_64
-rpm-python 0 4.11.3 32.el7 x86_64
-pygpgme 0 0.3 9.el7 x86_64
-yum 0 3.4.3 158.el7.centos noarch
-yum-utils 0 1.1.31 46.el7_5 noarch
-vim-minimal 2 7.4.160 4.el7 x86_64
-libgcc 0 4.8.5 28.el7_5.1 x86_64
-ncurses-base 0 5.9 14.20130511.el7_4 noarch
-bash 0 4.2.46 30.el7 x86_64
-chkconfig 0 1.7.4 1.el7 x86_64
-setup 0 2.8.71 9.el7 noarch
-basesystem 0 10.0 7.el7.centos noarch
-zlib 0 1.2.7 17.el7 x86_64
-nss-util 0 3.36.0 1.el7_5 x86_64
-libcom_err 0 1.42.9 12.el7_5 x86_64
-libattr 0 2.4.46 13.el7 x86_64
-libacl 0 2.2.51 14.el7 x86_64
-libstdc++ 0 4.8.5 28.el7_5.1 x86_64
-info 0 5.1 5.el7 x86_64
-pcre 0 8.32 17.el7 x86_64
-sed 0 4.2.2 5.el7 x86_64
-p11-kit 0 0.23.5 3.el7 x86_64
-gmp 1 6.0.0 15.el7 x86_64
-libtasn1 0 4.10 1.el7 x86_64
-ca-certificates 0 2018.2.22 70.0.el7_5 noarch
-coreutils 0 8.22 21.el7 x86_64
-krb5-libs 0 1.15.1 19.el7 x86_64
-bzip2-libs 0 1.0.6 13.el7 x86_64
-elfutils-libelf 0 0.170 4.el7 x86_64
-libxml2 0 2.9.1 6.el7_2.3 x86_64
-readline 0 6.2 10.el7 x86_64
-cpio 0 2.11 27.el7 x86_64
-libblkid 0 2.23.2 52.el7_5.1 x86_64
-glib2 0 2.54.2 2.el7 x86_64
-sqlite 0 3.7.17 8.el7 x86_64
-cracklib 0 2.9.0 11.el7 x86_64
-libidn 0 1.28 4.el7 x86_64
-libcap-ng 0 0.7.5 4.el7 x86_64
-cracklib-dicts 0 2.9.0 11.el7 x86_64
-libpwquality 0 1.2.3 5.el7 x86_64
-nss-sysinit 0 3.36.0 7.el7_5 x86_64
-nss-pem 0 1.0.3 4.el7 x86_64
-xz 0 5.2.2 1.el7 x86_64
-lz4 0 1.7.5 2.el7 x86_64
-nss-tools 0 3.36.0 7.el7_5 x86_64
-gobject-introspection 0 1.50.0 1.el7 x86_64
-libdb-utils 0 5.3.21 24.el7 x86_64
-kmod-libs 0 20 21.el7 x86_64
-libssh2 0 1.4.3 10.el7_2.1 x86_64
-curl 0 7.29.0 46.el7 x86_64
-rpm 0 4.11.3 32.el7 x86_64
-libuser 0 0.60 9.el7 x86_64
-tar 2 1.26 34.el7 x86_64
-acl 0 2.2.51 14.el7 x86_64
-ustr 0 1.0.4 16.el7 x86_64
-shadow-utils 2 4.1.5.1 24.el7 x86_64
-hardlink 1 1.0 19.el7 x86_64
-util-linux 0 2.23.2 52.el7_5.1 x86_64
-kpartx 0 0.4.9 119.el7_5.1 x86_64
-device-mapper-libs 7 1.02.146 4.el7 x86_64
-dracut 0 033 535.el7_5.1 x86_64
-elfutils-libs 0 0.170 4.el7 x86_64
-dbus-libs 1 1.10.24 7.el7 x86_64
-elfutils-default-yama-scope 0 0.170 4.el7 noarch
-dbus-glib 0 0.100 7.el7 x86_64
-python-libs 0 2.7.5 69.el7_5 x86_64
-libxml2-python 0 2.9.1 6.el7_2.3 x86_64
-python-gobject-base 0 3.22.0 1.el7_4.1 x86_64
-yum-metadata-parser 0 1.1.4 10.el7 x86_64
-python-pycurl 0 7.19.0 19.el7 x86_64
-python-iniparse 0 0.4 9.el7 noarch
-python-chardet 0 2.2.1 1.el7_1 noarch
-hostname 0 3.13 3.el7 x86_64
-pth 0 2.0.7 23.el7 x86_64
-rpm-build-libs 0 4.11.3 32.el7 x86_64
-gpgme 0 1.3.2 5.el7 x86_64
-yum-plugin-fastestmirror 0 1.1.31 46.el7_5 noarch
-bind-license 32 9.9.4 61.el7_5.1 noarch
-yum-plugin-ovl 0 1.1.31 46.el7_5 noarch
-passwd 0 0.79 4.el7 x86_64
-rootfiles 0 8.1 11.el7 noarch
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:11] DEBUG [eager_panini@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:11] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+[Nov 28 23:11:11] DEBUG [sleepy_hamilton@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:11] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'rpm -q --last kernel'
   exitstatus: 1
   stdout: package                                       kernel is not installed
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:11] DEBUG [vigilant_panini@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:12] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'apk info -v'
-  exitstatus: 0
-  stdout: musl-1.1.18-r3
-busybox-1.27.2-r11
-alpine-baselayout-3.0.5-r2
-alpine-keys-2.1-r1
-libressl2.6-libcrypto-2.6.5-r0
-libressl2.6-libssl-2.6.5-r0
-libressl2.6-libtls-2.6.5-r0
-ssl_client-1.27.2-r11
-zlib-1.2.11-r1
-apk-tools-2.10.1-r0
-scanelf-1.2.2-r1
-musl-utils-1.1.18-r3
-libc-utils-0.7.1-r0
-ca-certificates-20171114-r0
-openssh-keygen-7.5_p1-r9
-openssh-client-7.5_p1-r9
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:12] DEBUG [nervous_hoover@172-17-0-1] Executing... apk version
-[Nov 28 20:59:12] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'rpm -q --last kernel'
-  exitstatus: 1
-  stdout: package                                       kernel is not installed
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:12] DEBUG [eager_panini@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:13] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:11:11] DEBUG [vigilant_panini@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:12] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
 "'
   exitstatus: 0
@@ -2562,8 +2153,195 @@ which 0 2.20 7.el7 x86_64
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:13] DEBUG [tender_davinci@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:14] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:11:12] DEBUG [tender_davinci@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:12] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'rpm -q --last kernel'
+  exitstatus: 1
+  stdout: package                                       kernel is not installed
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:12] DEBUG [eager_panini@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:12] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
+"'
+  exitstatus: 0
+  stdout: centos-release 0 7 4.1708.el7.centos x86_64
+filesystem 0 3.2 21.el7 x86_64
+glibc-common 0 2.17 196.el7_4.2 x86_64
+nspr 0 4.13.1 1.0.el7_3 x86_64
+ncurses-libs 0 5.9 14.20130511.el7_4 x86_64
+libsepol 0 2.5 6.el7 x86_64
+libselinux 0 2.5 11.el7 x86_64
+info 0 5.1 4.el7 x86_64
+popt 0 1.13 16.el7 x86_64
+nss-util 0 3.28.4 3.el7 x86_64
+elfutils-libelf 0 0.168 8.el7 x86_64
+libgpg-error 0 1.12 3.el7 x86_64
+libacl 0 2.2.51 12.el7 x86_64
+libxml2 0 2.9.1 6.el7_2.3 x86_64
+libgcrypt 0 1.5.3 14.el7 x86_64
+lua 0 5.1.4 15.el7 x86_64
+cpio 0 2.11 25.el7_4 x86_64
+sqlite 0 3.7.17 8.el7 x86_64
+gawk 0 4.0.2 4.el7_3.1 x86_64
+diffutils 0 3.3 4.el7 x86_64
+expat 0 2.1.0 10.el7_3 x86_64
+libcap-ng 0 0.7.5 4.el7 x86_64
+nss-softokn 0 3.28.3 8.el7_4 x86_64
+p11-kit 0 0.23.5 3.el7 x86_64
+file-libs 0 5.11 33.el7 x86_64
+tar 2 1.26 32.el7 x86_64
+pinentry 0 0.8.1 17.el7 x86_64
+elfutils-default-yama-scope 0 0.168 8.el7 noarch
+ncurses 0 5.9 14.20130511.el7_4 x86_64
+libsemanage 0 2.5 8.el7 x86_64
+libtasn1 0 4.10 1.el7 x86_64
+ca-certificates 0 2017.2.14 71.el7 noarch
+openssl-libs 1 1.0.2k 8.el7 x86_64
+shadow-utils 2 4.1.5.1 24.el7 x86_64
+libmount 0 2.23.2 43.el7_4.2 x86_64
+shared-mime-info 0 1.8 3.el7 x86_64
+cracklib 0 2.9.0 11.el7 x86_64
+libpwquality 0 1.2.3 4.el7 x86_64
+pkgconfig 1 0.27.1 4.el7 x86_64
+dbus-glib 0 0.100 7.el7 x86_64
+libutempter 0 1.1.6 4.el7 x86_64
+nss-pem 0 1.0.3 4.el7 x86_64
+nss-sysinit 0 3.28.4 15.el7_4 x86_64
+libssh2 0 1.4.3 10.el7_2.1 x86_64
+curl 0 7.29.0 42.el7_4.1 x86_64
+rpm 0 4.11.3 25.el7 x86_64
+libuser 0 0.60 7.el7_1 x86_64
+qrencode-libs 0 3.4.1 3.el7 x86_64
+device-mapper 7 1.02.140 8.el7 x86_64
+cryptsetup-libs 0 1.7.4 3.el7_4.1 x86_64
+dbus 1 1.6.12 17.el7 x86_64
+iputils 0 20160308 10.el7 x86_64
+python-libs 0 2.7.5 58.el7 x86_64
+libxml2-python 0 2.9.1 6.el7_2.3 x86_64
+python-iniparse 0 0.4 9.el7 noarch
+pyliblzma 0 0.5.3 11.el7 x86_64
+python-urlgrabber 0 3.10 8.el7 noarch
+python-chardet 0 2.2.1 1.el7_1 noarch
+hostname 0 3.13 3.el7 x86_64
+pth 0 2.0.7 23.el7 x86_64
+gpgme 0 1.3.2 5.el7 x86_64
+rpm-build-libs 0 4.11.3 25.el7 x86_64
+yum-plugin-fastestmirror 0 1.1.31 42.el7 noarch
+yum-utils 0 1.1.31 42.el7 noarch
+rootfiles 0 8.1 11.el7 noarch
+libdb 0 5.3.21 21.el7_4 x86_64
+kmod 0 20 15.el7_4.7 x86_64
+kmod-libs 0 20 15.el7_4.7 x86_64
+libdb-utils 0 5.3.21 21.el7_4 x86_64
+bind-license 32 9.9.4 51.el7_4.2 noarch
+kpartx 0 0.4.9 111.el7_4.2 x86_64
+libICE 0 1.0.9 9.el7 x86_64
+libSM 0 1.2.2 2.el7 x86_64
+libxcb 0 1.12 1.el7 x86_64
+libxcb-devel 0 1.12 1.el7 x86_64
+libxshmfence 0 1.2 1.el7 x86_64
+libX11 0 1.6.5 1.el7 x86_64
+libXt 0 1.1.5 3.el7 x86_64
+libXdamage 0 1.1.4 4.1.el7 x86_64
+libX11-devel 0 1.6.5 1.el7 x86_64
+hwdata 0 0.252 8.6.el7 x86_64
+libdrm 0 2.4.74 1.el7 x86_64
+libXt-devel 0 1.1.5 3.el7 x86_64
+wget 0 1.14 15.el7_4.1 x86_64
+libgcc 0 4.8.5 16.el7_4.1 x86_64
+setup 0 2.8.71 7.el7 noarch
+basesystem 0 10.0 7.el7.centos noarch
+ncurses-base 0 5.9 14.20130511.el7_4 noarch
+nss-softokn-freebl 0 3.28.3 8.el7_4 x86_64
+glibc 0 2.17 196.el7_4.2 x86_64
+libstdc++ 0 4.8.5 16.el7_4.1 x86_64
+bash 0 4.2.46 29.el7_4 x86_64
+pcre 0 8.32 17.el7 x86_64
+zlib 0 1.2.7 17.el7 x86_64
+xz-libs 0 5.2.2 1.el7 x86_64
+bzip2-libs 0 1.0.6 13.el7 x86_64
+chkconfig 0 1.7.4 1.el7 x86_64
+sed 0 4.2.2 5.el7 x86_64
+libffi 0 3.0.13 18.el7 x86_64
+libattr 0 2.4.46 12.el7 x86_64
+libcap 0 2.22 9.el7 x86_64
+libcom_err 0 1.42.9 10.el7 x86_64
+readline 0 6.2 10.el7 x86_64
+grep 0 2.20 3.el7 x86_64
+libuuid 0 2.23.2 43.el7_4.2 x86_64
+libidn 0 1.28 4.el7 x86_64
+findutils 1 4.5.11 5.el7 x86_64
+dbus-libs 1 1.6.12 17.el7 x86_64
+audit-libs 0 2.7.6 3.el7 x86_64
+libassuan 0 2.1.0 3.el7 x86_64
+xz 0 5.2.2 1.el7 x86_64
+keyutils-libs 0 1.5.8 3.el7 x86_64
+acl 0 2.2.51 12.el7 x86_64
+cyrus-sasl-lib 0 2.1.26 21.el7 x86_64
+elfutils-libs 0 0.168 8.el7 x86_64
+gmp 1 6.0.0 15.el7 x86_64
+ustr 0 1.0.4 16.el7 x86_64
+libverto 0 0.2.5 4.el7 x86_64
+p11-kit-trust 0 0.23.5 3.el7 x86_64
+krb5-libs 0 1.15.1 8.el7 x86_64
+coreutils 0 8.22 18.el7 x86_64
+libblkid 0 2.23.2 43.el7_4.2 x86_64
+glib2 0 2.50.3 3.el7 x86_64
+gzip 0 1.5 9.el7 x86_64
+cracklib-dicts 0 2.9.0 11.el7 x86_64
+pam 0 1.1.8 18.el7 x86_64
+procps-ng 0 3.3.10 16.el7 x86_64
+gobject-introspection 0 1.50.0 1.el7 x86_64
+nss 0 3.28.4 15.el7_4 x86_64
+nss-tools 0 3.28.4 15.el7_4 x86_64
+libcurl 0 7.29.0 42.el7_4.1 x86_64
+rpm-libs 0 4.11.3 25.el7 x86_64
+openldap 0 2.4.44 5.el7 x86_64
+util-linux 0 2.23.2 43.el7_4.2 x86_64
+hardlink 1 1.0 19.el7 x86_64
+device-mapper-libs 7 1.02.140 8.el7 x86_64
+dracut 0 033 502.el7_4.1 x86_64
+gdbm 0 1.10 8.el7 x86_64
+python 0 2.7.5 58.el7 x86_64
+dbus-python 0 1.1.1 9.el7 x86_64
+python-gobject-base 0 3.22.0 1.el7_4.1 x86_64
+yum-metadata-parser 0 1.1.4 10.el7 x86_64
+python-pycurl 0 7.19.0 19.el7 x86_64
+pyxattr 0 0.5.1 5.el7 x86_64
+python-kitchen 0 1.1.1 5.el7 noarch
+gnupg2 0 2.0.22 4.el7 x86_64
+pygpgme 0 0.3 9.el7 x86_64
+rpm-python 0 4.11.3 25.el7 x86_64
+yum-plugin-ovl 0 1.1.31 42.el7 noarch
+passwd 0 0.79 4.el7 x86_64
+vim-minimal 2 7.4.160 2.el7 x86_64
+gpg-pubkey 0 f4a80eb5 53a7ff4b (none)
+binutils 0 2.25.1 32.base.el7_4.2 x86_64
+systemd-libs 0 219 42.el7_4.7 x86_64
+systemd 0 219 42.el7_4.7 x86_64
+yum 0 3.4.3 154.el7.centos.1 noarch
+tzdata 0 2018c 1.el7 noarch
+xorg-x11-proto-devel 0 7.7 20.el7 noarch
+libICE-devel 0 1.0.9 9.el7 x86_64
+libXau 0 1.0.8 2.1.el7 x86_64
+libXau-devel 0 1.0.8 2.1.el7 x86_64
+libSM-devel 0 1.2.2 2.el7 x86_64
+libX11-common 0 1.6.5 1.el7 noarch
+libXext 0 1.3.3 3.el7 x86_64
+libXfixes 0 5.0.3 1.el7 x86_64
+libXxf86vm 0 1.1.4 1.el7 x86_64
+mesa-libglapi 0 17.0.1 6.20170307.el7 x86_64
+libpciaccess 0 0.13.4 3.1.el7_4 x86_64
+mesa-libGL 0 17.0.1 6.20170307.el7 x86_64
+libXmu 0 1.1.2 2.el7 x86_64
+unzip 0 6.0 16.el7 x86_64
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:12] DEBUG [dreamy_nightingale@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:13] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'rpm -qa --queryformat "%{NAME} %{EPOCHNUM} %{VERSION} %{RELEASE} %{ARCH}
 "'
   exitstatus: 0
@@ -2810,73 +2588,202 @@ python-nose 0 1.3.7 1.el7 noarch
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:14] DEBUG [happy_yonath@172-17-0-1] Executing... rpm -q --last kernel
-[Nov 28 20:59:15] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+[Nov 28 23:11:13] DEBUG [happy_yonath@172-17-0-1] Executing... rpm -q --last kernel
+[Nov 28 23:11:13] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'rpm -q --last kernel'
+  exitstatus: 1
+  stdout: package                                       kernel is not installed
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:13] DEBUG [sleepy_hamilton@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:13] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'apk info -v'
+  exitstatus: 0
+  stdout: musl-1.1.18-r3
+busybox-1.27.2-r11
+alpine-baselayout-3.0.5-r2
+alpine-keys-2.1-r1
+libressl2.6-libcrypto-2.6.5-r0
+libressl2.6-libssl-2.6.5-r0
+libressl2.6-libtls-2.6.5-r0
+ssl_client-1.27.2-r11
+zlib-1.2.11-r1
+apk-tools-2.10.1-r0
+scanelf-1.2.2-r1
+musl-utils-1.1.18-r3
+libc-utils-0.7.1-r0
+ca-certificates-20171114-r0
+openssh-keygen-7.5_p1-r9
+openssh-client-7.5_p1-r9
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:13] DEBUG [goofy_dubinsky@172-17-0-1] Executing... apk version
+[Nov 28 23:11:14] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'rpm -q --last kernel'
   exitstatus: 1
   stdout: package                                       kernel is not installed
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:15] DEBUG [tender_davinci@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:15] DEBUG [nervous_hoover@172-17-0-1] execResult: servername: nervous_hoover@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 da89a029f012 /bin/sh -c 'apk version'
-  exitstatus: 0
-  stdout: Installed:                                Available:
+[Nov 28 23:11:14] DEBUG [tender_davinci@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:15] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'rpm -q --last kernel'
+  exitstatus: 1
+  stdout: package                                       kernel is not installed
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:15] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:11:15] DEBUG [dreamy_nightingale@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:15] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
+  exitstatus: 127
+  stdout: /bin/sh: repoquery: command not found
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:16] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'rpm -q --last kernel'
   exitstatus: 1
   stdout: package                                       kernel is not installed
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:15] DEBUG [happy_yonath@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
-[Nov 28 20:59:16] DEBUG [tender_davinci@172-17-0-1] execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 127
-  stdout: /bin/sh: repoquery: command not found
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:16] ERROR [tender_davinci@172-17-0-1] Failed to scan installed packages: Failed to SSH: execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 127
-  stdout: /bin/sh: repoquery: command not found
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:16] ERROR [localhost] Error: tender_davinci@172-17-0-1, err: [Failed to SSH: execResult: servername: tender_davinci@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 89dd017e1596 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 127
-  stdout: /bin/sh: repoquery: command not found
-
-  stderr:
-  err: %!s(<nil>)]
-[Nov 28 20:59:16] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
+[Nov 28 23:11:16] DEBUG [happy_yonath@172-17-0-1] Executing... repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"
+[Nov 28 23:11:16] DEBUG [happy_yonath@172-17-0-1] execResult: servername: happy_yonath@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
   exitstatus: 127
   stdout: /bin/sh: repoquery: command not found
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:16] ERROR [happy_yonath@172-17-0-1] Failed to scan installed packages: Failed to SSH: execResult: servername: happy_yonath@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 127
-  stdout: /bin/sh: repoquery: command not found
+[Nov 28 23:11:17] DEBUG [goofy_dubinsky@172-17-0-1] execResult: servername: goofy_dubinsky@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 81f824b15c4e /bin/sh -c 'apk version'
+  exitstatus: 0
+  stdout: Installed:                                Available:
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:16] ERROR [localhost] Error: happy_yonath@172-17-0-1, err: [Failed to SSH: execResult: servername: happy_yonath@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 263d191414b3 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 127
-  stdout: /bin/sh: repoquery: command not found
+[Nov 28 23:11:18] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
+  exitstatus: 0
+  stdout: acl 0 2.2.51 14.el7 base
+audit-libs 0 2.8.1 3.el7_5.1 updates
+bash 0 4.2.46 30.el7 base
+bind-license 32 9.9.4 61.el7_5.1 updates
+binutils 0 2.27 28.base.el7_5.1 updates
+ca-certificates 0 2018.2.22 70.0.el7_5 updates
+centos-release 0 7 5.1804.5.el7.centos updates
+chkconfig 0 1.7.4 1.el7 base
+coreutils 0 8.22 21.el7 base
+cpio 0 2.11 27.el7 base
+cryptsetup-libs 0 1.7.4 4.el7 base
+curl 0 7.29.0 46.el7 base
+cyrus-sasl-lib 0 2.1.26 23.el7 base
+dbus 1 1.10.24 7.el7 base
+dbus-libs 1 1.10.24 7.el7 base
+device-mapper 7 1.02.146 4.el7 base
+device-mapper-libs 7 1.02.146 4.el7 base
+dracut 0 033 535.el7_5.1 updates
+elfutils-libelf 0 0.170 4.el7 base
+elfutils-libs 0 0.170 4.el7 base
+expat 0 2.1.0 10.el7_3 base
+file-libs 0 5.11 33.el7 base
+filesystem 0 3.2 25.el7 base
+gawk 0 4.0.2 4.el7_3.1 base
+glib2 0 2.54.2 2.el7 base
+glibc 0 2.17 222.el7 base
+glibc-common 0 2.17 222.el7 base
+gmp 1 6.0.0 15.el7 base
+gnupg2 0 2.0.22 5.el7_5 updates
+gobject-introspection 0 1.50.0 1.el7 base
+grep 0 2.20 3.el7 base
+gzip 0 1.5 10.el7 base
+info 0 5.1 5.el7 base
+iputils 0 20160308 10.el7 base
+kmod 0 20 21.el7 base
+kmod-libs 0 20 21.el7 base
+kpartx 0 0.4.9 119.el7_5.1 updates
+krb5-libs 0 1.15.1 19.el7 updates
+libacl 0 2.2.51 14.el7 base
+libattr 0 2.4.46 13.el7 base
+libblkid 0 2.23.2 52.el7_5.1 updates
+libcap 0 2.22 9.el7 base
+libcom_err 0 1.42.9 12.el7_5 updates
+libcurl 0 7.29.0 46.el7 base
+libdb 0 5.3.21 24.el7 base
+libdb-utils 0 5.3.21 24.el7 base
+libffi 0 3.0.13 18.el7 base
+libgcc 0 4.8.5 28.el7_5.1 updates
+libgcrypt 0 1.5.3 14.el7 base
+libmount 0 2.23.2 52.el7_5.1 updates
+libpwquality 0 1.2.3 5.el7 base
+libselinux 0 2.5 12.el7 base
+libsemanage 0 2.5 11.el7 base
+libsepol 0 2.5 8.1.el7 base
+libss 0 1.42.9 12.el7_5 updates
+libstdc++ 0 4.8.5 28.el7_5.1 updates
+libtasn1 0 4.10 1.el7 base
+libuser 0 0.60 9.el7 base
+libuuid 0 2.23.2 52.el7_5.1 updates
+libxml2 0 2.9.1 6.el7_2.3 base
+lua 0 5.1.4 15.el7 base
+ncurses 0 5.9 14.20130511.el7_4 base
+ncurses-base 0 5.9 14.20130511.el7_4 base
+ncurses-libs 0 5.9 14.20130511.el7_4 base
+nspr 0 4.19.0 1.el7_5 updates
+nss 0 3.36.0 7.el7_5 updates
+nss-softokn 0 3.36.0 5.el7_5 updates
+nss-softokn-freebl 0 3.36.0 5.el7_5 updates
+nss-sysinit 0 3.36.0 7.el7_5 updates
+nss-tools 0 3.36.0 7.el7_5 updates
+nss-util 0 3.36.0 1.el7_5 updates
+openldap 0 2.4.44 15.el7_5 updates
+openssl-libs 1 1.0.2k 12.el7 base
+p11-kit 0 0.23.5 3.el7 base
+p11-kit-trust 0 0.23.5 3.el7 base
+pam 0 1.1.8 22.el7 base
+pcre 0 8.32 17.el7 base
+pinentry 0 0.8.1 17.el7 base
+procps-ng 0 3.3.10 17.el7_5.2 updates
+python 0 2.7.5 69.el7_5 updates
+python-libs 0 2.7.5 69.el7_5 updates
+python-pycurl 0 7.19.0 19.el7 base
+python-urlgrabber 0 3.10 8.el7 base
+readline 0 6.2 10.el7 base
+rpm 0 4.11.3 32.el7 base
+rpm-build-libs 0 4.11.3 32.el7 base
+rpm-libs 0 4.11.3 32.el7 base
+rpm-python 0 4.11.3 32.el7 base
+setup 0 2.8.71 9.el7 base
+shadow-utils 2 4.1.5.1 24.el7 base
+shared-mime-info 0 1.8 4.el7 base
+systemd 0 219 57.el7_5.3 updates
+systemd-libs 0 219 57.el7_5.3 updates
+tar 2 1.26 34.el7 base
+tzdata 0 2018f 2.el7 updates
+util-linux 0 2.23.2 52.el7_5.1 updates
+vim-minimal 2 7.4.160 4.el7 base
+xz 0 5.2.2 1.el7 base
+xz-libs 0 5.2.2 1.el7 base
+yum 0 3.4.3 158.el7.centos base
+yum-plugin-fastestmirror 0 1.1.31 46.el7_5 updates
+yum-plugin-ovl 0 1.1.31 46.el7_5 updates
+yum-utils 0 1.1.31 46.el7_5 updates
+zlib 0 1.2.7 17.el7 base
 
   stderr:
-  err: %!s(<nil>)]
-[Nov 28 20:59:18] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
+  err: %!s(<nil>)
+[Nov 28 23:11:19] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
+  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
+  exitstatus: 0
+  stdout: centos-release 0 7 5.1804.5.el7.centos updates
+tzdata 0 2018f 2.el7 updates
+
+  stderr:
+  err: %!s(<nil>)
+[Nov 28 23:11:19] DEBUG [sleepy_hamilton@172-17-0-1] execResult: servername: sleepy_hamilton@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 6d99f978e513 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
   exitstatus: 0
   stdout: acl 0 2.2.51 14.el7 base
@@ -2998,7 +2905,7 @@ zlib 0 1.2.7 17.el7 base
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:18] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
+[Nov 28 23:11:19] DEBUG [dreamy_nightingale@172-17-0-1] execResult: servername: dreamy_nightingale@172-17-0-1
   cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 ab1d17c4a270 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
   exitstatus: 0
   stdout: acl 0 2.2.51 14.el7 base
@@ -3086,137 +2993,18 @@ yum-utils 0 1.1.31 46.el7_5 updates
 
   stderr:
   err: %!s(<nil>)
-[Nov 28 20:59:18] DEBUG [vigilant_panini@172-17-0-1] execResult: servername: vigilant_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 bf9d2b9ff444 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 0
-  stdout: acl 0 2.2.51 14.el7 base
-audit-libs 0 2.8.1 3.el7_5.1 updates
-bash 0 4.2.46 30.el7 base
-bind-license 32 9.9.4 61.el7_5.1 updates
-binutils 0 2.27 28.base.el7_5.1 updates
-ca-certificates 0 2018.2.22 70.0.el7_5 updates
-centos-release 0 7 5.1804.5.el7.centos updates
-chkconfig 0 1.7.4 1.el7 base
-coreutils 0 8.22 21.el7 base
-cpio 0 2.11 27.el7 base
-cryptsetup-libs 0 1.7.4 4.el7 base
-curl 0 7.29.0 46.el7 base
-cyrus-sasl-lib 0 2.1.26 23.el7 base
-dbus 1 1.10.24 7.el7 base
-dbus-libs 1 1.10.24 7.el7 base
-device-mapper 7 1.02.146 4.el7 base
-device-mapper-libs 7 1.02.146 4.el7 base
-dracut 0 033 535.el7_5.1 updates
-elfutils-libelf 0 0.170 4.el7 base
-elfutils-libs 0 0.170 4.el7 base
-expat 0 2.1.0 10.el7_3 base
-file-libs 0 5.11 33.el7 base
-filesystem 0 3.2 25.el7 base
-gawk 0 4.0.2 4.el7_3.1 base
-glib2 0 2.54.2 2.el7 base
-glibc 0 2.17 222.el7 base
-glibc-common 0 2.17 222.el7 base
-gmp 1 6.0.0 15.el7 base
-gnupg2 0 2.0.22 5.el7_5 updates
-gobject-introspection 0 1.50.0 1.el7 base
-grep 0 2.20 3.el7 base
-gzip 0 1.5 10.el7 base
-info 0 5.1 5.el7 base
-iputils 0 20160308 10.el7 base
-kmod 0 20 21.el7 base
-kmod-libs 0 20 21.el7 base
-kpartx 0 0.4.9 119.el7_5.1 updates
-krb5-libs 0 1.15.1 19.el7 updates
-libacl 0 2.2.51 14.el7 base
-libattr 0 2.4.46 13.el7 base
-libblkid 0 2.23.2 52.el7_5.1 updates
-libcap 0 2.22 9.el7 base
-libcom_err 0 1.42.9 12.el7_5 updates
-libcurl 0 7.29.0 46.el7 base
-libdb 0 5.3.21 24.el7 base
-libdb-utils 0 5.3.21 24.el7 base
-libffi 0 3.0.13 18.el7 base
-libgcc 0 4.8.5 28.el7_5.1 updates
-libgcrypt 0 1.5.3 14.el7 base
-libmount 0 2.23.2 52.el7_5.1 updates
-libpwquality 0 1.2.3 5.el7 base
-libselinux 0 2.5 12.el7 base
-libsemanage 0 2.5 11.el7 base
-libsepol 0 2.5 8.1.el7 base
-libss 0 1.42.9 12.el7_5 updates
-libstdc++ 0 4.8.5 28.el7_5.1 updates
-libtasn1 0 4.10 1.el7 base
-libuser 0 0.60 9.el7 base
-libuuid 0 2.23.2 52.el7_5.1 updates
-libxml2 0 2.9.1 6.el7_2.3 base
-lua 0 5.1.4 15.el7 base
-ncurses 0 5.9 14.20130511.el7_4 base
-ncurses-base 0 5.9 14.20130511.el7_4 base
-ncurses-libs 0 5.9 14.20130511.el7_4 base
-nspr 0 4.19.0 1.el7_5 updates
-nss 0 3.36.0 7.el7_5 updates
-nss-softokn 0 3.36.0 5.el7_5 updates
-nss-softokn-freebl 0 3.36.0 5.el7_5 updates
-nss-sysinit 0 3.36.0 7.el7_5 updates
-nss-tools 0 3.36.0 7.el7_5 updates
-nss-util 0 3.36.0 1.el7_5 updates
-openldap 0 2.4.44 15.el7_5 updates
-openssl-libs 1 1.0.2k 12.el7 base
-p11-kit 0 0.23.5 3.el7 base
-p11-kit-trust 0 0.23.5 3.el7 base
-pam 0 1.1.8 22.el7 base
-pcre 0 8.32 17.el7 base
-pinentry 0 0.8.1 17.el7 base
-procps-ng 0 3.3.10 17.el7_5.2 updates
-python 0 2.7.5 69.el7_5 updates
-python-libs 0 2.7.5 69.el7_5 updates
-python-pycurl 0 7.19.0 19.el7 base
-python-urlgrabber 0 3.10 8.el7 base
-readline 0 6.2 10.el7 base
-rpm 0 4.11.3 32.el7 base
-rpm-build-libs 0 4.11.3 32.el7 base
-rpm-libs 0 4.11.3 32.el7 base
-rpm-python 0 4.11.3 32.el7 base
-setup 0 2.8.71 9.el7 base
-shadow-utils 2 4.1.5.1 24.el7 base
-shared-mime-info 0 1.8 4.el7 base
-systemd 0 219 57.el7_5.3 updates
-systemd-libs 0 219 57.el7_5.3 updates
-tar 2 1.26 34.el7 base
-tzdata 0 2018f 2.el7 updates
-util-linux 0 2.23.2 52.el7_5.1 updates
-vim-minimal 2 7.4.160 4.el7 base
-xz 0 5.2.2 1.el7 base
-xz-libs 0 5.2.2 1.el7 base
-yum 0 3.4.3 158.el7.centos base
-yum-plugin-fastestmirror 0 1.1.31 46.el7_5 updates
-yum-plugin-ovl 0 1.1.31 46.el7_5 updates
-yum-utils 0 1.1.31 46.el7_5 updates
-zlib 0 1.2.7 17.el7 base
-
-  stderr:
-  err: %!s(<nil>)
-[Nov 28 20:59:18] DEBUG [eager_panini@172-17-0-1] execResult: servername: eager_panini@172-17-0-1
-  cmd: /usr/bin/ssh -tt -o StrictHostKeyChecking=yes -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=auto -o ControlPath=/root/.vuls/controlmaster-%r-172-17-0-1.%p -o Controlpersist=10m cmcarthur@172.17.0.1 -p 22 stty cols 1000; docker exec --user 0 29a3e1788ba5 /bin/sh -c 'repoquery --all --pkgnarrow=updates --qf="%{NAME} %{EPOCH} %{VERSION} %{RELEASE} %{REPO}"'
-  exitstatus: 0
-  stdout: centos-release 0 7 5.1804.5.el7.centos updates
-tzdata 0 2018f 2.el7 updates
-
-  stderr:
-  err: %!s(<nil>)
 
 
 One Line Summary
 ================
-eager_aryabhata@172-17-0-1      ubuntu14.04     537 installed                   0 cves with exploit
-fervent_bardeen@172-17-0-1      ubuntu18.04     89 installed                    0 cves with exploit
-nervous_hoover@172-17-0-1       alpine3.7.1     16 installed, 0 updatable       0 cves with exploit
-sleepy_hamilton@172-17-0-1      centos7.2.1511  159 installed, 116 updatable    0 cves with exploit
-dreamy_nightingale@172-17-0-1   centos7.4.1708  171 installed, 82 updatable     0 cves with exploit
-vigilant_panini@172-17-0-1      centos7.2.1511  143 installed, 104 updatable    0 cves with exploit
-eager_panini@172-17-0-1         centos7.5.1804  144 installed, 2 updatable      0 cves with exploit
-tender_davinci@172-17-0-1       Error                                           Run with --debug to view the details
-happy_yonath@172-17-0-1         Error                                           Run with --debug to view the details
+eager_aryabhata@172-17-0-1      ubuntu14.04     537 installed                   0 exploits
+tender_davinci@172-17-0-1       centos7.4.1708  254 installed, 0 updatable      0 exploits
+happy_yonath@172-17-0-1         centos7.4.1708  240 installed, 0 updatable      0 exploits
+goofy_dubinsky@172-17-0-1       alpine3.7.1     16 installed, 0 updatable       0 exploits
+vigilant_panini@172-17-0-1      centos7.2.1511  143 installed, 104 updatable    0 exploits
+eager_panini@172-17-0-1         centos7.5.1804  144 installed, 2 updatable      0 exploits
+sleepy_hamilton@172-17-0-1      centos7.2.1511  159 installed, 116 updatable    0 exploits
+dreamy_nightingale@172-17-0-1   centos7.4.1708  171 installed, 82 updatable     0 exploits
 
 
 
