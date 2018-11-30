@@ -78,9 +78,9 @@ bids/example                                                                   |
 Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
 ---------------|------------------------|-------------------|----------------|-------|------------------|---------------
 neurodata/ndmg | 601                    | 278               | 112            | 991   | 88.70            | 71.95
-mcin/qeeg      | 0                      | 27                | 344            | 371   | 7.28             | 92.72
-mcin/ica-aroma | 1                      | 52                | 408            | 461   | 11.50            | 88.72
-mcin/docker-fsl| 0                      | 52                | 406            | 458   | 11.35            | 88.65
+mcin/qeeg      | 57                     | 7                 | 278            | 351   | 18.23            | 98.01
+~~mcin/ica-aroma | 1                      | 52                | 408            | 461   | 11.50            | 88.72
+mcin/docker-fsl| 0                      | 52                | 406            | 458   | 11.35            | 88.65~~
 
 ---
 
