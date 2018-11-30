@@ -63,21 +63,21 @@ Tool | Related Post(s) | Comments
 ###### Benchmark Time
 
 Image Full Tag | OS | Size | Packages | Anchore | Vuls
----------------|----|------|----------|---------|------
-neurodata/ndmg                                                                 | ubuntu14.04    | 794 MB | 537 installed | 07:43 | 00:02
-mcin/qeeg                                                                      | centos7.4.1708 | 2 GB   | 171 installed, 82 updatable | 18:45 | 00:07
-mcin/ica-aroma                                                                 | centos7.2.1511 | 2 GB   | 159 installed, 116 updatable | 18:46 | 00:08
-mcin/docker-fsl                                                                | centos7.2.1511 | 2 GB   | 143 installed, 104 updatable  | 18:40 | 00:06
-boutiques/example1                                                             | centos7.5.1804 | 75 MB   | 144 installed, 2 updatable | 03:46 | 00:05
-bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4 GB   | 240 installed | 24:19 | 00:10
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8 GB   | 254 installed | 59:52 | 00:07
-bids/example                                                                   | ubuntu14.04    | 461 MB | 527 installed | 04:28 | 00:21
+---------------|:---|:----:|----------|:-------:|:----:
+neurodata/ndmg                                                                 | ubuntu14.04    | 794MB | 537 installed | 07:43 | 00:02
+mcin/qeeg                                                                      | centos7.4.1708 | 2GB   | 171 installed, 82 updatable | 18:45 | 00:07
+mcin/ica-aroma                                                                 | centos7.2.1511 | 2GB   | 159 installed, 116 updatable | 18:46 | 00:08
+mcin/docker-fsl                                                                | centos7.2.1511 | 2GB   | 143 installed, 104 updatable  | 18:40 | 00:06
+boutiques/example1                                                             | centos7.5.1804 | 75MB   | 144 installed, 2 updatable | 03:46 | 00:05
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4GB   | 240 installed | 24:19 | 00:10
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8GB   | 254 installed | 59:52 | 00:07
+bids/example                                                                   | ubuntu14.04    | 461MB | 527 installed | 04:28 | 00:21
 
 ###### Vulnerability Detection
 
 Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
 ---------------|------------------------|-------------------|----------------|-------|------------------|---------------
-neurodata/ndmg |601                     | 278               |112             |991    | 88.70            | 71.95
+neurodata/ndmg | 601                    | 278               | 112            | 991   | 88.70            | 71.95
 
 ---
 
