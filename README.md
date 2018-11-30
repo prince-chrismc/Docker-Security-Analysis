@@ -84,7 +84,7 @@ mcin/docker-fsl | 106                   | 0                 | 300            | 4
 boutiques/example1 | 36                 | 0                 | 278            | 314   | 2.55             | 100
 bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest | 64 | 45 | 324 | 433 | 7.62 | 89.91
 bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest | 63 | 45 | 326 | 434 | 7.60 | 89.63
-bids/example   | 409                    | 206               | 109            | 814   | 86.91            | 74.69
+bids/example   | 499                    | 206               | 109            | 814   | 86.91            | 74.69
 
 ---
 
