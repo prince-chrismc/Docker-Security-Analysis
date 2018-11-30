@@ -83,7 +83,7 @@ mcin/ica-aroma | 128                    | 1                 | 281            | 4
 mcin/docker-fsl | 106                   | 0                 | 300            | 406   | 12.81            | 100
 boutiques/example1 | 36                 | 0                 | 278            | 314   | 2.55             | 100
 bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest | 64 | 45 | 324 | 433 | 7.62 | 89.91
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest |
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest | 63 | 45 | 326 | 434 | 7.60 | 89.63
 bids/example   |
 
 ---
