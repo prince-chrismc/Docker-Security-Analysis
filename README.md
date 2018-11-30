@@ -78,6 +78,7 @@ bids/example                                                                   |
 Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
 ---------------|------------------------|-------------------|----------------|-------|------------------|---------------
 neurodata/ndmg | 601                    | 278               | 112            | 991   | 88.70            | 71.95
+mcin/qeeg      | 0                      | 27                | 344            | 371   | 7.28             | 92.72
 
 ---
 
@@ -92,5 +93,5 @@ Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Envi
 - [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // [results](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five)
 - [x] Try out [vuls](https://vuls.io/en/)
 - [x] Setup web API to catch Anchore updates
-- [ ] Bench mark anchore and vuls on base test of containers _WIP_
+- [x] Bench mark anchore and vuls on base test of containers
 - [ ] improve description of tools
