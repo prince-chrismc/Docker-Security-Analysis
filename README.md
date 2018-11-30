@@ -73,6 +73,12 @@ bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          |
 bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 8 GB   | 254 installed | 59:52 | 00:07
 bids/example                                                                   | ubuntu14.04    | 461 MB | 527 installed | 04:28 | 00:21
 
+###### Vulnerability Detection
+
+Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
+---------------|------------------------|-------------------|----------------|-------|------------------|---------------
+neurodata/ndmg |601                     | 278               |112             |991    | 88.70            | 71.95
+
 ---
 
 ### Notes
