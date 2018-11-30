@@ -22,7 +22,18 @@ I am merely an aide in this endeavor. My role within this project is limited to 
 - Benchmark the various tools for scanning time.
 - Case study: Where do the vulnerabilities come from?
 
+---
+
 ## Executive Summary
+###### Security Consideration
+If one were to test for the presence of more harmful or dangerous software such as a computer worm or cryptocurrency minner, what options are avaiable to do safe as _safely_ as possible? Usually malware analysis falls into to broad categories, being either a containment strategy or a muting approach. The most common novice idea is creating a virtual machine with no network access, this is a containment style strategy. In contrast, one might want to look at the source code from a reversed engineered binary.
+
+In the context of docker image there were there options considered for the analysis:
+
+1.
+2.
+3.
+
 ###### Analysis of Tools
 Tool | Related Post(s) | Comments
 ----|----|----
