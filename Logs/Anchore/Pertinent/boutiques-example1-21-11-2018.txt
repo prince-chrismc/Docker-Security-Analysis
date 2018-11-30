@@ -5,10 +5,6 @@
 2018-11-21 05:27:56+0000 [-] [Thread-1483] [anchore_engine.services.analyzer/process_analyzer_job()] [INFO] analysis complete: admin : sha256:f0b5ac8f65feb62037649f63fed9ff83d01e5a31dd69ec47a64d7d033341b375
 
 
-
-
-
-
 anchore-cli image vuln boutiques/example1 all
 Vulnerability ID        Package                                   Severity        Fix                       Vulnerability URL
 RHSA-2018:3032          binutils-2.27-28.base.el7_5.1             Low             0:2.27-34.base.el7        https://access.redhat.com/errata/RHSA-2018:3032
