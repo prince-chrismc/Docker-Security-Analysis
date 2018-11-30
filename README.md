@@ -28,11 +28,13 @@ I am merely an aide in this endeavor. My role within this project is limited to 
 ###### Security Consideration
 If one were to test for the presence of more harmful or dangerous software such as a computer worm or cryptocurrency minner, what options are avaiable to do safe as _safely_ as possible? Usually malware analysis falls into to broad categories, being either a containment strategy or a muting approach. The most common novice idea is creating a virtual machine with no network access, this is a containment style strategy. In contrast, one might want to look at the source code from a reversed engineered binary.
 
-In the context of docker image there were there options considered for the analysis:
+In the context of docker image there were two main options considered for the analysis:
+1. Physical network seperation on a protected host (Private LAN)
+2. Container isolation (read only with no network)
 
-1.
-2.
-3.
+Ultimately neighter was utilized as the images selected and the tools for the analysis were not related to maleware of their detection. 
+
+There are however serval advantages or disadvanteges between the two choices. Container isolation requires little additional knowledge and can be done with minimal hardware, it does make it more difficult to alanysis since most tools produce logs or require network analysis. This is also the disatvange of containers may not work on a read-only filesystem and also pose a risk since the loopback adapter between the host and container are exposed. Physical seperation allows for the malware to run which inheriantly comes with the risk of exposure, any hole in the seperation could be dangerous and is possible with the added setup complexity.
 
 ###### Analysis of Tools
 Tool | Related Post(s) | Comments
