@@ -80,7 +80,7 @@ Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | T
 neurodata/ndmg | 601                    | 278               | 112            | 991   | 88.70            | 71.95
 mcin/qeeg      | 57                     | 7                 | 278            | 351   | 18.23            | 98.01
 mcin/ica-aroma | 128                    | 1                 | 281            | 410   | 12.93            | 99.76
-~~mcin/docker-fsl| 0                      | 52                | 406            | 458   | 11.35            | 88.65~~
+mcin/docker-fsl| 106                    | 0                 | 300            | 406   | 12.81            | 100
 
 ---
 
