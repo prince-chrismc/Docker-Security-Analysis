@@ -73,6 +73,8 @@ bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          |
 bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 13000GB | 254 installed | 59:52 | 00:07
 bids/example                                                                   | ubuntu14.04    | 1130MB  | 527 installed | 04:28 | 00:21
 
+![Anchore Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=955725367&format=image)
+
 ###### Vulnerability Detection
 
 Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
