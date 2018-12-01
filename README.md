@@ -75,6 +75,8 @@ bids/example                                                                   |
 
 ![Anchore Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=955725367&format=image)
 
+> Note: Image size based on `docker image ls` with 1GB = 1000MB
+
 ###### Vulnerability Detection
 
 Image Full Tag | Common Vulnerabilities | Anchore Unmatched | Vuls Unmatched | Total | Anchore Coverage | Vuls Coverage
@@ -87,6 +89,12 @@ boutiques/example1 | 36                 | 0                 | 278            | 3
 bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest | 64 | 45 | 324 | 433 | 7.62 | 89.91
 bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest | 63 | 45 | 326 | 434 | 7.60 | 89.63
 bids/example   | 499                    | 206               | 109            | 814   | 86.91            | 74.69
+
+![OS based coverage](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=1314752300&format=image)
+
+> Note: coverage based on combined total, it is very likely undetected vulnerabilities are not included in this data set.
+
+The graph highlighs excellently how the various tools utilize different database and produce drstically different results. In the case of CentOS, Anchore relies _solely_ on [RedHat Security Adviseries](https://access.redhat.com/security/security-updates/#/security-advisories) whereas Vuls leverages the [RedHat CVE database](https://access.redhat.com/security/security-updates/#/cve) along with [OVAL](https://www.redhat.com/security/data/oval/) data.
 
 ---
 
