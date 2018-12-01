@@ -73,7 +73,13 @@ bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          |
 bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 13000GB | 254 installed | 59:52 | 00:07
 bids/example                                                                   | ubuntu14.04    | 1130MB  | 527 installed | 04:28 | 00:21
 
-![Anchore Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=955725367&format=image)
+![Size Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=955725367&format=image)
+
+There we can see the almost linear growth in scan times by Anchore as images size increases. In constrat we can see that Vuls scan times remained constant.
+
+![Package Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=16652778&format=image)
+
+Neither method's scan time has any correlation to the number of packages.
 
 > Note: Image size based on `docker image ls` with 1GB = 1000MB
 
