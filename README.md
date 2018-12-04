@@ -10,8 +10,8 @@ What are the risks of running older out of date software images with vulnerabili
 I am merely an aide in this endeavor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current tool set available for container security. This will be used to identify any short comings as well as guide where future research may be required. Analysis will focus on real images being used in the research done by neuroscience.
 
 ##### Goals
-- Establish requirements for a secure environment.
-   - Docker platform (--read-only and --network none)
+- Establish methodologies for a secure environment.
+   - Docker platform (`--read-only` and `--network none`)
    - Physical separation ( hardware and network settings )
 - Produce an analysis of the various tools available (static vs dynamic scanning)
    - How does each type of tool work
@@ -37,9 +37,15 @@ Ultimately neighter was utilized as the images selected and the tools for the an
 There are however serval advantages or disadvanteges between the two choices. Container isolation requires little additional knowledge and can be done with minimal hardware, it does make it more difficult to alanysis since most tools produce logs or require network analysis. This is also the disatvange of containers may not work on a read-only filesystem and also pose a risk since the loopback adapter between the host and container are exposed. Physical seperation allows for the malware to run which inheriantly comes with the risk of exposure, any hole in the seperation could be dangerous and is possible with the added setup complexity.
 
 ###### Analysis of Tools
+
+There are three categories of tools:
+1. Engine audit
+2. Static vulnerability analysis
+2. Dynamic vulnerability analysis
+
 Tool | Related Post(s) | Comments
 ----|----|----
-[Docker Bench Security] | [1] | The defacto audit. Developped by Docker in response to trends depicting bad practices, it highlights settings could are 'unsecure'.
+[Docker Bench Security] | [1] | The defacto audit. Developped by Docker in response to trends depicting bad practices, it highlights settings could are 'unsecure' and previous work in the feild.
 [Clair] + [Clair Scanner] | [2], [5] | Clair only with with Docker < 1.9.1, Untested by this project.
 [Anchore] | [2] | Anchore is a well poolished product. The open-source version is very reliable and very easy to setup. However the product is stream lined for a single task; it's made to integrate with CI pipelines. There is not a lot of flexibility, and requires the images to be hosted on a registry. I was unable to have it work with a local registry.
 [DockScan] | [2] | This a very typical engine audit, there a no difficult to set this up.
