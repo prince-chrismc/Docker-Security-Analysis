@@ -47,12 +47,12 @@ Tool | Related Post(s) | Comments
 ----|----|----
 [Docker Bench Security] | [1] | The defacto audit. Developped by Docker in response to trends depicting bad practices, it highlights settings could are 'unsecure' and previous work in the feild.
 [Clair] + [Clair Scanner] | [2], [5] | Clair only with with Docker < 1.9.1, Untested by this project.
-[Anchore] | [2] | Anchore is a well poolished product. The open-source version is very reliable and very easy to setup. However the product is stream lined for a single task; it's made to integrate with CI pipelines. There is not a lot of flexibility, and requires the images to be hosted on a registry. I was unable to have it work with a local registry.
+[Anchore] | [2], [10], [11] | Anchore is a well poolished product. The open-source version is very reliable and very easy to setup. However the product is stream lined for a single task; it's made to integrate with CI pipelines. There is not a lot of flexibility, and requires the images to be hosted on a registry. I was unable to have it work with a local registry. Small AD HOC integrations are not easily deployed.
 [DockScan] | [2] | This a very typical engine audit, there a no difficult to set this up.
 [Dagda] | [3] | No success getting this to work the dependency managment of python version 2 and 3 on a single host is a nightmare. It had faily large community support and still shows activity. Perhaps this will be revisited since it was the only tool to advertise _antivirus/malware_ scanning.
 [CIS Benchmark] | [3] | The original audit tool. It is hard to read report featuring a minimal audit and some security flags from the containers settings.
 [OpenSCAP] | [3] | This tool only works are RHEL systems.
-[Vuls] | [6] | A generic and broad scanning tool which supports any network attached host offering lots of flexibility. Provides a fairly comprehensive report on vulnerabilites. This is open-source and live in development so it has the downside of being weakly documented and there are corner cases which are not support.
+[Vuls] | [6], [8], [9] | A generic and broad scanning tool which supports any network attached host offering lots of flexibility. Provides a fairly comprehensive report on vulnerabilites. This is open-source and live in development so it has the downside of being weakly documented and there are corner cases which are not support.
 
 [Docker Bench Security]: https://github.com/docker/docker-bench-security
 [Clair]: https://github.com/coreos/clair/
@@ -70,6 +70,10 @@ Tool | Related Post(s) | Comments
 [4]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Four
 [5]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Five
 [6]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Six
+[8]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/11/Post-Eight
+[9]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/18/Post-Nine
+[10]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/19/Post-Ten
+[11]: https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/20/Post-Eleven
 
 
 ###### Use Case Container Images
