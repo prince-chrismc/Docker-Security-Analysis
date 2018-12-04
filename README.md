@@ -39,14 +39,14 @@ There are however serval advantages or disadvanteges between the two choices. Co
 ###### Analysis of Tools
 Tool | Related Post(s) | Comments
 ----|----|----
-[Docker Bench Security](https://github.com/docker/docker-bench-security) | [1](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/01/Post-One) | basic engine scan
-[Clair](https://github.com/coreos/clair/) + [Clair Scanner](https://github.com/arminc/clair-scanner) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two), [5](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five) | Clair only with with Docker < 1.9.1
-[Anchore](https://github.com/anchore/anchore-engine) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | Works but must scan from a repository
-[DockScan](https://github.com/kost/dockscan) | [2](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/02/Post-Two) | typical basic audit
-[Dagda](https://github.com/eliasgranderubio/dagda) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | No success getting this to work
-[CIS Benchmark](https://github.com/dev-sec/cis-docker-benchmark) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | Hard to read featuring a basic audit and some security flags from the containers
-[OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/03/Post-Three) | only works are REHL systems
-[Vuls](https://github.com/future-architect/vuls) | [6](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Six) | broad scanning tool which supports containers
+[Docker Bench Security](https://github.com/docker/docker-bench-security) | [1](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/01/Post-One) | The defacto audit. Developped by Docker in response to trends depicting bad practices, it highlights settings could are 'unsecure'.
+[Clair](https://github.com/coreos/clair/) + [Clair Scanner](https://github.com/arminc/clair-scanner) | [2](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/02/Post-Two), [5](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Five) | Clair only with with Docker < 1.9.1, Untested by this project.
+[Anchore](https://github.com/anchore/anchore-engine) | [2](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/02/Post-Two) | Anchore is a well poolished product. The open-source version is very reliable and very easy to setup. However the product is stream lined for a single task; it's made to integrate with CI pipelines. There is not a lot of flexibility, and requires the images to be hosted on a registry. I was unable to have it work with a local registry.
+[DockScan](https://github.com/kost/dockscan) | [2](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/02/Post-Two) | This a very typical engine audit, there a no difficult to set this up.
+[Dagda](https://github.com/eliasgranderubio/dagda) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | No success getting this to work the dependency managment of python version 2 and 3 on a single host is a nightmare. It had faily large community support and still shows activity. Perhaps this will be revisited since it was the only tool to advertise _antivirus/malware_ scanning.
+[CIS Benchmark](https://github.com/dev-sec/cis-docker-benchmark) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | The original audit tool. It is hard to read report featuring a minimal audit and some security flags from the containers settings.
+[OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | This tool only works are REHL systems.
+[Vuls](https://github.com/future-architect/vuls) | [6](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Six) | A generic and broad scanning tool which supports any network attached host offering lots of flexibility. Provides a fairly comprehensive report on vulnerabilites. This is open-source and live in development so it has the downside of being weakly documented and there are corner cases which are not support.
 
 ###### Use Case Container Images
 > For arguement sake these could have been randomly choosen, but these are somehow related to research projects underway within educational institution(s)
@@ -56,8 +56,8 @@ Tool | Related Post(s) | Comments
 - [ICA-AROMA](https://hub.docker.com/r/mcin/ica-aroma/)
 - [FSL image processing](https://hub.docker.com/r/mcin/docker-fsl/)
 - [Boutique Example](https://hub.docker.com/r/boutiques/example1/)
-- [HPC Surfer:centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
-- [HPC Surfer:centos7](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
+- [HPC Surfer:fsl-centos5](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
+- [HPC Surfer:surfer-centos4](https://hub.docker.com/r/bigdatalabteam/hcp-prefreesurfer/)
 - [BIDS Example](https://hub.docker.com/r/bids/example/)
 
 ###### Benchmark Time
@@ -105,14 +105,14 @@ The graph highlighs excellently how the various tools utilize different database
 ---
 
 ### Notes
-Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Environment/blog) to describe what I've done such that I can produce a 20 page technical report on the subject at the end. There will be more technical details within the blog than the summary. As of _19/11/2018_ I have not decide wether my technical report will be publically available...
+Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Analysis/blog) to describe what I've done such that I can produce a 20 page technical report on the subject at the end. There will be more technical details within the blog than the summary. As of _19/11/2018_ I have not decide wether my technical report will be publically available...
 
 #### TO DOs
 - [x] Setup EXSI host for new VLAN 192.168.10.X  ------- Just set it to DCHP with VGA so i can check if i need
-- [x] Give Router ability to route [status](https://github.com/prince-chrismc/Docker-Security-Environment/issues/1)
-- [x] Turn jekyll on for this repo and make a blog // see result [here](https://prince-chrismc.github.io/Docker-Security-Environment/blog)
+- [x] Give Router ability to route [status](https://github.com/prince-chrismc/Docker-Security-Analysis/issues/1)
+- [x] Turn jekyll on for this repo and make a blog // see result [here](https://prince-chrismc.github.io/Docker-Security-Analysis/blog)
 - [ ] ~~Give Router ability to route _AGAIN_~~
-- [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // [results](https://prince-chrismc.github.io/Docker-Security-Environment/2018/11/06/Post-Five)
+- [x] Test the following [tool](https://github.com/arminc/clair-scanner) looks promissing // [results](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Five)
 - [x] Try out [vuls](https://vuls.io/en/)
 - [x] Setup web API to catch Anchore updates
 - [x] Bench mark anchore and vuls on base test of containers
