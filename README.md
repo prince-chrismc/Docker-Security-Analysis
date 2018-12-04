@@ -1,15 +1,15 @@
-# Docker-Security-Enviroment
+## Docker-Security-Analysis
 This repository is to contain my work for a Technical Report (ENGR 411) for 1 credit at Concordia University during the Fall 2018 Semester
 
-### Context
+#### Context
 Currently, a set of Docker containers are deployed on clusters like Compute Canada for the scientific analysis of neuroscience data gathered from research.
 
 What are the risks of running older out of date software images with vulnerabilities? What potential or unknown exploits can negatively affect the research being done by the 1000s of researchers across Canada?
 
-### Mandate
+#### Mandate
 I am merely an aide in this endeavor. My role within this project is limited to the duration of my stay. I'll be working to help better understand the current tool set available for container security. This will be used to identify any short comings as well as guide where future research may be required. Analysis will focus on real images being used in the research done by neuroscience.
 
-### Goals
+##### Goals
 - Establish requirements for a secure environment.
    - Docker platform (--read-only and --network none)
    - Physical separation ( hardware and network settings )
@@ -24,7 +24,7 @@ I am merely an aide in this endeavor. My role within this project is limited to 
 
 ---
 
-## Executive Summary
+### Executive Summary
 ###### Security Consideration
 If one were to test for the presence of more harmful or dangerous software such as a computer worm or cryptocurrency minner, what options are avaiable to do safe as _safely_ as possible? Usually malware analysis falls into to broad categories, being either a containment strategy or a muting approach. The most common novice idea is creating a virtual machine with no network access, this is a containment style strategy. In contrast, one might want to look at the source code from a reversed engineered binary.
 
