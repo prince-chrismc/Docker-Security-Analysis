@@ -45,7 +45,7 @@ Tool | Related Post(s) | Comments
 [DockScan](https://github.com/kost/dockscan) | [2](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/02/Post-Two) | This a very typical engine audit, there a no difficult to set this up.
 [Dagda](https://github.com/eliasgranderubio/dagda) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | No success getting this to work the dependency managment of python version 2 and 3 on a single host is a nightmare. It had faily large community support and still shows activity. Perhaps this will be revisited since it was the only tool to advertise _antivirus/malware_ scanning.
 [CIS Benchmark](https://github.com/dev-sec/cis-docker-benchmark) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | The original audit tool. It is hard to read report featuring a minimal audit and some security flags from the containers settings.
-[OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | This tool only works are REHL systems.
+[OpenSCAP](https://github.com/OpenSCAP/openscap) | [3](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/03/Post-Three) | This tool only works are RHEL systems.
 [Vuls](https://github.com/future-architect/vuls) | [6](https://prince-chrismc.github.io/Docker-Security-Analysis/2018/11/06/Post-Six) | A generic and broad scanning tool which supports any network attached host offering lots of flexibility. Provides a fairly comprehensive report on vulnerabilites. This is open-source and live in development so it has the downside of being weakly documented and there are corner cases which are not support.
 
 ###### Use Case Container Images
@@ -64,14 +64,14 @@ Tool | Related Post(s) | Comments
 
 Image Full Tag | OS | Size | Packages | Anchore | Vuls
 ---------------|:---|:----:|----------|:-------:|:----:
-neurodata/ndmg                                                                 | ubuntu14.04    | 1730MB  | 537 installed | 07:43 | 00:02
-mcin/qeeg                                                                      | centos7.4.1708 | 4160MB  | 171 installed, 82 updatable | 18:45 | 00:07
-mcin/ica-aroma                                                                 | centos7.2.1511 | 4940MB  | 159 installed, 116 updatable | 18:46 | 00:08
-mcin/docker-fsl                                                                | centos7.2.1511 | 4770MB  | 143 installed, 104 updatable  | 18:40 | 00:06
+neurodata/ndmg                                                                 | ubuntu14.04    | 1.73GB  | 537 installed | 07:43 | 00:02
+mcin/qeeg                                                                      | centos7.4.1708 | 4.16GB  | 171 installed, 82 updatable | 18:45 | 00:07
+mcin/ica-aroma                                                                 | centos7.2.1511 | 4.94GB  | 159 installed, 116 updatable | 18:46 | 00:08
+mcin/docker-fsl                                                                | centos7.2.1511 | 4.770GB  | 143 installed, 104 updatable  | 18:40 | 00:06
 boutiques/example1                                                             | centos7.5.1804 | 200MB   | 144 installed, 2 updatable | 03:46 | 00:05
-bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4990MB  | 240 installed | 24:19 | 00:10
-bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 13000GB | 254 installed | 59:52 | 00:07
-bids/example                                                                   | ubuntu14.04    | 1130MB  | 527 installed | 04:28 | 00:21
+bigdatalabteam/hcp-prefreesurfer:exec-centos7-fslbuild-centos5-latest          | centos7.4.1708 | 4.99GB  | 240 installed | 24:19 | 00:10
+bigdatalabteam/hcp-prefreesurfer:exec-centos7.freesurferbuild-centos4-latest   | centos7.4.1708 | 13GB | 254 installed | 59:52 | 00:07
+bids/example                                                                   | ubuntu14.04    | 1.13GB  | 527 installed | 04:28 | 00:21
 
 ![Size Scan Times](https://docs.google.com/spreadsheets/d/e/2PACX-1vQoX04rWnrnlHXIyfFuxjG6y73UvjH8Ag8ivW-A4d4LjbcWIAYWd3JukxexKW9jLrqAYV99PxPzoMki/pubchart?oid=955725367&format=image)
 
@@ -116,4 +116,5 @@ Can be found in the [blog](https://prince-chrismc.github.io/Docker-Security-Anal
 - [x] Try out [vuls](https://vuls.io/en/)
 - [x] Setup web API to catch Anchore updates
 - [x] Bench mark anchore and vuls on base test of containers
-- [ ] improve description of tools
+- [x] improve description of tools
+- [ ] detection of manullly installed tools
